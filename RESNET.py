@@ -122,8 +122,16 @@ for name, param in resnet18.named_parameters():
 
 # %%
 #Train the model 
+
+#HELPER####################
+def one_hot_embedding(labels, num_classes=10):
+    # Convert to One Hot Encoding
+    y = torch.eye(num_classes)
+    return y[labels]
+####################################
+
 import time
-def train_model(model, dataloaders, criterion, optimizer, device, num_epochs=25, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs=25, is_train=True, uncertainty=False):
     since = time.time()
     
     acc_history = []
