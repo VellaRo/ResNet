@@ -1,7 +1,5 @@
 # To add a new cell, type '# %%'
 # To add a new markdown cell, type '# %% [markdown]'
-# %%
-from IPython import get_ipython
 
 # %%
 #Load data
@@ -76,7 +74,6 @@ print(resnet18)
 
 import matplotlib.pyplot as plt
 import numpy as np
-get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 batch = next(iter(dataloaders['train']))
