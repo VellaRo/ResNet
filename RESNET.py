@@ -13,14 +13,14 @@ import torchvision.transforms as transforms
 #transform like epretrained model
 from torchvision import transforms
 
-transform = transforms.Compose([            #[1]
-transforms.Resize(256),                    #[2]
-transforms.CenterCrop(224),                #[3]
-transforms.ToTensor(),                     #[4]
-transforms.Normalize(                      #[5]
-mean=[0.485, 0.456, 0.406],                #[6]
-std=[0.229, 0.224, 0.225]                  #[7]
-)])
+transform = transforms.Compose([            
+            transforms.Resize(256),                    
+            transforms.CenterCrop(224),                
+            transforms.ToTensor(),                     
+            transforms.Normalize(                      
+            mean=[0.485, 0.456, 0.406],                
+            std=[0.229, 0.224, 0.225]                  
+            )])
 
 batch_size = 1000
 
@@ -131,6 +131,7 @@ def one_hot_embedding(labels, num_classes=10):
 ####################################
 
 import time
+import os
 def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs=25, is_train=True, uncertainty=False):
     since = time.time()
     
@@ -356,8 +357,15 @@ criterion = nn.CrossEntropyLoss()
 
 # Train model
 train_acc_hist, train_loss_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
-
+###### me
+state = {
+           "epoch": 25,
+           "model_state_dict": resnet18.state_dict(),
+           "optimizer_state_dict": optimizer.state_dict(),
+       }
+       
 torch.save(state, "./results/ResNet_CrossentropyLoss.pt")
+### me
 print("Saved: ./results/ResNet_CrossentropyLoss.pt")
 
 
@@ -419,8 +427,8 @@ def eval_model(model, dataloaders, device):
 # %%
 
 
-val_acc_hist = eval_model(resnet18, test_loader, device)
-# val_acc_hist = eval_model(resnet18, test_loaderCIFAR100, device)
+val_acc_hist = eval_model(resnet18, dataloaders["val"], device)
+# val_acc_hist = eval_model(resnet18, dataloader["TESTCIFAR100"], device)
 
 
 # %%
