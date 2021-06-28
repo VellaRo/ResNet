@@ -6,7 +6,7 @@
 import torch
 import torchvision
 import torchvision.transforms as transforms
-
+import torch.nn as nn
 
 #transform like epretrained model
 from torchvision import transforms
@@ -53,8 +53,8 @@ dataloaders = {
 #Load pretrained Model
 import torchvision.models as models
 
-resnet18 = models.resnet18(pretrained= True)
-
+#resnet18 = models.resnet18(pretrained= True)
+resnet18 = models.resnet18()
 print(resnet18)
 
 
@@ -96,26 +96,32 @@ plt.show()
 # We also dont want to train the previous layer only the new layer. So we set .requires_grad to False
 
 # %%
-def set_parameter_requires_grad(model, feature_extracting = True):
-    if feature_extracting:
-        for param in model.parameters():
-            param.requires_grad = False
-
-set_parameter_requires_grad(resnet18)
+''' stellt ein das gradienten nicht berechenet werden ,
+    da es schon vortrainiert ist'''
+#def set_parameter_requires_grad(model, feature_extracting = True):
+#    if feature_extracting:
+#        for param in model.parameters():
+#            param.requires_grad = False
+#
+#set_parameter_requires_grad(resnet18)
 
 
 # %%
 # inizialise the linear layer
-import torch.nn as nn
-resnet18.fc = nn.Linear(512, 10)
+'''tausch letzt layer auf das es auf unser problem angepaasst ist'''
+#import torch.nn as nn
+#resnet18.fc = nn.Linear(512, 10)
 
 
 # %%
 # Check which layer in the model that will compute the gradient
-for name, param in resnet18.named_parameters():
-    if param.requires_grad:
-        print(name, param.data)
-
+'''
+Stellt ein das die Gradienten vom neuen Layer berechnet werden
+'''
+#for name, param in resnet18.named_parameters():
+#    if param.requires_grad:
+#        print(name, param.data)
+#
 
 # %%
 #Train the model 
@@ -134,9 +140,11 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
     
     acc_history = []
     loss_history = []
+    evidence_history = []
 
     best_acc = 0.0
-    
+    best_evidence = 0.0
+
     for epoch in range(num_epochs):
         print('Epoch {}/{}'.format(epoch, num_epochs - 1))
         print('-' * 10)
@@ -164,6 +172,22 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
                 _, preds = torch.max(outputs, 1)
                 loss = criterion(
                             outputs, y.float(), epoch, num_classes, 10, device)
+            
+                ############## evidence calculations #############################
+                match = torch.reshape(torch.eq( preds, labels).float(), (-1, 1))
+                acc = torch.mean(match)
+                evidence = relu_evidence(outputs)
+                alpha = evidence + 1
+                u = num_classes / torch.sum(alpha, dim=1, keepdim=True)
+
+                total_evidence = torch.sum(evidence, 1, keepdim=True)
+                mean_evidence = torch.mean(total_evidence)
+                mean_evidence_succ = torch.sum(
+                torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
+                mean_evidence_fail = torch.sum(
+                torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
+
+            
             #without uncertainty
             else:
                 outputs = model(inputs)
@@ -180,39 +204,47 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
-
-        print('Loss: {:.4f} Acc: {:.4f}'.format(epoch_loss, epoch_acc))
+        ###me
+        epoch_evidence = total_evidence# mean_evidence , ean_evidence_succ ,mean_evidence_fail
+        ###me 
+        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence))
 
         if epoch_acc > best_acc:
             best_acc = epoch_acc
 
+        if epoch_evidence > best_evidence:
+            best_evidence = epoch_evidence
+            
         acc_history.append(epoch_acc.item())
         loss_history.append(epoch_loss)
-        
+        evidence_history.append(epoch_evidence)
+
         torch.save(model.state_dict(), os.path.join('/kaggle/working/', '{0:0=2d}.pth'.format(epoch)))
 
         print()
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-    print('Best Acc: {:4f}'.format(best_acc))
+    print('Best Acc: {:4f} Best Evidence: {:4f}'.format(best_acc, best_evidence))
     
-    return acc_history, loss_history
+    return acc_history, loss_history , evidence_history
 
 
 # %%
 # Here we only want to update the gradient for the classifier layer that we initialized. 
 # settings so only the last layer is trained
 from torch.optim import Adam
-
-params_to_update = []
-for name,param in resnet18.named_parameters():
-    if param.requires_grad == True:
-        params_to_update.append(param)
-        print("\t",name)
+"""
+welche layer sollen trainiert werden
+"""
+#params_to_update = []
+#for name,param in resnet18.named_parameters():
+#    if param.requires_grad == True:
+#        params_to_update.append(param)
+#        print("\t",name)
             
-optimizer = Adam(params_to_update)
-
+#optimizer = Adam(params_to_update)
+optimizer = Adam(resnet18)
 
 # %%
 # Uncertainty LOSSES
@@ -353,7 +385,7 @@ criterion = nn.CrossEntropyLoss()
 #True False
 
 # Train model
-train_acc_hist, train_loss_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
 ###### me
 state = {
            "epoch": 25,
@@ -431,6 +463,7 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device)
 # %%
 plt.plot(train_acc_hist)
 plt.plot(val_acc_hist)
+plt.plot(train_evidence_hist)
 plt.show()
 
 
