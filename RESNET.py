@@ -244,7 +244,7 @@ welche layer sollen trainiert werden
 #        print("\t",name)
             
 #optimizer = Adam(params_to_update)
-optimizer = Adam(resnet18)
+optimizer = Adam(resnet18.parameters())
 
 # %%
 # Uncertainty LOSSES
