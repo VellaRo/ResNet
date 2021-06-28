@@ -20,7 +20,7 @@ transform = transforms.Compose([
             std=[0.229, 0.224, 0.225]                  
             )])
 
-batch_size = 1000
+batch_size = 10 # 1000
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
                                         download=True, transform=transform)
@@ -136,6 +136,7 @@ def one_hot_embedding(labels, num_classes=10):
 import time
 import os
 def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs=25, is_train=True, uncertainty=False):
+    print("im using:" + str(device)) # see if using GPU cuda
     since = time.time()
     
     acc_history = []
