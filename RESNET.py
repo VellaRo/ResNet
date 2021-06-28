@@ -107,10 +107,10 @@ plt.show()
 
 
 # %%
-# inizialise the linear layer
-'''tausch letzt layer auf das es auf unser problem angepaasst ist'''
-#import torch.nn as nn
-#resnet18.fc = nn.Linear(512, 10)
+#inizialise the linear layer | passend zu unsren output klassen
+
+import torch.nn as nn
+resnet18.fc = nn.Linear(512, 10)
 
 
 # %%
