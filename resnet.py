@@ -228,6 +228,13 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         ###me
         epoch_evidence = total_evidence# mean_evidence , ean_evidence_succ ,mean_evidence_fail
         ###me 
+        print("tensor:")
+        print(epoch_evidence)
+        print("item:")
+        print(epoch_evidence.item)
+        print("float:")
+        print(epoch_evidence.float)
+
         print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence.item()))
 
         if epoch_acc > best_acc:
