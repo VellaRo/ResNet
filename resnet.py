@@ -445,7 +445,7 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 # %%
 
 # save the plots
-fig1 , fig2 = plt.subplot()
+fig1 , fig2 = plt.subplots()
 fig1.plt.plot(train_acc_hist)
 fig1.plt.plot(val_acc_hist)
 fig1.plt.plot(train_loss_hist)
@@ -517,7 +517,7 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
 
 # save the plots
-fig1 , fig2 = plt.subplot()
+fig1 , fig2 = plt.subplots()
 fig1.plt.plot(train_acc_hist)
 fig1.plt.plot(val_acc_hist)
 fig1.plt.plot(train_loss_hist)
