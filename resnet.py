@@ -226,7 +226,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         loss_history.append(epoch_loss)
         evidence_history.append(epoch_evidence)
 
-        torch.save(model.state_dict(), os.path.join('/kaggle/working/', '{0:0=2d}.pth'.format(epoch)))
+        torch.save(model.state_dict(), os.path.join('./results/models', '{0:0=2d}.pth'.format(epoch)))
 
         print()
 
@@ -411,7 +411,7 @@ def eval_model(model, dataloaders, device):
     acc_history = []
     best_acc = 0.0
 
-    saved_models = glob.glob('/kaggle/working/' + '*.pth')
+    saved_models = glob.glob('./results/models/' + '*.pth')
     saved_models.sort()
     print('saved_model', saved_models)
 
