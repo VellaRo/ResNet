@@ -46,7 +46,7 @@ testloaderCIFAR100 = torch.utils.data.DataLoader(testsetCIFAR100,
 dataloaders = {
     "train": trainloader,
     "val": testloader,
-    "TESTCIFAR100" : testsetCIFAR100,
+    "TESTCIFAR100" : testloaderCIFAR100,
 }
 
 # %%
