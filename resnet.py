@@ -445,14 +445,14 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 # %%
 
 # save the plots
-fig1 , fig2 = plt.subplots()
-fig1.plot(train_acc_hist)
-fig1.plot(val_acc_hist)
-fig1.plot(train_loss_hist)
-fig1.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
+plt.figure(0)
+plt.plot(val_acc_hist)
+plt.plot(train_loss_hist)
+plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 
-fig2.plot(train_evidence_hist)
-fig2.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
+plt.figure(1)
+plt.plot(train_evidence_hist)
+plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
 print("saved TrainHisto")
 
 #test for evidence
@@ -516,13 +516,15 @@ train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, da
 val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
 
-# save the plots
-fig1 , fig2 = plt.subplots()
-fig1.plot(train_acc_hist)
-fig1.plot(val_acc_hist)
-fig1.plot(train_loss_hist)
-fig1.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 
-fig2.plot(train_evidence_hist)
-fig2.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
+# save the plots
+plt.figure(0)
+plt.plot(val_acc_hist)
+plt.plot(train_loss_hist)
+plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
+
+plt.figure(1)
+plt.plot(train_evidence_hist)
+plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
 print("saved TrainHisto")
+
