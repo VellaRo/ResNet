@@ -148,7 +148,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
     acc_history = []
     loss_history = []
     evidence_history = []
-    total_evidence = 0.0 # default
+
     best_acc = 0.0
     best_evidence = 0.0
 
@@ -226,29 +226,26 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         ###me
-        epoch_evidence =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
-        ###me 
-        print("tensor:")
-        print(epoch_evidence)
-        print("item:")
-        print(epoch_evidence.item)
-        print("float:")
-        print(epoch_evidence.float)
+        epoch_evidence1 =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence2 =  mean_evidence_succ #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence3 =  mean_evidence_fail #total_evidence , ean_evidence_succ ,mean_evidence_fail
 
-        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence.item()))
+        ###me 
+        print('Loss: {:.4f} Acc: {:.4f} Evidence_mean: {:.4f} Evidence_mean_succ: {:.4f} Evidence_mean_fail: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence1.item(), epoch_evidence2.item(), epoch_evidence3.item()))
 
         if epoch_acc > best_acc:
             best_acc = epoch_acc
 
-        if epoch_evidence > best_evidence:
-            best_evidence = epoch_evidence
+        if epoch_evidence1 > best_evidence:
+            best_evidence = epoch_evidence1
             
         acc_history.append(epoch_acc.item())
         loss_history.append(epoch_loss)
-        evidence_history.append(epoch_evidence)
+        evidence_history.append(epoch_evidence1)
 
+        # speichert jede Epoche
         torch.save(model.state_dict(), os.path.join('./results/models', '{0:0=2d}.pth'.format(epoch)))
-        print("Saved: ./results/....pt")
+        print(f"Saved: ./results/models"+ '{0:0=2d}.pth'.format(epoch))
         print()
 
     time_elapsed = time.time() - since
@@ -482,12 +479,12 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device)
 
 
 # %%
-plt.plot(train_acc_hist)
-plt.plot(val_acc_hist)
-plt.plot(train_evidence_hist)
-plt.show()
+#plt.plot(train_acc_hist)
+#plt.plot(val_acc_hist)
+#plt.plot(train_evidence_hist)
+#plt.show()
 
 
 # %%
-plt.plot(train_loss_hist)
-plt.show()
+#plt.plot(train_loss_hist)
+#plt.show()
