@@ -228,7 +228,7 @@ def get_device():
 #############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 25, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
