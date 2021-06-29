@@ -171,7 +171,7 @@ import torchvision.models as models
 
 #resnet18 = models.resnet18(pretrained= True)
 resnet18 = models.resnet18()
-print(resnet18)
+#print(resnet18)
 
 
 # %%
@@ -255,7 +255,7 @@ def get_device():
 #############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -354,7 +354,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
             
         acc_history.append(epoch_acc.item())
         loss_history.append(epoch_loss)
-        evidence_history.append(epoch_evidence1)
+        evidence_history.append(epoch_evidence1.item())
 
         # speichert jede Epoche
         torch.save(model.state_dict(), os.path.join('./results/models', str_criterion , '{0:0=2d}.pth'.format(epoch)))
@@ -391,7 +391,7 @@ device = get_device()
 # Setup the loss function
 #verschidene kriterien
 criterion = nn.CrossEntropyLoss()
-str_criterion = "CrossEntropyLoss"
+str_criterion = "CrossEntropyLoss/"
 #criterion = nn.CrossEntropyLoss()
 #criterion = nn.CrossEntropyLoss()
 #criterion = nn.CrossEntropyLoss()
@@ -416,8 +416,8 @@ train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, da
 
 
 # %%
-#schows batchsize
-print(len(dataloaders["val"]))
+##schows batchsize
+#print(len(dataloaders["val"]))
 
 
 # %%
