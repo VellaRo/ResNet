@@ -149,6 +149,11 @@ import time
 import os
 def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs=25, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
+    print(torch.cuda.is_available())
+    print(torch.cuda.current_device())
+    print(torch.cuda.device(0))
+    print(torch.cuda.device_count())
+    print(torch.cuda.get_device_name(0))
     since = time.time()
     
     acc_history = []
