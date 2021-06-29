@@ -490,7 +490,7 @@ def eval_model(model, dataloaders, device, num_classes =10):
 
 
 val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
-val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=10)
+val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
 
 
 # %%
