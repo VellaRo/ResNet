@@ -460,7 +460,7 @@ def eval_model(model, dataloaders, device, num_classes =10):
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         epoch_evidence1 = mean_evidence 
         print('Acc: {:.4f}'.format(epoch_acc))
-        print('Acc: {:.4f}'.format(epoch_evidence1))
+        print('Evidence: {:.4f}'.format(epoch_evidence1))
         if epoch_acc > best_acc:
             best_acc = epoch_acc
 
@@ -489,8 +489,12 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 
 plt.plot(train_acc_hist)
 plt.plot(val_acc_hist)
-plt.plot(train_evidence_hist)
 plt.plot(train_loss_hist)
-plt.savefig('./results/models/' + str_criterion + 'TrainHisto.png')
+plt.savefig('./results/models/' + str_criterion + 'TrainHistoAccuracyLoss.png')
 
+plt.plot(train_evidence_hist)
+plt.savefig('./results/models/' + str_criterion + 'TrainHistoEvidence.png')
+print("saved TrainHisto")
+
+#test for evidence
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
