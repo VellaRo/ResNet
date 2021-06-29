@@ -148,7 +148,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
     acc_history = []
     loss_history = []
     evidence_history = []
-
+    total_evidence = 0 # default
     best_acc = 0.0
     best_evidence = 0.0
 
