@@ -228,7 +228,7 @@ def get_device():
 #############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -518,11 +518,11 @@ val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_cla
 
 # save the plots
 fig1 , fig2 = plt.subplots()
-fig1.plt.plot(train_acc_hist)
-fig1.plt.plot(val_acc_hist)
-fig1.plt.plot(train_loss_hist)
-fig1.plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
+fig1.plot(train_acc_hist)
+fig1.plot(val_acc_hist)
+fig1.plot(train_loss_hist)
+fig1.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 
-fig2.plt.plot(train_evidence_hist)
-fig2.plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
+fig2.plot(train_evidence_hist)
+fig2.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
 print("saved TrainHisto")
