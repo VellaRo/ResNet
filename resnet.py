@@ -140,7 +140,7 @@ def one_hot_embedding(labels, num_classes=10):
 ##############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 10, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -226,9 +226,9 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         ###me
-        epoch_evidence1 =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
-        epoch_evidence2 =  mean_evidence_succ #total_evidence , ean_evidence_succ ,mean_evidence_fail
-        epoch_evidence3 =  mean_evidence_fail #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence1 =  mean_evidence /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence2 =  mean_evidence_succ /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence3 =  mean_evidence_fail /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
 
         ###me 
         print('Loss: {:.4f} Acc: {:.4f} Evidence_mean: {:.4f} Evidence_mean_succ: {:.4f} Evidence_mean_fail: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence1.item(), epoch_evidence2.item(), epoch_evidence3.item()))
@@ -423,7 +423,7 @@ print(len(dataloaders["val"]))
 # %%
 import glob #https://docs.python.org/3/library/glob.html
 
-def eval_model(model, dataloaders, device):
+def eval_model(model, dataloaders, device, num_classes =10):
     since = time.time()
     
     acc_history = []
@@ -452,7 +452,20 @@ def eval_model(model, dataloaders, device):
 
             _, preds = torch.max(outputs, 1)
             running_corrects += torch.sum(preds == labels.data)
+            #######################evidence############################
+            match = torch.reshape(torch.eq( preds, labels).float(), (-1, 1))
+            acc = torch.mean(match)
+            evidence = relu_evidence(outputs)
+            alpha = evidence + 1
+            u = num_classes / torch.sum(alpha, dim=1, keepdim=True)
 
+            total_evidence = torch.sum(evidence, 1, keepdim=True)
+            mean_evidence = torch.mean(total_evidence)
+            mean_evidence_succ = torch.sum(
+            torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
+            mean_evidence_fail = torch.sum(
+            torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
+            
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
 
         print('Acc: {:.4f}'.format(epoch_acc))
