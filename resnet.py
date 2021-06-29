@@ -228,7 +228,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         ###me
         epoch_evidence = total_evidence# mean_evidence , ean_evidence_succ ,mean_evidence_fail
         ###me 
-        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence))
+        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence.float()))
 
         if epoch_acc > best_acc:
             best_acc = epoch_acc
