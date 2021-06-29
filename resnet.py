@@ -148,7 +148,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
     acc_history = []
     loss_history = []
     evidence_history = []
-    total_evidence = 0 # default
+    total_evidence = 0.0 # default
     best_acc = 0.0
     best_evidence = 0.0
 
@@ -228,7 +228,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         ###me
         epoch_evidence = total_evidence# mean_evidence , ean_evidence_succ ,mean_evidence_fail
         ###me 
-        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence.item()))
+        print('Loss: {:.4f} Acc: {:.4f} Evidence: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence))
 
         if epoch_acc > best_acc:
             best_acc = epoch_acc
