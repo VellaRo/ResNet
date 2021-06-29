@@ -132,10 +132,10 @@ def one_hot_embedding(labels, num_classes=10):
     y = torch.eye(num_classes)
     return y[labels]
 
-def get_device():
-    use_cuda = torch.cuda.is_available()
-    device = torch.device("cuda:0" if use_cuda else "cpu")
-    return device
+#def get_device():
+#    use_cuda = torch.cuda.is_available()
+#    device = torch.device("cuda:0" if use_cuda else "cpu")
+#    return device
 
 ##############
 import time
@@ -272,7 +272,7 @@ def softplus_evidence(y):
 #another probability distribution.
 def kl_divergence(alpha, num_classes, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#get_device()
     beta = torch.ones([1, num_classes], dtype=torch.float32, device=device)
     #Sum dirchlet distribution
     S_alpha = torch.sum(alpha, dim=1, keepdim=True)
@@ -295,7 +295,7 @@ def kl_divergence(alpha, num_classes, device=None):
 #???
 def loglikelihood_loss(y, alpha, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#
     y = y.to(device)
     alpha = alpha.to(device)
     S = torch.sum(alpha, dim=1, keepdim=True)
@@ -310,7 +310,7 @@ def loglikelihood_loss(y, alpha, device=None):
 #???
 def mse_loss(y, alpha, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#get_device()
     y = y.to(device)
     alpha = alpha.to(device)
     loglikelihood = loglikelihood_loss(y, alpha, device=device)
@@ -340,7 +340,7 @@ def edl_loss(func, y, alpha, epoch_num, num_classes, annealing_step, device=None
 
 def edl_mse_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(mse_loss(target, alpha, epoch_num,
@@ -350,7 +350,7 @@ def edl_mse_loss(output, target, epoch_num, num_classes, annealing_step, device=
 
 def edl_log_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(edl_loss(torch.log, target, alpha,
@@ -360,7 +360,7 @@ def edl_log_loss(output, target, epoch_num, num_classes, annealing_step, device=
 
 def edl_digamma_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = get_device()
+        device = torch.device('cuda')#get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(edl_loss(torch.digamma, target, alpha,
