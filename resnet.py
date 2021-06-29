@@ -426,6 +426,7 @@ def eval_model(model, dataloaders, device, num_classes =10):
     
     acc_history = []
     best_acc = 0.0
+    best_evidence = 0.0
 
     saved_models = glob.glob('./results/models/' + '*.pth')
     saved_models.sort()
@@ -488,8 +489,8 @@ def eval_model(model, dataloaders, device, num_classes =10):
 # %%
 
 
-val_acc_hist = eval_model(resnet18, dataloaders["val"], device)
-# val_acc_hist = eval_model(resnet18, dataloader["TESTCIFAR100"], device)
+val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
+val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=10)
 
 
 # %%
