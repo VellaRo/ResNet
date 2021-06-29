@@ -357,7 +357,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         evidence_history.append(epoch_evidence1.item())
 
         # speichert jede Epoche
-        torch.save(model.state_dict(), os.path.join('./results/models', str_criterion , '{0:0=2d}.pth'.format(epoch)))
+        torch.save(model.state_dict(), os.path.join('./results/models/', str_criterion , '{0:0=2d}.pth'.format(epoch)))
         print(f"Saved: ./results/models/" + str_criterion + '{0:0=2d}.pth'.format(epoch))
         print()
 
@@ -403,16 +403,6 @@ str_criterion = "CrossEntropyLoss/"
 
 # Train model
 train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
-###### me
-#state = {
-#           "epoch": 25,
-#           "model_state_dict": resnet18.state_dict(),
-#           "optimizer_state_dict": optimizer.state_dict(),
-#       }
-       
-#torch.save(resnet18.state_dict(), "./results/ResNet_CrossentropyLoss.pt")
-### me
-#print("Saved: ./results/ResNet_CrossentropyLoss.pt")
 
 
 # %%
@@ -501,6 +491,6 @@ plt.plot(train_acc_hist)
 plt.plot(val_acc_hist)
 plt.plot(train_evidence_hist)
 plt.plot(train_loss_hist)
-plt.savefig('./results/models/' + str_criterion + 'TrainHisto')
+plt.savefig('./results/models/' + str_criterion + 'TrainHisto.png')
 
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
