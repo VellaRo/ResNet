@@ -20,7 +20,7 @@ transform = transforms.Compose([
             std=[0.229, 0.224, 0.225]                  
             )])
 
-batch_size = 1000
+batch_size = 100
 
 trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
                                         download=True, transform=transform)
