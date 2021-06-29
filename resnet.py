@@ -132,15 +132,14 @@ def one_hot_embedding(labels, num_classes=10):
     y = torch.eye(num_classes)
     return y[labels]
 
-#def get_device():
-#    use_cuda = torch.cuda.is_available()
-#    device = torch.device("cuda:0" if use_cuda else "cpu")
-#    return device
-
-##############
+def get_device():
+    use_cuda = torch.cuda.is_available()
+    device = torch.device("cuda:0" if use_cuda else "cpu")
+    return device
+#############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 10, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -226,10 +225,9 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         ###me
-        epoch_evidence1 =  mean_evidence /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
-        epoch_evidence2 =  mean_evidence_succ /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
-        epoch_evidence3 =  mean_evidence_fail /10 #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence1 =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
 
+        print(mean_evidence.shape())
         ###me 
         print('Loss: {:.4f} Acc: {:.4f} Evidence_mean: {:.4f} Evidence_mean_succ: {:.4f} Evidence_mean_fail: {:.4f}'.format(epoch_loss, epoch_acc, epoch_evidence1.item(), epoch_evidence2.item(), epoch_evidence3.item()))
 
@@ -291,7 +289,7 @@ def softplus_evidence(y):
 #another probability distribution.
 def kl_divergence(alpha, num_classes, device=None):
     if not device:
-        device = torch.device('cuda')#get_device()
+        device = get_device()
     beta = torch.ones([1, num_classes], dtype=torch.float32, device=device)
     #Sum dirchlet distribution
     S_alpha = torch.sum(alpha, dim=1, keepdim=True)
@@ -314,7 +312,7 @@ def kl_divergence(alpha, num_classes, device=None):
 #???
 def loglikelihood_loss(y, alpha, device=None):
     if not device:
-        device = torch.device('cuda')#
+        device = get_device()
     y = y.to(device)
     alpha = alpha.to(device)
     S = torch.sum(alpha, dim=1, keepdim=True)
@@ -329,7 +327,7 @@ def loglikelihood_loss(y, alpha, device=None):
 #???
 def mse_loss(y, alpha, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = torch.device('cuda')#get_device()
+        device = get_device()
     y = y.to(device)
     alpha = alpha.to(device)
     loglikelihood = loglikelihood_loss(y, alpha, device=device)
@@ -359,7 +357,7 @@ def edl_loss(func, y, alpha, epoch_num, num_classes, annealing_step, device=None
 
 def edl_mse_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = torch.device('cuda')#get_device()
+        device = get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(mse_loss(target, alpha, epoch_num,
@@ -369,7 +367,7 @@ def edl_mse_loss(output, target, epoch_num, num_classes, annealing_step, device=
 
 def edl_log_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = torch.device('cuda')#get_device()
+        device = get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(edl_loss(torch.log, target, alpha,
@@ -379,7 +377,7 @@ def edl_log_loss(output, target, epoch_num, num_classes, annealing_step, device=
 
 def edl_digamma_loss(output, target, epoch_num, num_classes, annealing_step, device=None):
     if not device:
-        device = torch.device('cuda')#get_device()
+        device = get_device()
     evidence = relu_evidence(output)
     alpha = evidence + 1
     loss = torch.mean(edl_loss(torch.digamma, target, alpha,
@@ -388,7 +386,7 @@ def edl_digamma_loss(output, target, epoch_num, num_classes, annealing_step, dev
 
 
 # %%
-device = torch.device('cuda') #torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = get_device()
 
 # Setup the loss function
 #verschidene kriterien
@@ -417,6 +415,7 @@ train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, da
 
 
 # %%
+#schows batchsize
 print(len(dataloaders["val"]))
 
 
@@ -465,13 +464,16 @@ def eval_model(model, dataloaders, device, num_classes =10):
             torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
             mean_evidence_fail = torch.sum(
             torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
-            
-        epoch_acc = running_corrects.double() / len(dataloaders.dataset)
 
+        epoch_acc = running_corrects.double() / len(dataloaders.dataset)
+        epoch_evidence1 = mean_evidence 
         print('Acc: {:.4f}'.format(epoch_acc))
         
         if epoch_acc > best_acc:
             best_acc = epoch_acc
+
+        if epoch_evidence1 > best_evidence:
+            best_evidence = epoch_evidence1
 
         acc_history.append(epoch_acc.item())
 
@@ -479,7 +481,7 @@ def eval_model(model, dataloaders, device, num_classes =10):
 
     time_elapsed = time.time() - since
     print('Validation complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-    print('Best Acc: {:4f}'.format(best_acc))
+    print('Best Acc: {:4f} Best Evidenz: {:4f}'.format(best_acc , best_evidence))
     
     return acc_history
 
@@ -492,12 +494,9 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device)
 
 
 # %%
-#plt.plot(train_acc_hist)
-#plt.plot(val_acc_hist)
-#plt.plot(train_evidence_hist)
-#plt.show()
 
-
-# %%
-#plt.plot(train_loss_hist)
-#plt.show()
+plt.plot(train_acc_hist)
+plt.plot(val_acc_hist)
+plt.plot(train_evidence_hist)
+plt.plot(train_loss_hist)
+plt.savefig("./results/models/TrainingHist.png")
