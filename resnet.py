@@ -213,9 +213,9 @@ resnet18.fc = nn.Linear(512, 10)
 
 
 # %%
-#Train the model 
+#Train the model  
 
-#HELPER####################
+#HELPER#####################
 def one_hot_embedding(labels, num_classes=10):
     # Convert to One Hot Encoding
     y = torch.eye(num_classes)
