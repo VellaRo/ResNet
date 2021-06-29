@@ -226,7 +226,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         ###me
-        epoch_evidence = total_evidence# mean_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_evidence =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
         ###me 
         print("tensor:")
         print(epoch_evidence)
