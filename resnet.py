@@ -202,24 +202,6 @@ import numpy as np
 # %%
 
 
-# %% [markdown]
-# Our pretrained model has 1000 output layers we need to fit them to ur Problem(CIFAR10) so 10 output layers
-# 
-# 
-# We'll change the last linearlayer with model.fc | check the model parameters to get number of inputs
-# 
-# 
-# We also dont want to train the previous layer only the new layer. So we set .requires_grad to False
-
-# %%
-''' stellt ein das gradienten nicht berechenet werden ,
-    da es schon vortrainiert ist'''
-#def set_parameter_requires_grad(model, feature_extracting = True):
-#    if feature_extracting:
-#        for param in model.parameters():
-#            param.requires_grad = False
-#
-#set_parameter_requires_grad(resnet18)
 
 
 # %%
@@ -229,15 +211,6 @@ import torch.nn as nn
 resnet18.fc = nn.Linear(512, 10)
 
 
-# %%
-# Check which layer in the model that will compute the gradient
-'''
-Stellt ein das die Gradienten vom neuen Layer berechnet werden
-'''
-#for name, param in resnet18.named_parameters():
-#    if param.requires_grad:
-#        print(name, param.data)
-#
 
 # %%
 #Train the model 
@@ -357,8 +330,8 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         evidence_history.append(epoch_evidence1.item())
 
         # speichert jede Epoche
-        torch.save(model.state_dict(), os.path.join('./results/models/', str_criterion , '{0:0=2d}.pth'.format(epoch)))
-        print(f"Saved: ./results/models/" + str_criterion + '{0:0=2d}.pth'.format(epoch))
+        torch.save(model.state_dict(), os.path.join('./results/models/', model_dirctory , '{0:0=2d}.pth'.format(epoch)))
+        print(f"Saved: ./results/models/" + model_dirctory + '{0:0=2d}.pth'.format(epoch))
         print()
 
     time_elapsed = time.time() - since
@@ -369,19 +342,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
 
 
 # %%
-# Here we only want to update the gradient for the classifier layer that we initialized. 
-# settings so only the last layer is trained
-from torch.optim import Adam
-"""
-welche layer sollen trainiert werden
-"""
-#params_to_update = []
-#for name,param in resnet18.named_parameters():
-#    if param.requires_grad == True:
-#        params_to_update.append(param)
-#        print("\t",name)
-            
-#optimizer = Adam(params_to_update)
+
 optimizer = Adam(resnet18.parameters())
 
 
@@ -391,12 +352,8 @@ device = get_device()
 # Setup the loss function
 #verschidene kriterien
 criterion = nn.CrossEntropyLoss()
-str_criterion = "CrossEntropyLoss/"
-#criterion = nn.CrossEntropyLoss()
-#criterion = nn.CrossEntropyLoss()
-#criterion = nn.CrossEntropyLoss()
-#criterion = nn.CrossEntropyLoss()
-#criterion = nn.CrossEntropyLoss()
+model_dirctory = "CrossEntropyLoss/"
+#model_dirctory = "CrossEntropyLossPretrained/"
 
 #uncertenty auch
 #True False
@@ -420,7 +377,7 @@ def eval_model(model, dataloaders, device, num_classes =10):
     best_acc = 0.0
     best_evidence = 0.0
 
-    saved_models = glob.glob('./results/models/' + str_criterion + '*.pth')
+    saved_models = glob.glob('./results/models/' + model_dirctory + '*.pth')
     saved_models.sort()
     print('saved_model', saved_models)
 
@@ -487,14 +444,86 @@ val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 
 # %%
 
-plt.plot(train_acc_hist)
-plt.plot(val_acc_hist)
-plt.plot(train_loss_hist)
-plt.savefig('./results/models/' + str_criterion + 'TrainHistoAccuracyLoss.png')
+# save the plots
+fig1 , fig2 = plt.subplot()
+fig1.plt.plot(train_acc_hist)
+fig1.plt.plot(val_acc_hist)
+fig1.plt.plot(train_loss_hist)
+fig1.plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 
-plt.plot(train_evidence_hist)
-plt.savefig('./results/models/' + str_criterion + 'TrainHistoEvidence.png')
+fig2.plt.plot(train_evidence_hist)
+fig2.plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
 print("saved TrainHisto")
 
 #test for evidence
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
+
+
+
+# %%
+#### repeat pretrained as ########################################
+
+resnet18 = models.resnet18(pretrained=True)
+criterion = nn.CrossEntropyLoss()
+model_dirctory= "CrossEntropyLossPretrained/"
+# %% [markdown]
+# Our pretrained model has 1000 output layers we need to fit them to ur Problem(CIFAR10) so 10 output layers
+# 
+# 
+# We'll change the last linearlayer with model.fc | check the model parameters to get number of inputs
+# 
+# 
+# We also dont want to train the previous layer only the new layer. So we set .requires_grad to False
+
+# %%
+''' stellt ein das gradienten nicht berechenet werden ,
+    da es schon vortrainiert ist'''
+def set_parameter_requires_grad(model, feature_extracting = True):
+    if feature_extracting:
+        for param in model.parameters():
+            param.requires_grad = False
+
+set_parameter_requires_grad(resnet18)
+# %%
+resnet18.fc = nn.Linear(512, 2)
+# %%
+# Print which layer in the model that will compute the gradient
+'''
+Stellt ein das die Gradienten vom neuen Layer berechnet werden
+'''
+print("compute gradients for:")
+for name, param in resnet18.named_parameters():
+    if param.requires_grad:
+        print(name, param.data)
+
+
+
+# Here we only want to update the gradient for the classifier layer that we initialized. 
+# settings so only the last layer is trained
+from torch.optim import Adam
+"""
+welche layer sollen trainiert werden
+"""
+params_to_update = []
+for name,param in resnet18.named_parameters():
+    if param.requires_grad == True:
+        params_to_update.append(param)
+        print("\t",name)
+           
+optimizer = Adam(params_to_update)
+
+
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
+val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
+val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
+
+# save the plots
+fig1 , fig2 = plt.subplot()
+fig1.plt.plot(train_acc_hist)
+fig1.plt.plot(val_acc_hist)
+fig1.plt.plot(train_loss_hist)
+fig1.plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
+
+fig2.plt.plot(train_evidence_hist)
+fig2.plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
+print("saved TrainHisto")
