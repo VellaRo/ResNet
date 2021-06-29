@@ -342,7 +342,7 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
 
 
 # %%
-
+from torch.optim import Adam
 optimizer = Adam(resnet18.parameters())
 
 
@@ -500,7 +500,6 @@ for name, param in resnet18.named_parameters():
 
 # Here we only want to update the gradient for the classifier layer that we initialized. 
 # settings so only the last layer is trained
-from torch.optim import Adam
 """
 welche layer sollen trainiert werden
 """
