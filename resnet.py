@@ -369,7 +369,7 @@ def edl_digamma_loss(output, target, epoch_num, num_classes, annealing_step, dev
 
 
 # %%
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device('cuda') #torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Setup the loss function
 #verschidene kriterien
