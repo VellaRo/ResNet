@@ -8,6 +8,13 @@ import torchvision
 import torchvision.transforms as transforms
 import torch.nn as nn
 
+device = torch.device('cuda')
+print(torch.cuda.is_available())
+print(torch.cuda.current_device())
+print(torch.cuda.device(0))
+print(torch.cuda.device_count())
+print(torch.cuda.get_device_name(0))
+
 #transform like epretrained model
 from torchvision import transforms
 
@@ -370,7 +377,11 @@ optimizer = Adam(resnet18.parameters())
 
 # %%
 device = torch.device('cuda') #torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+print(torch.cuda.is_available())
+print(torch.cuda.current_device())
+print(torch.cuda.device(0))
+print(torch.cuda.device_count())
+print(torch.cuda.get_device_name(0))
 # Setup the loss function
 #verschidene kriterien
 criterion = nn.CrossEntropyLoss()
