@@ -200,7 +200,21 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
                 outputs = model(inputs)
                 loss = criterion(outputs, labels)
                 _, preds = torch.max(outputs, 1)
+                ###############################################################
+                #test
+                ############## evidence calculations #############################
+                match = torch.reshape(torch.eq( preds, labels).float(), (-1, 1))
+                acc = torch.mean(match)
+                evidence = relu_evidence(outputs)
+                alpha = evidence + 1
+                u = num_classes / torch.sum(alpha, dim=1, keepdim=True)
 
+                total_evidence = torch.sum(evidence, 1, keepdim=True)
+                mean_evidence = torch.mean(total_evidence)
+                mean_evidence_succ = torch.sum(
+                torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
+                mean_evidence_fail = torch.sum(
+                torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
             # backward
             loss.backward()
             optimizer.step()
@@ -226,8 +240,8 @@ def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 
         loss_history.append(epoch_loss)
         evidence_history.append(epoch_evidence)
 
-       #torch.save(model.state_dict(), os.path.join('./results/models', '{0:0=2d}.pth'.format(epoch)))
-
+        torch.save(model.state_dict(), os.path.join('./results/models', '{0:0=2d}.pth'.format(epoch)))
+        print("Saved: ./results/....pt")
         print()
 
     time_elapsed = time.time() - since
@@ -393,9 +407,9 @@ train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, da
 #           "optimizer_state_dict": optimizer.state_dict(),
 #       }
        
-torch.save(resnet18.state_dict(), "./results/ResNet_CrossentropyLoss.pt")
+#torch.save(resnet18.state_dict(), "./results/ResNet_CrossentropyLoss.pt")
 ### me
-print("Saved: ./results/ResNet_CrossentropyLoss.pt")
+#print("Saved: ./results/ResNet_CrossentropyLoss.pt")
 
 
 # %%
