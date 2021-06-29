@@ -485,7 +485,7 @@ def set_parameter_requires_grad(model, feature_extracting = True):
 
 set_parameter_requires_grad(resnet18)
 # %%
-resnet18.fc = nn.Linear(512, 2)
+resnet18.fc = nn.Linear(512, 10)
 # %%
 # Print which layer in the model that will compute the gradient
 '''
