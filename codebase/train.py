@@ -99,4 +99,5 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
     print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
     print('Best Acc: {:4f} Best Evidence: {:4f}'.format(best_acc, best_evidence))
     
+    
     return acc_history, loss_history , evidence_history

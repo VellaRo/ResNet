@@ -56,8 +56,14 @@ def main():
             criterion = nn.CrossEntropyLoss()
         #elif args.otherCriteron:
             #criterion = otherCriterion()
+        #for folder naming
+        if args.dropout:
+            model_dirctory = model_dirctory[:-1] +"Dropout/" 
+        
         if args.pretrained:
-                   
+            
+            model_dirctory = model_dirctory[:-1] +"Pretrained/"  
+
             all_parameters = list(model.parameters())
             #we want last layer to have a faster learningrate 
             without_lastlayer =all_parameters[0: len(all_parameters) -1]
