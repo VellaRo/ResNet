@@ -70,7 +70,7 @@ def main():
 
             all_parameters = list(model.parameters())
             #we want last layer to have a faster learningrate 
-            without_lastlayer =all_parameters[0: len(all_parameters) -2]
+            without_lastlayer =all_parameters[0: len(all_parameters) -2] # -2 weil einmal weiht und einmal Bias vom layer
             #so we extract it
             last_param = model.fc.parameters()
 
@@ -90,12 +90,12 @@ def main():
         else: #(theoretisch auch optimizer parsen) aber brauche ich noch nicht
             optimizer = Adam(model.parameters())
 
-        #train # vielleicht noch um uncertainty erweitern
-        train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device , num_epochs = num_epochs, uncertainty= False)
-        val_acc_hist = eval_model(model, dataloaders["val"], model_dirctory, device, num_classes=10)
+            #train # vielleicht noch um uncertainty erweitern
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device , num_epochs = num_epochs, uncertainty= False)
+            val_acc_hist = eval_model(model, dataloaders["val"], model_dirctory, device, num_classes=10)
         
-        # saves the histogramms 
-        save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
+            # saves the histogramms 
+            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
 
 
 
