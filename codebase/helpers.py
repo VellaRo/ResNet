@@ -1,5 +1,8 @@
 import torch
-from losses import relu_evidence
+import torch.nn.functional as F
+
+def relu_evidence(y):
+    return F.relu(y)
 
 def one_hot_embedding(labels, num_classes=10):
     # Convert to One Hot Encoding

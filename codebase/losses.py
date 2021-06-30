@@ -1,9 +1,6 @@
 import torch
-from helpers import get_device
+from helpers import get_device , relu_evidence
 import torch.nn.functional as F
-
-def relu_evidence(y):
-    return F.relu(y)
 
 
 def exp_evidence(y):
