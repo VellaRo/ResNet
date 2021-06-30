@@ -44,7 +44,8 @@ def main():
     args = parser.parse_args()
 
     if args.train:
-
+        num_epochs = args.epochs
+        
         model = models.resnet18(pretrained=args.pretrained , dropout= args.dropout)
         # adapt it to our Data
         model.fc = nn.Linear(512, 10)
@@ -76,7 +77,7 @@ def main():
                             {'params': model.fc(), 'lr': 1e-3}
                             ], lr=1e-2) 
             #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, uncertainty= False)
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, num_epochs = num_epochs ,uncertainty= False)
             val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
         
             # saves the histogramms 
@@ -87,7 +88,7 @@ def main():
             optimizer = Adam(model.parameters())
 
         #train # vielleicht noch um uncertainty erweitern
-        train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, uncertainty= False)
+        train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, num_epochs = num_epochs, uncertainty= False)
         val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
         
         # saves the histogramms 
