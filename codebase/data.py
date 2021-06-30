@@ -2,7 +2,6 @@ import torch
 import torchvision
 #transform like epretrained model
 from torchvision import transforms
-from torchvision.transforms.functional import crop
 
 transform = transforms.Compose([            
             transforms.Resize(256),                    
