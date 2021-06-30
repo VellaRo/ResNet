@@ -228,7 +228,7 @@ def get_device():
 #############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 25, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -352,14 +352,14 @@ device = get_device()
 # Setup the loss function
 #verschidene kriterien
 criterion = nn.CrossEntropyLoss()
-model_dirctory = "CrossEntropyLossUncertainty/"
+model_dirctory = "CrossEntropyLoss/"
 #model_dirctory = "CrossEntropyLossPretrained/"
 
 #uncertenty auch
 #True False
 
 # Train model
-train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device, uncertainty= True)
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device, uncertainty= False)
 
 
 # %%
@@ -464,11 +464,11 @@ val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_cla
 
 # %%
 #### repeat pretrained as ########################################
-
+import torchvision.models as models
 resnet18 = models.resnet18(pretrained=True)
 print(resnet18)
 criterion = nn.CrossEntropyLoss()
-model_dirctory= "CrossEntropyLossPretrainedUncertainty/"
+model_dirctory= "CrossEntropyLossPretrained/"
 # %% [markdown]
 # Our pretrained model has 1000 output layers we need to fit them to ur Problem(CIFAR10) so 10 output layers
 # 
@@ -480,13 +480,16 @@ model_dirctory= "CrossEntropyLossPretrainedUncertainty/"
 
 # %%
 ''' stellt ein das gradienten nicht berechenet werden ,
-    da es schon vortrainiert ist'''
-def set_parameter_requires_grad(model, feature_extracting = True):
-    if feature_extracting:
-        for param in model.parameters():
-            param.requires_grad = False
-
-set_parameter_requires_grad(resnet18)
+    da es schon vortrainiert ist
+    Ashan: auch pretrained models 
+           müssen durch alle layer laufen
+'''
+#def set_parameter_requires_grad(model, feature_extracting = True):
+#    if feature_extracting:
+#        for param in model.parameters():
+#            param.requires_grad = False
+#
+#set_parameter_requires_grad(resnet18)
 # %%
 resnet18.fc = nn.Linear(512, 10)
 # %%
@@ -512,10 +515,20 @@ for name,param in resnet18.named_parameters():
         params_to_update.append(param)
         print("\t",name)
            
-optimizer = Adam(params_to_update)
+all_parameters = list(resnet18.parameters())
 
+without_lastlayer =all_parameters[0: len(all_parameters) -2]
+last_param = resnet18.fc.parameters()
+print("size last param")
+print(len(last_param))
 
-train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device ,uncertainty= True)
+optimizer = Adam([
+                {'params': iter(without_lastlayer)},
+                {'params': iter(resnet18.fc()), 'lr': 1e-3}
+                ], lr=1e-2)
+# %%
+
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device ,uncertainty= False)
 val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
 
