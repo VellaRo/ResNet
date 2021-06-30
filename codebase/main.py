@@ -82,9 +82,11 @@ def main():
             #train # vielleicht noch um uncertainty erweitern
             train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device ,  num_epochs=num_epochs ,uncertainty= False)
             val_acc_hist = eval_model(model, dataloaders["val"],model_dirctory ,device, num_classes=10)
-        
+            #also plot for that
+            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_dirctory ,device, num_classes=100)
+
             # saves the histogramms 
-            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
+            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_dirctory)
 
         # pretrained = false
         else: #(theoretisch auch optimizer parsen) aber brauche ich noch nicht

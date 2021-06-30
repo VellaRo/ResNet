@@ -73,7 +73,7 @@ def eval_model(model, dataloaders, model_directory, device, num_classes =10):
     
     return acc_history # evidenz/uncertainty history ?
 
-def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_directory):
+def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1 , model_directory):
     
     directory = './results/models/' + model_directory
     if not os.path.exists(directory):
@@ -87,6 +87,11 @@ def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_directory)
     plt.figure(1)
     plt.plot(train_evidence_hist)
     plt.savefig(directory + 'trainHistoEvidence.png')
+    
+    plt.figure(2)
+    plt.plot(val_acc_hist1)
+    plt.savefig(directory + 'valHistoCIFAR100.png')
+
     print()
     print("saved TrainHisto" + model_directory)
     print()
