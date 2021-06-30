@@ -228,7 +228,7 @@ def get_device():
 #############
 import time
 import os
-def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 2, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -520,7 +520,7 @@ all_parameters = list(resnet18.parameters())
 without_lastlayer =all_parameters[0: len(all_parameters) -2]
 last_param = resnet18.fc.parameters()
 print("size last param")
-print(len(last_param))
+print(len(list(last_param)))
 
 optimizer = Adam([
                 {'params': iter(without_lastlayer)},
