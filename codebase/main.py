@@ -22,13 +22,13 @@ def main():
     #                        help="To evaluate the network.")
     parser.add_argument("--epochs", default=25, type=int,
                         help="Desired number of epochs.")
-    parser.add_argument("--pretrained", default=False, type=bool,
+    parser.add_argument("--pretrained", default=False, action="store_true",
                         help="Use a pretrained model.")
     parser.add_argument("--dropout", action="store_true",
                         help="Whether to use dropout or not.")
-    parser.add_argument("--uncertainty", action="store_true",
+    parser.add_argument("--uncertainty",default=False , action="store_true",
                         help="Use uncertainty or not.")
-    parser.add_argument("--crossEntropy", action="store_true",
+    parser.add_argument("--crossEntropy", default=False ,action="store_true",
                         help="Sets loss function to Cross entropy Loss.")                        
     ## noch vorer untersuchen wie uncertainty funktioniert was ist mit u ? 
     # wird irgendwie anders trainiert als normal um uncertainty zu berechen
@@ -46,7 +46,7 @@ def main():
     if args.train:
         num_epochs = args.epochs
         
-        model = models.resnet18(pretrained=args.pretrained , dropout= args.dropout)
+        model = models.resnet18(pretrained=args.pretrained)
         # adapt it to our Data
         model.fc = nn.Linear(512, 10)
 
@@ -57,6 +57,9 @@ def main():
             criterion = nn.CrossEntropyLoss()
         #elif args.otherCriteron:
             #criterion = otherCriterion()
+        else: 
+            print("pls choose a criterion")
+            raise RuntimeError('please choose Criterion')
         #for folder naming
         if args.dropout:
             model_dirctory = model_dirctory[:-1] +"Dropout/" 
@@ -67,17 +70,17 @@ def main():
 
             all_parameters = list(model.parameters())
             #we want last layer to have a faster learningrate 
-            without_lastlayer =all_parameters[0: len(all_parameters) -1]
+            without_lastlayer =all_parameters[0: len(all_parameters) -2]
             #so we extract it
             last_param = model.fc.parameters()
 
             #passing a nested dict for different learningrate with differen params
             optimizer = Adam([
-                            {'params': without_lastlayer},
-                            {'params': model.fc(), 'lr': 1e-3}
-                            ], lr=1e-2) 
+                {'params': without_lastlayer},
+                {'params': last_param, 'lr': 1e-3}
+            ], lr=1e-2)
             #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, num_epochs = num_epochs ,uncertainty= False)
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory,device ,  num_epochs = num_epochs ,uncertainty= False)
             val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
         
             # saves the histogramms 
@@ -88,7 +91,7 @@ def main():
             optimizer = Adam(model.parameters())
 
         #train # vielleicht noch um uncertainty erweitern
-        train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, device, num_epochs = num_epochs, uncertainty= False)
+        train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device , num_epochs = num_epochs, uncertainty= False)
         val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
         
         # saves the histogramms 
