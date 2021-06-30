@@ -352,14 +352,14 @@ device = get_device()
 # Setup the loss function
 #verschidene kriterien
 criterion = nn.CrossEntropyLoss()
-model_dirctory = "CrossEntropyLoss/"
+model_dirctory = "CrossEntropyLossUncertainty/"
 #model_dirctory = "CrossEntropyLossPretrained/"
 
 #uncertenty auch
 #True False
 
 # Train model
-train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device, uncertainty= True)
 
 
 # %%
@@ -453,7 +453,9 @@ plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 plt.figure(1)
 plt.plot(train_evidence_hist)
 plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
-print("saved TrainHisto")
+print()
+print("saved TrainHisto" + model_dirctory)
+print()
 
 #test for evidence
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
@@ -464,8 +466,9 @@ val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_cla
 #### repeat pretrained as ########################################
 
 resnet18 = models.resnet18(pretrained=True)
+print(resnet18)
 criterion = nn.CrossEntropyLoss()
-model_dirctory= "CrossEntropyLossPretrained/"
+model_dirctory= "CrossEntropyLossPretrainedUncertainty/"
 # %% [markdown]
 # Our pretrained model has 1000 output layers we need to fit them to ur Problem(CIFAR10) so 10 output layers
 # 
@@ -512,7 +515,7 @@ for name,param in resnet18.named_parameters():
 optimizer = Adam(params_to_update)
 
 
-train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device)
+train_acc_hist, train_loss_hist , train_evidence_hist = train_model(resnet18, dataloaders["train"], criterion, optimizer, device ,uncertainty= True)
 val_acc_hist = eval_model(resnet18, dataloaders["val"], device, num_classes=10)
 val_acc_hist = eval_model(resnet18, dataloaders["TESTCIFAR100"], device, num_classes=100)
 
@@ -526,5 +529,6 @@ plt.savefig('./results/models/' + model_dirctory + 'trainHistoAccuracyLoss.png')
 plt.figure(1)
 plt.plot(train_evidence_hist)
 plt.savefig('./results/models/' + model_dirctory + 'trainHistoEvidence.png')
-print("saved TrainHisto")
-
+print()
+print("saved TrainHisto" + model_dirctory)
+print()
