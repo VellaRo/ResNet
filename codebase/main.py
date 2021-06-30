@@ -80,8 +80,8 @@ def main():
                 {'params': last_param, 'lr': 1e-3}
             ], lr=1e-2)
             #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory,device ,  num_epochs = num_epochs ,uncertainty= False)
-            val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device ,  num_epochs=num_epochs ,uncertainty= False)
+            val_acc_hist = eval_model(model, dataloaders["val"],model_dirctory ,device, num_classes=10)
         
             # saves the histogramms 
             save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
@@ -92,7 +92,7 @@ def main():
 
         #train # vielleicht noch um uncertainty erweitern
         train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device , num_epochs = num_epochs, uncertainty= False)
-        val_acc_hist = eval_model(model, dataloaders["val"], device, num_classes=10)
+        val_acc_hist = eval_model(model, dataloaders["val"], model_dirctory, device, num_classes=10)
         
         # saves the histogramms 
         save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
