@@ -53,7 +53,7 @@ def main():
         device = get_device()
         if args.crossEntropy:
             # wo das modell gespeichet wird
-            model_dirctory = "CrossEntropyLoss/"
+            model_directory = "CrossEntropyLoss/"
             criterion = nn.CrossEntropyLoss()
         #elif args.otherCriteron:
             #criterion = otherCriterion()
@@ -62,11 +62,11 @@ def main():
             raise RuntimeError('please choose Criterion')
         #for folder naming
         if args.dropout:
-            model_dirctory = model_dirctory[:-1] +"Dropout/" 
+            model_directory = model_directory[:-1] +"Dropout/" 
         
         if args.pretrained:
             
-            model_dirctory = model_dirctory[:-1] +"Pretrained/"  
+            model_directory = model_directory[:-1] +"Pretrained/"  
 
             all_parameters = list(model.parameters())
             #we want last layer to have a faster learningrate 
@@ -80,25 +80,25 @@ def main():
                 {'params': last_param, 'lr': 1e-3}
             ], lr=1e-2)
             #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device ,  num_epochs=num_epochs ,uncertainty= False)
-            val_acc_hist = eval_model(model, dataloaders["val"],model_dirctory ,device, num_classes=10)
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device ,  num_epochs=num_epochs ,uncertainty= False)
+            val_acc_hist = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
             #also plot for that
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_dirctory ,device, num_classes=100)
+            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
 
             # saves the histogramms 
-            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_dirctory)
+            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_directory)
 
         # pretrained = false
         else: #(theoretisch auch optimizer parsen) aber brauche ich noch nicht
             optimizer = Adam(model.parameters())
 
             #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dirctory, device , num_epochs = num_epochs, uncertainty= False)
-            val_acc_hist = eval_model(model, dataloaders["val"], model_dirctory, device, num_classes=10)
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_dirctory ,device, num_classes=100)
+            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dircetory, device , num_epochs = num_epochs, uncertainty= False)
+            val_acc_hist = eval_model(model, dataloaders["val"], model_directory, device, num_classes=10)
+            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
 
             # saves the histogramms 
-            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_dirctory)
+            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_directory)
 
 
 

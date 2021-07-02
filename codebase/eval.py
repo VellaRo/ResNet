@@ -48,10 +48,13 @@ def eval_model(model, dataloaders, model_directory, device, num_classes =10):
             ############## evidence calculations ##########################
             # U = uncertainty ?
             u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
+        
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
         epoch_evidence1 = mean_evidence 
         print('Acc: {:.4f}'.format(epoch_acc))
         print('Evidence: {:.4f}'.format(epoch_evidence1))
+        print('Uncertainty {:.4f}'.format(u))
+
         if epoch_acc > best_acc:
             best_acc = epoch_acc
             best_model = copy.deepcopy(model.state_dict())

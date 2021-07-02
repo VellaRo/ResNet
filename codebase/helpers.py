@@ -19,8 +19,9 @@ def calculate_evidence(preds, labels, outputs, num_classes):
     acc = torch.mean(match)
     evidence = relu_evidence(outputs)
     alpha = evidence + 1
-    u = num_classes / torch.sum(alpha, dim=1, keepdim=True)
-
+    #####!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!####
+    u = num_classes / torch.sum(alpha, dim=1, keepdim=True) #u = num_classes / torch.sum(alpha, dim=1, keepdim=True)
+    u = u.mean()
     total_evidence = torch.sum(evidence, 1, keepdim=True)
     mean_evidence = torch.mean(total_evidence)
     mean_evidence_succ = torch.sum(
