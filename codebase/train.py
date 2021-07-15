@@ -3,7 +3,7 @@ import time
 import os
 
 from losses import relu_evidence
-from helpers import one_hot_embedding 
+from helpers import one_hot_embedding , calculate_uncertainty
 
 
 def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):

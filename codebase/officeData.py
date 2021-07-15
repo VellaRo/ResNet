@@ -15,9 +15,9 @@ transform = transforms.Compose([
             )])
 
 batch_size = 300
-path_A = "./office/data/Original_images/amazon/images"
-path_D = "./office/data/Original_images/dslr/images"
-path_W = "./office/data/Original_images/webcam/images"
+path_A = "./data/Original_images/amazon/images"
+path_D = "./data/Original_images/dslr/images"
+path_W = "./data/Original_images/webcam/images"
 dataset_A = datasets.ImageFolder(path_A, transform = transform)
 dataset_D = datasets.ImageFolder(path_D, transform = transform)
 dataset_W = datasets.ImageFolder(path_W, transform = transform)
