@@ -3,7 +3,7 @@ import time
 import os
 
 from losses import relu_evidence
-from helpers import one_hot_embedding , calculate_evidence
+from helpers import one_hot_embedding 
 
 
 def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
@@ -69,7 +69,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
-        epoch_uncertainty = u 
+        epoch_uncertainty = u.item() 
 
          
         print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item()))
@@ -83,7 +83,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
             
         acc_history.append(epoch_acc.item())
         loss_history.append(epoch_loss)
-        uncertainty_history.append(u.item())
+        uncertainty_history.append(epoch_uncertainty)
 
         # speichert jede Epoche
         torch.save(model.state_dict(), os.path.join(directory, '{0:0=2d}.pth'.format(epoch)))
