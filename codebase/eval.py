@@ -8,7 +8,7 @@ import os
 from losses import relu_evidence
 from helpers import calculate_uncertainty
 
-def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreThreshold = 0.5):
+def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreThreshold = 0.5, calculate_confusion_Matrix= False):
     since = time.time()
     
     acc_history = []
@@ -69,23 +69,24 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
             #FP: Uncertainty tells us the sample is  a Target and it is False
             #FN: Uncertainty tells us the sample is  not a Target and it is Correct
             #TP: Uncertainty tells us the sample is a Target and it is Correct
-           
-            for x, label in enumerate(labels):
-                
-                if u.item() >= ignoreThreshold and label.item() <= 9: 
-                    flaseNegativ += 1
-                    
-                    if preds[x] == labels.data[x]:
-                        classifiedCorrectFN +=1# but rejected
-                    else:
-                        classifiedFalseFN +=1 # but rejected
+            
+            if calculate_confusion_Matrix:
+                for x, label in enumerate(labels):
 
-                if u.item() <ignoreThreshold and label.item()  <= 9: 
-                    truePositiv += 1
-                if u.item() >= ignoreThreshold and label.item() > 9:
-                    trueNegativ += 1
-                if u.item() <ignoreThreshold and label.item() > 9:
-                    falsePositiv += 1
+                    if u.item() >= ignoreThreshold and label.item() <= 9: 
+                        flaseNegativ += 1
+
+                        if preds[x] == labels.data[x]:
+                            classifiedCorrectFN +=1# but rejected
+                        else:
+                            classifiedFalseFN +=1 # but rejected
+
+                    if u.item() <ignoreThreshold and label.item()  <= 9: 
+                        truePositiv += 1
+                    if u.item() >= ignoreThreshold and label.item() > 9:
+                        trueNegativ += 1
+                    if u.item() <ignoreThreshold and label.item() > 9:
+                        falsePositiv += 1
         
         if epoch_acc > best_acc:
             best_acc = epoch_acc
@@ -107,9 +108,10 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
             print("Results for this epoch: " ) 
             print('Acc: {:.4f}'.format(epoch_acc))
             print('Uncertainty: ' + str(u.item()))
-            print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
-            print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
-            print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
+            if calculate_confusion_Matrix:
+                print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
+                print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
+                print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
        
         acc_history.append(epoch_acc.item())
         uncertainty_history.append(epoch_uncertainty)

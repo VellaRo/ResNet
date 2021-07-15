@@ -24,7 +24,34 @@ def main():
               --$LOSS (specifiy Loss Example : --crossEntropy)          # Default --crossEntropy
     """
     #########EXPERIMENTS#################
-    def CIFAR10_eval_on_CIFAR100(ignoreThreshold, train=False):
+    
+    ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
+
+    # TODO:
+    # RENAME DATALOADER CIFAR
+    # ADD DATALOADER OFFICE
+    # 
+    def testUncertaintyLoss(criterion ,uncertainty = True,train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes = 10):
+        """
+        Does training and evaluation on a Dataset
+        """
+            if criterion = "edl_digamma":
+                model_directory = "Edl_DigammaLoss/"
+                criterion = edl_digamma_loss
+            elif "edl_log":
+                model_directory = "Edl_LogLoss/"
+                criterion = edl_log_loss
+            elif "mse":
+                model_directory = "Mse_Loss/"
+                criterion = edl_mse_loss
+            else:
+                raise Exception("choose an uncertaintyLoss")
+                    "--uncertainty requires --mse, --log or --digamma.")
+
+        train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= True)
+        val_acc_hist, uncertainty_history = eval_model(model, test_dataloader , model_directory , device, num_classes=num_test_classes)
+    
+    def testUncertaintyThresholds(ignoreThreshold, train=False):
         """
         train= true: Trains Resnet with parameters specified with argument (--pretrained, --$loss ...)
         Evaluates on CIFAR10
@@ -32,11 +59,11 @@ def main():
         Evaluates on CIFAR100
         """
         if train:
-            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold =ignoreThreshold)
+            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, dataloaders["CIFAR10_TRAIN"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold =ignoreThreshold)
         
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["TESTCIFAR90"],model_directory ,device, num_classes=90)
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
+        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR90_TEST"],model_directory ,device, num_classes=90, calculate_confusion_Matrix=True)
+        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR100_TEST"],model_directory ,device, num_classes=100, calculate_confusion_Matrix=True)
+        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR10_TEST"],model_directory ,device, num_classes=10, calculate_confusion_Matrix=True)
 
         # saves the histogramms 
         #save_Plot(train_loss_hist,train_uncertainty_hist, val_acc_hist, val_acc_hist1, model_directory)
@@ -63,8 +90,8 @@ def main():
                         help="Desired number of epochs.")
     parser.add_argument("--pretrained", default=False, action="store_true",
                         help="Use a pretrained model.")
-    parser.add_argument("--uncertainty",default=False , action="store_true",
-                        help="Use uncertainty or not.")
+    #parser.add_argument("--uncertainty",default=False , action="store_true",
+    #                    help="Use uncertainty or not.")
     parser.add_argument("--crossEntropy", default=False ,action="store_true",
                         help="Sets loss function to Cross entropy Loss.")                        
 
@@ -77,29 +104,31 @@ def main():
     #                                    help="Set this argument when using uncertainty. Sets loss function to Negative Log of the Expected Likelihood.")
 
     args = parser.parse_args()
-
+    ### Model Parameters
     
     num_epochs = args.epochs
-        
+    num_classes = 10 # ouptutclasses of Model to train    
     model = models.resnet18(pretrained=args.pretrained)
     # adapt it to our Data
-    model.fc = nn.Linear(512, 10)
-
+    model.fc = nn.Linear(512, num_classes)
     device = get_device()
-    if args.crossEntropy:
-
-        # Where the model will be saved
-        model_directory = "CrossEntropyLoss/"
-        criterion = nn.CrossEntropyLoss()
-
-    #elif args.otherCriteron:
-        #criterion = otherCriterion()
     
-    #DEFAULT
-    else: 
-       # Where the model will be saved
-        model_directory = "CrossEntropyLoss/"
-        criterion = nn.CrossEntropyLoss()
+   
+    else:
+        if args.crossEntropy:
+
+            # Where the model will be saved
+            model_directory = "CrossEntropyLoss/"
+            criterion = nn.CrossEntropyLoss()
+
+        #elif args.otherCriteron:
+            #criterion = otherCriterion()
+
+        #DEFAULT
+        else: 
+           # Where the model will be saved
+            model_directory = "CrossEntropyLoss/"
+            criterion = nn.CrossEntropyLoss()
     
     if args.pretrained:
     
