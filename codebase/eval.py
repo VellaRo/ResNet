@@ -12,8 +12,9 @@ def eval_model(model, dataloaders, model_directory, device, num_classes):
     since = time.time()
     
     acc_history = []
-    best_acc = 0.0
-    best_uncertainty = 1.0
+    uncertainty_history =[]
+    best_acc = -0.1
+    best_uncertainty = 10.0
     
     best_model_byAcc = copy.deepcopy(model.state_dict())
     best_model_byUncertainty = copy.deepcopy(model.state_dict())
@@ -55,10 +56,7 @@ def eval_model(model, dataloaders, model_directory, device, num_classes):
             _, preds = torch.max(outputs, 1)
             running_corrects += torch.sum(preds == labels.data)
             
-            
-            ############## evidence calculations ##########################
-            # U = uncertainty ?
-            u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
+            u = calculate_uncertainty(preds, labels, outputs, num_classes)
             
             epoch_acc = running_corrects.double() / len(dataloaders.dataset)
             epoch_uncertainty = u 
@@ -112,7 +110,7 @@ def eval_model(model, dataloaders, model_directory, device, num_classes):
             print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
        
         acc_history.append(epoch_acc.item())
-        #evidence history ???
+        uncertainty_history.append(epoch_uncertainty.item())
         
         print()
     
@@ -126,11 +124,11 @@ def eval_model(model, dataloaders, model_directory, device, num_classes):
     time_elapsed = time.time() - since
     print('Validation complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
     
-    return acc_history # evidenz/uncertainty history ?
+    return acc_history, uncertainty_history
 
 
 
-def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1 , model_directory):
+def save_Plot(train_loss_hist,train_uncertainty_hist,val_acc_hist,val_acc_hist1 , model_directory):
     
     directory = './results/models/' + model_directory
     if not os.path.exists(directory):
@@ -142,8 +140,8 @@ def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1 , m
     plt.savefig(directory + 'trainHistoAccuracyLoss.png')
 
     plt.figure(1)
-    plt.plot(train_evidence_hist)
-    plt.savefig(directory + 'trainHistoEvidence.png')
+    plt.plot(train_uncertainty_hist)
+    plt.savefig(directory + 'trainHistoUncertainty.png')
     
     plt.figure(2)
     plt.plot(val_acc_hist1)

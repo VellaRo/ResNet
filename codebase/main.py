@@ -14,14 +14,14 @@ from eval import eval_model, save_Plot
 def main():
     def doing():
         #train # vielleicht noch um uncertainty erweitern
-            #train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False)
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR90"],model_directory ,device, num_classes=90)
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
-            val_acc_hist = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
+            #train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False)
+            val_acc_hist, uncertainty_history = eval_model(model, dataloaders["TESTCIFAR90"],model_directory ,device, num_classes=90)
+            val_acc_hist, uncertainty_history = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
+            val_acc_hist, uncertainty_history = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
             #also plot for that
 
             # saves the histogramms 
-            #save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_directory)
+            #save_Plot(train_loss_hist,train_uncertainty_hist,val_acc_hist,val_acc_hist1, model_directory)
 
     parser = argparse.ArgumentParser() # easy commandline | options 
     mode_group = parser.add_mutually_exclusive_group(required=True)

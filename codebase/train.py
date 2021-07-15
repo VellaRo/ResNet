@@ -13,10 +13,10 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
     
     acc_history = []
     loss_history = []
-    evidence_history = []
+    uncertainty_history = []
 
-    best_acc = 0.0
-    best_evidence = 0.0
+    best_acc = -0.1
+    best_uncertainty = 10.0
 
     directory = './results/models/' + model_directory
     if not os.path.exists(directory):
@@ -48,20 +48,16 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
                 _, preds = torch.max(outputs, 1)
                 loss = criterion(
                             outputs, y.float(), epoch, num_classes, 10, device)
+                 
+                u = calculate_uncertainty(preds, labels, outputs, num_classes)
             
-                ############## evidence calculations ##########################
-                # U = uncertainty ?
-                u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
-            
-            #without uncertainty
+            #without uncertainty_loss
             else:
                 outputs = model(inputs)
                 loss = criterion(outputs, labels)
                 _, preds = torch.max(outputs, 1)
                 
-                ############## evidence calculations ##########################
-                # U = uncertainty ?
-                u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
+                u  = calculate_uncertainty(preds, labels, outputs, num_classes)
                 
             # backward
             loss.backward()
@@ -73,22 +69,21 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
 
         epoch_loss = running_loss / len(dataloaders.dataset)
         epoch_acc = running_corrects.double() / len(dataloaders.dataset)
-        ###me
-        epoch_evidence1 =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
+        epoch_uncertainty = u 
 
-        ###me 
-        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} Evidence_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item() ,epoch_evidence1.item()))
-        #### herausfinden wie ich uncertainty bekomme und was unterschied zu evidenze ist ???#####
+         
+        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item()))
+        
         
         if epoch_acc > best_acc:
             best_acc = epoch_acc
 
-        if epoch_evidence1 > best_evidence:
-            best_evidence = epoch_evidence1
+        if epoch_uncertainty < best_uncertainty:
+            best_uncertainty = epoch_uncertainty
             
         acc_history.append(epoch_acc.item())
         loss_history.append(epoch_loss)
-        evidence_history.append(epoch_evidence1.item())
+        uncertainty_history.append(u.item())
 
         # speichert jede Epoche
         torch.save(model.state_dict(), os.path.join(directory, '{0:0=2d}.pth'.format(epoch)))
@@ -97,7 +92,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
 
     time_elapsed = time.time() - since
     print('Training complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-    print('Best Acc: {:4f} Best Evidence: {:4f}'.format(best_acc, best_evidence))
+    print('Best Acc: {:4f} Best Uncertainty: {:4f}'.format(best_acc, best_uncertainty))
     
     
-    return acc_history, loss_history , evidence_history
+    return acc_history, loss_history , uncertainty_history

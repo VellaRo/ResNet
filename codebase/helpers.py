@@ -14,7 +14,7 @@ def get_device():
     device = torch.device("cuda:0" if use_cuda else "cpu")
     return device
 
-def calculate_evidence(preds, labels, outputs, num_classes):
+def calculate_uncertainty(preds, labels, outputs, num_classes):
     match = torch.reshape(torch.eq( preds, labels).float(), (-1, 1))
     acc = torch.mean(match)
     evidence = relu_evidence(outputs)
@@ -22,14 +22,14 @@ def calculate_evidence(preds, labels, outputs, num_classes):
     #####!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!####
     u = num_classes / torch.sum(alpha, dim=1, keepdim=True) #u = num_classes / torch.sum(alpha, dim=1, keepdim=True
     u= u.mean()
-    total_evidence = torch.sum(evidence, 1, keepdim=True)
-    mean_evidence = torch.mean(total_evidence)
-    mean_evidence_succ = torch.sum(
-    torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
-    mean_evidence_fail = torch.sum(
-    torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
+    #total_evidence = torch.sum(evidence, 1, keepdim=True)
+    #mean_evidence = torch.mean(total_evidence)
+    #mean_evidence_succ = torch.sum(
+    #torch.sum(evidence, 1, keepdim=True) * match) / torch.sum(match + 1e-20)
+    #mean_evidence_fail = torch.sum(
+    #torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
 
-    return u, mean_evidence , mean_evidence_succ , mean_evidence_succ
+    return u
 
 ##### FOR DEBUG 
 
