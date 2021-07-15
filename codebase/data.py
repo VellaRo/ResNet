@@ -37,8 +37,30 @@ testsetCIFAR100 = torchvision.datasets.CIFAR100(root='./data', train=False,downl
 testloaderCIFAR100 = torch.utils.data.DataLoader(testsetCIFAR100,            
                             batch_size=batch_size,shuffle=False, num_workers=2)
 
+# CIFAR90
+def get_indices(dataset,class_labels_list):
+    indices =  []
+    for i in range(len(dataset.targets)):
+        if dataset.targets[i] in class_labels_list:
+            pass
+        else:
+            indices.append(i)
+    return indices
+
+
+testCifar90 = torchvision.datasets.CIFAR100(root='./data', train=False, download =True
+                           ,transform=transform)
+                           
+class_labels_list = [0,1,2,3,4,5,6,7,8,9]
+idx = get_indices(testCifar90, class_labels_list)
+testloaderCIFAR90 = torch.utils.data.DataLoader(testCifar90,batch_size=batch_size, sampler = torch.utils.data.sampler.SubsetRandomSampler(idx))
+
+#for idx, (data, target) in enumerate(loader):
+#    print(target)
+
 dataloaders = {
     "train": trainloader,
     "val": testloader,
     "TESTCIFAR100" : testloaderCIFAR100,
+    "TESTCIFAR90" : testloaderCIFAR90
 }

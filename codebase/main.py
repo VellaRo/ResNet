@@ -12,20 +12,30 @@ from data import dataloaders
 from eval import eval_model, save_Plot
 
 def main():
+    def doing():
+        #train # vielleicht noch um uncertainty erweitern
+            #train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False)
+            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR90"],model_directory ,device, num_classes=90)
+            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
+            val_acc_hist = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
+            #also plot for that
+
+            # saves the histogramms 
+            #save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_directory)
 
     parser = argparse.ArgumentParser() # easy commandline | options 
     mode_group = parser.add_mutually_exclusive_group(required=True)
     mode_group.add_argument("--train", action="store_true",
                             help="To train the network.")
     #einfacher beides gleichzeitig zu machen
-    #mode_group.add_argument("--eval", action="store_true",
-    #                        help="To evaluate the network.")
+    mode_group.add_argument("--eval", action="store_true",
+                            help="To evaluate the network.")
     parser.add_argument("--epochs", default=25, type=int,
                         help="Desired number of epochs.")
     parser.add_argument("--pretrained", default=False, action="store_true",
                         help="Use a pretrained model.")
-    parser.add_argument("--dropout", action="store_true",
-                        help="Whether to use dropout or not.")
+    #parser.add_argument("--dropout", action="store_true",
+    #                    help="Whether to use dropout or not.")
     parser.add_argument("--uncertainty",default=False , action="store_true",
                         help="Use uncertainty or not.")
     parser.add_argument("--crossEntropy", default=False ,action="store_true",
@@ -61,8 +71,8 @@ def main():
             print("pls choose a criterion")
             raise RuntimeError('please choose Criterion')
         #for folder naming
-        if args.dropout:
-            model_directory = model_directory[:-1] +"Dropout/" 
+        #if args.dropout:
+        #    model_directory = model_directory[:-1] +"Dropout/" 
         
         if args.pretrained:
             
@@ -79,27 +89,16 @@ def main():
                 {'params': without_lastlayer},
                 {'params': last_param, 'lr': 1e-3}
             ], lr=1e-2)
-            #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_directory, device ,  num_epochs=num_epochs ,uncertainty= False)
-            val_acc_hist = eval_model(model, dataloaders["val"],model_directory ,device, num_classes=10)
-            #also plot for that
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
-
-            # saves the histogramms 
-            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1, model_directory)
-
+            
+            doing()
         # pretrained = false
         else: #(theoretisch auch optimizer parsen) aber brauche ich noch nicht
             optimizer = Adam(model.parameters())
+            
+            doing()
+    #elif args.eval:
 
-            #train # vielleicht noch um uncertainty erweitern
-            train_acc_hist, train_loss_hist , train_evidence_hist = train_model(model, dataloaders["train"], criterion, optimizer, model_dircetory, device , num_epochs = num_epochs, uncertainty= False)
-            val_acc_hist = eval_model(model, dataloaders["val"], model_directory, device, num_classes=10)
-            val_acc_hist1 = eval_model(model, dataloaders["TESTCIFAR100"],model_directory ,device, num_classes=100)
-
-            # saves the histogramms 
-            save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist, model_directory)
-
+            #val_acc_hist = eval_model(model, dataloaders["TESTCIFAR90"], model_directory, device, num_classes=10)
 
 
 if __name__ == "__main__":

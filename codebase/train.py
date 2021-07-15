@@ -6,7 +6,6 @@ from losses import relu_evidence
 from helpers import one_hot_embedding , calculate_evidence
 
 
-
 def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
@@ -53,7 +52,6 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
                 ############## evidence calculations ##########################
                 # U = uncertainty ?
                 u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
-                
             
             #without uncertainty
             else:
@@ -64,6 +62,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
                 ############## evidence calculations ##########################
                 # U = uncertainty ?
                 u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
+                
             # backward
             loss.backward()
             optimizer.step()
@@ -78,7 +77,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
         epoch_evidence1 =  mean_evidence #total_evidence , ean_evidence_succ ,mean_evidence_fail
 
         ###me 
-        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} Evidence_mean: {:.4f} '.format(epoch_loss, epoch_acc,u.item() ,epoch_evidence1.item()))
+        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} Evidence_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item() ,epoch_evidence1.item()))
         #### herausfinden wie ich uncertainty bekomme und was unterschied zu evidenze ist ???#####
         
         if epoch_acc > best_acc:

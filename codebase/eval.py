@@ -8,15 +8,15 @@ import os
 from losses import relu_evidence
 from helpers import calculate_evidence
 
-def eval_model(model, dataloaders, model_directory, device, num_classes =10):
+def eval_model(model, dataloaders, model_directory, device, num_classes):
     since = time.time()
     
     acc_history = []
     best_acc = 0.0
-    best_evidence = 0.0
-
-    best_model = copy.deepcopy(model.state_dict())
-
+    best_uncertainty = 1.0
+    
+    best_model_byAcc = copy.deepcopy(model.state_dict())
+    best_model_byUncertainty = copy.deepcopy(model.state_dict())
     directory = './results/models/' + model_directory
     
     if not os.path.exists(directory):
@@ -34,7 +34,16 @@ def eval_model(model, dataloaders, model_directory, device, num_classes =10):
         model.to(device)
 
         running_corrects = 0
+        falsePositiv =0
+        truePositiv =0
+        flaseNegativ =0
+        trueNegativ =0
 
+        classifiedCorrectFN = 0
+        classifiedFalseFN   = 0
+        
+        wasBestModel_byAcc = False
+        wasBestModel_byUncertainy = False
         # Iterate over data.
         for inputs, labels in dataloaders:
             inputs = inputs.to(device)
@@ -45,36 +54,81 @@ def eval_model(model, dataloaders, model_directory, device, num_classes =10):
 
             _, preds = torch.max(outputs, 1)
             running_corrects += torch.sum(preds == labels.data)
+            
+            
             ############## evidence calculations ##########################
             # U = uncertainty ?
             u, mean_evidence , mean_evidence_succ , mean_evidence_succ = calculate_evidence(preds, labels, outputs, num_classes)
+            
+            epoch_acc = running_corrects.double() / len(dataloaders.dataset)
+            epoch_uncertainty = u 
+            
+            if epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_byAcc = copy.deepcopy(model.state_dict())
+                wasBestModel_byAcc = True
+
+            if epoch_uncertainty < best_uncertainty:
+                best_uncertainty = epoch_uncertainty
+                best_model_byUncertainty = copy.deepcopy(model.state_dict())
+                wasBestModel_byUncertainy = True
+            ##UCERTAINTY IGNORE:::
+            
+            ignoreThreshold =0.4
+            #TN: Uncertainty tells us the sample is not a Target and it is Correct
+            #FP: Uncertainty tells us the sample is  a Target and it is False
+            #FN: Uncertainty tells us the sample is  not a Target and it is Correct
+            #TP: Uncertainty tells us the sample is a Target and it is Correct
+           
+            for x, label in enumerate(labels):
+                
+                if u.item() >= ignoreThreshold and label.item() <= 9: 
+                    flaseNegativ += 1
+                    
+                    if preds[x] == labels.data[x]:
+                        classifiedCorrectFN +=1# but rejected
+                    else:
+                        classifiedFalseFN +=1 # but rejected
+
+                if u.item() <ignoreThreshold and label.item()  <= 9: 
+                    truePositiv += 1
+                if u.item() >= ignoreThreshold and label.item() > 9:
+                    trueNegativ += 1
+                if u.item() <ignoreThreshold and label.item() > 9:
+                    falsePositiv += 1
         
-        epoch_acc = running_corrects.double() / len(dataloaders.dataset)
-        epoch_evidence1 = mean_evidence 
-        print('Acc: {:.4f}'.format(epoch_acc))
-        print('Evidence: {:.4f}'.format(epoch_evidence1))
-        print('Uncertainty {:.4f}'.format(u))
+        if wasBestModel_byAcc:
+                print("\nBestModel_byAcc ..so far RESULTS: \n")
+        if wasBestModel_byUncertainy:
+                print("\nBestModel_byUncertainty ..so far  RESULTS: \n")
+        
+        if wasBestModel_byAcc or wasBestModel_byUncertainy:
 
-        if epoch_acc > best_acc:
-            best_acc = epoch_acc
-            best_model = copy.deepcopy(model.state_dict())
-
-        if epoch_evidence1 > best_evidence:
-            best_evidence = epoch_evidence1
-
+            print("Results for this epoch: " ) 
+            print('Acc: {:.4f}'.format(epoch_acc))
+            print('Uncertainty: ' + str(u.item()))
+            print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
+            print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
+            print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
+       
         acc_history.append(epoch_acc.item())
         #evidence history ???
         
         print()
     
-    torch.save(model.state_dict(), os.path.join(directory , 'bestmodel.pth'))
-    print(f"Saved the best model after eval" + directory + 'best_model.pth')
+    torch.save(best_model_byAcc, os.path.join(directory , 'bestmodel_byAcc.pth'))
+    print(f"Saved the best model by Accuracy after eval" + directory + 'best_model_byAcc.pth \n')
 
+    torch.save(best_model_byUncertainty, os.path.join(directory , 'best_model_byUncertainty.pth'))
+    print(f"Saved the best model by Uncertainty after eval" + directory + 'best_model_byUncertainty.pth \n')
+    print('Best Acc: {:4f} Best uncertainty: {:4f} \n'.format(best_acc , best_uncertainty))
+    
     time_elapsed = time.time() - since
     print('Validation complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
-    print('Best Acc: {:4f} Best Evidenz: {:4f}'.format(best_acc , best_evidence))
     
     return acc_history # evidenz/uncertainty history ?
+
+
 
 def save_Plot(train_loss_hist,train_evidence_hist,val_acc_hist,val_acc_hist1 , model_directory):
     
