@@ -54,7 +54,7 @@ train_dataset , val_dataset = split_data(dataset_W)
 train_dataloader_W = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 val_dataloader_W = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
-dataloaders = {
+OFFICE_dataloaders = {
     "train_A": train_dataloader_A,
     "val_A": val_dataloader_A,
 

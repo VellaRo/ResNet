@@ -7,7 +7,8 @@ import argparse
 
 from helpers import get_device
 from train import train_model
-from data import dataloaders
+from cifarData import CIFAR_dataloaders
+from officeData import OFFICE_dataloaders 
 from eval import eval_model, save_Plot
 
 
@@ -28,10 +29,10 @@ def main():
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
 
     # TODO:
-    # RENAME DATALOADER CIFAR
-    # ADD DATALOADER OFFICE
-    # 
-    def testUncertaintyLoss(criterion ,uncertainty = True,train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes = 10):
+    # class of dataloder?? put all in one big dataloader?
+    
+    
+    def testUncertaintyLoss(criterion ,uncertainty = True,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
         """
         Does training and evaluation on a Dataset
         """
@@ -59,11 +60,11 @@ def main():
         Evaluates on CIFAR100
         """
         if train:
-            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, dataloaders["CIFAR10_TRAIN"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold =ignoreThreshold)
+            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, CIFAR_dataloaders["CIFAR10_TRAIN"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold =ignoreThreshold)
         
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR90_TEST"],model_directory ,device, num_classes=90, calculate_confusion_Matrix=True)
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR100_TEST"],model_directory ,device, num_classes=100, calculate_confusion_Matrix=True)
-        val_acc_hist, uncertainty_history = eval_model(model, dataloaders["CIFAR10_TEST"],model_directory ,device, num_classes=10, calculate_confusion_Matrix=True)
+        val_acc_hist, uncertainty_history = eval_model(model, CIFAR_dataloaders["CIFAR90_TEST"],model_directory ,device, num_classes=90, calculate_confusion_Matrix=True)
+        val_acc_hist, uncertainty_history = eval_model(model, CIFAR_dataloaders["CIFAR100_TEST"],model_directory ,device, num_classes=100, calculate_confusion_Matrix=True)
+        val_acc_hist, uncertainty_history = eval_model(model, CIFAR_dataloaders["CIFAR10_TEST"],model_directory ,device, num_classes=10, calculate_confusion_Matrix=True)
 
         # saves the histogramms 
         #save_Plot(train_loss_hist,train_uncertainty_hist, val_acc_hist, val_acc_hist1, model_directory)
