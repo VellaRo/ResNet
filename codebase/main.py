@@ -15,32 +15,18 @@ from losses import edl_digamma_loss , edl_mse_loss , edl_log_loss
 
 def main():
     """
-    Example for running : python main.py --crossEntropy
-    must have: 
-    can have: 
-              --pretrained (trained on a model with pretrained weights) # Default pretrained = False
-              --uncertrainty (when using an uncertaintyLoss)            # Default uncertainty =False
-                    (Example: --mse //NOT INPLEMENTET YET) 
-              --epochs (how may epochs for training)                    # Default epochs = 25
-              --$LOSS (specifiy Loss Example : --crossEntropy)          # Default --crossEntropy
+    
     """
     # global
     device = get_device()
     
-    #########EXPERIMENTS#################
     
-    ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
-
     # TODO:
-    # class of dataloder?? put all in one big dataloader?
-    
-    # Test if testUncertaintyLoss saves with right directory name
+    # class of dataloder| put all in one big dataloader| add dataloader.num_classes ?
     
     # eval a single Model (Method) | repeat thresholexpreiment with models trained on uncertainty? |
-    # add TrainOffice and  evalOffice(experiment)
-    # test once more | train and eval ignoreThreshold see if name is right
     
-    # make Datasets interchanable in the methods 
+    ###### INIT MODELS #######
     
     def resnet18Init(num_train_classes, pretrained =False):
         model = models.resnet18(pretrained=pretrained)
@@ -52,7 +38,7 @@ def main():
       
             all_parameters = list(model.parameters())
             #we want last layer to have a faster learningrate 
-            without_lastlayer =all_parameters[0: len(all_parameters) -2] # -2 weil einmal weiht und einmal Bias vom layer
+            without_lastlayer =all_parameters[0: len(all_parameters) -2] # -2 because weight and Bias of the layer
             #so we extract it
             last_param = model.fc.parameters()
             
@@ -67,12 +53,16 @@ def main():
         
         return model, optimizer
 
-    def TESTunifiedExperimentMethod(model, train_dataloader, num_train_classes, test_dataloader, num_test_classes , criterion_name, optimizer, train=False, pretrained =False, num_epochs=25, ingnoreThreshold = -0.1, uncertainty =False):
+#########EXPERIMENTS#################
+    
+    ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
+
+    def TESTunifiedExperimentMethod(model, criterion_name, optimizer, train_dataloader=None, num_train_classes=0, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False):
 
         ## Set Model directory:
-        model_directory = str(model.name) +"/" # ka ob das funktioniert
+        model_directory = str(model.name) +"/"
 
-        model_directory = model_directory[:-1] + train_dataloader.name + "/"
+        model_directory = model_directory[:-1] + test_dataloader.name[:-5] + "/"
         
         model_directory = model_directory[:-1] + criterion_name+ "/"
 
@@ -82,17 +72,14 @@ def main():
 
         #Uncertainty Criterions
         elif criterion_name == "edl_digamma":
-            model_directory = "Edl_DigammaLoss/"
             criterion = edl_digamma_loss
             uncertainty =True
 
         elif criterion_name == "edl_log":
-            model_directory = "Edl_LogLoss/"
             criterion = edl_log_loss
             uncertainty =True
         
         elif criterion_name == "edl_mse":
-            model_directory = "Edl_Mse_Loss/"
             criterion = edl_mse_loss
             uncertainty =True
         else:
@@ -112,80 +99,11 @@ def main():
             calculate_confusion_Matrix = True
             val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=calculate_confusion_Matrix)
 
-
-
-    
-    #def trainEvalDataset(train =false,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
-    #    """
-    #    Trains and evals the Dataset
-    #    """
-    #    if train:
-    #        train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= False)
-    #        print("\ntraining: " str(train_dataloader)+" \n")
-    #    
-    #    print("\nevaluating on: " str(test_dataloader)+" \n")
-    #    val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes=num_test_classes)7
-#
-    #    print("DONE with train Eval Dataset ")
-#
-    #def testUncertaintyLoss(criterion_name ,uncertainty = True,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
-    #    """
-    #    Does training and evaluation on a Dataset
-    #    """
-    #    if criterion_name == "edl_digamma":
-    #        model_directory = "Edl_DigammaLoss/"
-    #        criterion = edl_digamma_loss
-    #    elif criterion_name == "edl_log":
-    #        model_directory = "Edl_LogLoss/"
-    #        criterion = edl_log_loss
-    #    elif criterion_name == "edl_mse":
-    #        model_directory = "Edl_Mse_Loss/"
-    #        criterion = edl_mse_loss
-    #    else:
-    #        raise Exception("choose an uncertaintyLoss:  requires \"edl_mse\", \"edl_log\" or \"edl_digamma.\" ")
-    #    
-    #    if args.pretrained:
-    #
-    #    model_directory = model_directory[:-1] +"Pretrained/"  
-#
-    #    train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= True)
-    #    val_acc_hist, uncertainty_history = eval_model(model, test_dataloader , model_directory , device, num_classes=num_test_classes)
-#
-    #    print("\nDone with uncertaintyLoss:"+ criterion_name +"\n")
-#
-#
-    #def testUncertaintyThresholds(ignoreThreshold, train=False, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
-    #    """
-    #    train= true: Trains on train_dataloader with parameters specified with argument (--pretrained, --$loss ...)
-    #    Evaluates on test_dataloder 
-    #    """
-    #    if train:
-    #        train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold = ignoreThreshold)
-    #        print("\ntraining: " str(train_dataloader)+" \n")
-    #    print("\nthreshhold = " +  str(ignoreThreshold) +"evaluation on: "+str(test_dataloader) +"\n")
-#
-    #    val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=True)
-    #    # saves the histogramms 
-    #    #save_Plot(train_loss_hist,train_uncertainty_hist, val_acc_hist, val_acc_hist1, model_directory)
-#
-    #    print("\n Experint: testUncertaintyThresholds with ingnoreThreshold of:"  + str(ignoreThreshold) + "  DONE \n")
-
     def runExperiments():
         """
         Runs Experiments specified
         """
-       # #was okay #testUncertaintyLoss(criterion_name = "edl_log")
-       # #was okay #testUncertaintyLoss(criterion_name = "edl_mse")
-       # #was okay #testUncertaintyLoss(criterion_name = "edl_digamma")
-       # 
-       # #run this again
-#
-       # testUncertaintyThresholds(ignoreThreshold =0.4 , train = True, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"] , num_train_classes=10,test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
-       # testUncertaintyThresholds(ignoreThreshold =0.4 , test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
-#
-       # testUncertaintyLoss(criterion_name = "edl_digamma", train = True, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"] , num_train_classes=10,test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
-#
-#
+        
        # # will save in wrong directory because "default" name is CIFAR need to correct model directory (Eliminate parse arguments ?| make model direktory dynamicaly in experiments-methods?)
        # ##OFFICE
        # ##A
@@ -207,8 +125,14 @@ def main():
        # #testUncertaintyThresholds(ignoreThreshold =0.7 , train = False )
 #       
         #Test normal Train
+        
         model, optimizer =resnet18Init(pretrained = True, num_train_classes = 10) 
-        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ingnoreThreshold = -0.1, uncertainty =False)
+        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = -0.1, uncertainty =False)
+        model, optimizer =resnet18Init(pretrained = False, num_train_classes = 31) 
+        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
+        #still using same modell
+        TESTunifiedExperimentMethod(model, test_dataloader = OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
+
         print("DONE with all expretiments")
 
     # can remove parser after unified Experiment method| because making problem with model directory

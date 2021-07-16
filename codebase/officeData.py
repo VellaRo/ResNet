@@ -63,7 +63,7 @@ OFFICE_test_dataloader_A.name = "OFFICE_A_TEST"
 OFFICE_test_dataloader_D.name = "OFFICE_D_TEST"
 OFFICE_test_dataloader_W.name = "OFFICE_W_TEST"
 
-OFFICE_dataloaders = {-
+OFFICE_dataloaders = {
     "OFFICE_A_TRAIN": OFFICE_train_dataloader_A,
     "OFFICE_A_TEST": OFFICE_test_dataloader_A,
 

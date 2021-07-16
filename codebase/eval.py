@@ -8,7 +8,7 @@ import os
 from losses import relu_evidence
 from helpers import calculate_uncertainty
 
-def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False):
+def eval_model(model, dataloader, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False):
     since = time.time()
     
     acc_history = []
@@ -47,7 +47,7 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
         wasBestModel_byAcc = False
         wasBestModel_byUncertainy = False
         # Iterate over data.
-        for inputs, labels in dataloaders:
+        for inputs, labels in dataloader:
             inputs = inputs.to(device)
             labels = labels.to(device)
 
@@ -59,7 +59,7 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
             
             u = calculate_uncertainty(preds, labels, outputs, num_classes)
             
-            epoch_acc = running_corrects.double() / len(dataloaders.dataset)
+            epoch_acc = running_corrects.double() / len(dataloader.dataset)
             epoch_uncertainty = u.item() 
             
             ##UCERTAINTY IGNORE:::
