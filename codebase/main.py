@@ -23,7 +23,7 @@ def main():
     
     # TODO:
     # class of dataloder| put all in one big dataloader| add dataloader.num_classes ?
-        
+    # describe usage/ methods 
     ###### INIT MODELS #######
     
     def resnet18Init(num_train_classes, pretrained =False):
@@ -91,12 +91,15 @@ def main():
         
         #Do not use ignoreThreshold
         if ignoreThreshold != -0.1:
-            print("\nignoretThreshold: " + str(ignoreThreshold) + "  eval on: " + train_dataloader.name[:-5] + "\n")
-            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes)
+            calculate_confusion_Matrix = True
+            print("\nignoreThreshold: " + str(ignoreThreshold) + "  eval on: " + test_dataloader.name[:-5] + "\n")
+            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=calculate_confusion_Matrix)
+            
         
         else:
-            calculate_confusion_Matrix = True
-            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=calculate_confusion_Matrix)
+            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes)
+            
+
 
     def runExperiments():
         """
@@ -144,7 +147,7 @@ def main():
         defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
         
         print("DONE with all expretiments")
-    
+
     runExperiments()
 
 if __name__ == "__main__":
