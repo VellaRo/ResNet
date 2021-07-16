@@ -47,7 +47,9 @@ def main():
             print("\ntraining: " str(train_dataloader)+" \n")
         
         print("\nevaluating on: " str(test_dataloader)+" \n")
-        val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes=num_test_classes)
+        val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes=num_test_classes)7
+
+        print("DONE with train Eval Dataset ")
 
     def testUncertaintyLoss(criterion_name ,uncertainty = True,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
         """
@@ -89,7 +91,7 @@ def main():
         # saves the histogramms 
         #save_Plot(train_loss_hist,train_uncertainty_hist, val_acc_hist, val_acc_hist1, model_directory)
 
-        print("\n Experint: testUncertaintyThresholds with ingnoreThreshold of:"  + str(ignoreThreshold) + "DONE \n")
+        print("\n Experint: testUncertaintyThresholds with ingnoreThreshold of:"  + str(ignoreThreshold) + "  DONE \n")
 
     def runExperiments():
         """
@@ -127,7 +129,7 @@ def main():
 
         print("DONE with all expretiments")
 
-           
+    #get modelDirectory over parse Arguments and sets Requirements
     parser = argparse.ArgumentParser() 
     parser.add_argument("--epochs", default=25, type=int,
                         help="Desired number of epochs.")
