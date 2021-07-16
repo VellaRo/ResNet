@@ -57,12 +57,12 @@ def main():
     
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
 
-    def TESTunifiedExperimentMethod(model, criterion_name, optimizer, train_dataloader=None, num_train_classes=0, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False):
+    def TESTunifiedExperimentMethod(model, criterion_name, optimizer, train_dataloader, num_train_classes, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False):
 
         ## Set Model directory:
         model_directory = str(model.name) +"/"
 
-        model_directory = model_directory[:-1] + test_dataloader.name[:-5] + "/"
+        model_directory = model_directory[:-1] + train_dataloader.name[:-5] + "/"
         
         model_directory = model_directory[:-1] + criterion_name+ "/"
 
@@ -103,7 +103,7 @@ def main():
         """
         Runs Experiments specified
         """
-        
+
        # # will save in wrong directory because "default" name is CIFAR need to correct model directory (Eliminate parse arguments ?| make model direktory dynamicaly in experiments-methods?)
        # ##OFFICE
        # ##A
@@ -126,12 +126,12 @@ def main():
 #       
         #Test normal Train
         
-        model, optimizer =resnet18Init(pretrained = True, num_train_classes = 10) 
-        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = -0.1, uncertainty =False)
+        #model, optimizer =resnet18Init(pretrained = True, num_train_classes = 10) 
+        #TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = -0.1, uncertainty =False)
         model, optimizer =resnet18Init(pretrained = False, num_train_classes = 31) 
-        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
-        #still using same modell
-        TESTunifiedExperimentMethod(model, test_dataloader = OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
+       # TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
+       # #still using same modell
+        TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
 
         print("DONE with all expretiments")
 
