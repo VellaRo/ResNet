@@ -55,7 +55,10 @@ class_labels_list = [0,1,2,3,4,5,6,7,8,9]
 idx = get_indices(testCifar90, class_labels_list)
 testloaderCIFAR90 = torch.utils.data.DataLoader(testCifar90,batch_size=batch_size, sampler = torch.utils.data.sampler.SubsetRandomSampler(idx))
 
-
+trainloaderCIFAR10.name = "CIFAR10_TRAIN"
+testloaderCIFAR10.name = "CIFAR10_TEST"
+testloaderCIFAR90.name = "CIFAR90_TEST"
+testloaderCIFAR100.name = "CIFAR100_TEST"
 CIFAR_dataloaders = {
     "CIFAR10_TRAIN": trainloaderCIFAR10,
     "CIFAR10_TEST": testloaderCIFAR10,

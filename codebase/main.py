@@ -72,10 +72,9 @@ def main():
         ## Set Model directory:
         model_directory = str(model.name) +"/" # ka ob das funktioniert
 
-        model_directory = model_directory[:-1] + str(train_dataloader)+ "/"
-        print("DEBUG")
-        print(str(train_dataloader))
-        model_directory = model_directory[:-1] + str(criterion_name)+ "/"
+        model_directory = model_directory[:-1] + train_dataloader.name + "/"
+        
+        model_directory = model_directory[:-1] + criterion_name+ "/"
 
         ### CRITERIONS ###
         if criterion_name =="crossEntropy":
