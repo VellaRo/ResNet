@@ -25,42 +25,42 @@ dataset_W = datasets.ImageFolder(path_W, transform = transform)
 
 def split_data(dataset):  
     train_idx =[]
-    val_idx = []
+    test_idx = []
     for x,data in enumerate(dataset):
         if randrange(4) == 0:
-            val_idx.append(x)
+            test_idx.append(x)
         else:
             train_idx.append(x)
     train_dataset = Subset(dataset, train_idx)
-    val_dataset = Subset(dataset, val_idx)
-    return train_dataset , val_dataset
+    test_dataset = Subset(dataset, test_idx)
+    return train_dataset , test_dataset
     
 ################## A
 
-train_dataset , val_dataset = split_data(dataset_A)
+train_dataset , test_dataset = split_data(dataset_A)
 
 train_dataloader_A = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-val_dataloader_A = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+test_dataloader_A = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 ################## D
-train_dataset , val_dataset = split_data(dataset_D)
+train_dataset , test_dataset = split_data(dataset_D)
 
 train_dataloader_D = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-val_dataloader_D = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+test_dataloader_D = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 ################## W
-train_dataset , val_dataset = split_data(dataset_W)
+train_dataset , test_dataset = split_data(dataset_W)
 
 train_dataloader_W = torch.utils.data.DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-val_dataloader_W = torch.utils.data.DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
+test_dataloader_W = torch.utils.data.DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
 OFFICE_dataloaders = {
-    "train_A": train_dataloader_A,
-    "val_A": val_dataloader_A,
+    "OFFICE_A_TRAIN": train_dataloader_A,
+    "OFFICE_A_TEST": test_dataloader_A,
 
-    "train_D": train_dataloader_D,
-    "val_D": val_dataloader_D,
+    "OFFICE_D_TRAIN": train_dataloader_D,
+    "OFFICE_D_TEST": test_dataloader_D,
     
-    "train_W": train_dataloader_W,
-    "val_W": val_dataloader_W,
+    "OFFICE_W_TRAIN": train_dataloader_W,
+    "OFFICE_W_TEST": test_dataloader_W,
 }

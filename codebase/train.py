@@ -6,7 +6,7 @@ from losses import relu_evidence
 from helpers import one_hot_embedding , calculate_uncertainty
 
 
-def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 1, is_train=True, uncertainty=False):
+def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 25, uncertainty=False, ignoreThreshold = 0.5):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -85,7 +85,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
         loss_history.append(epoch_loss)
         uncertainty_history.append(epoch_uncertainty)
 
-        # speichert jede Epoche
+        #saves each Eopch 
         torch.save(model.state_dict(), os.path.join(directory, '{0:0=2d}.pth'.format(epoch)))
         print(f"Saved: " + directory + '{0:0=2d}.pth'.format(epoch))
         print()

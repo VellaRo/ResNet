@@ -26,7 +26,8 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
     saved_models = glob.glob(directory + '*.pth')
     saved_models.sort()
     print('saved_model', saved_models)
-
+    
+    # goes through all Epochs to find best model after evaluation | best moddel training != best model eval
     for model_path in saved_models:
         print('Loading model', model_path)
 
@@ -60,7 +61,6 @@ def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreT
             
             epoch_acc = running_corrects.double() / len(dataloaders.dataset)
             epoch_uncertainty = u.item() 
-            
             
             ##UCERTAINTY IGNORE:::
             

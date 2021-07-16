@@ -30,10 +30,25 @@ def main():
 
     # TODO:
     # class of dataloder?? put all in one big dataloader?
-    # Test if testUncertaintyLoss works as intended
-    # (changes were made ) test if testUncertaintyThresholds still works
     
+    # Test if testUncertaintyLoss saves with right directory name
     
+    # eval a single Model (Method) | repeat thresholexpreiment with models trained on uncertainty? |
+    # add TrainOffice and  evalOffice(experiment)
+    # test once more | train and eval ignoreThreshold see if name is right
+    
+    # make Datasets interchanable in the methods 
+    def trainEvalDataset(train =false,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
+        """
+        Trains and evals the Dataset
+        """
+        if train:
+            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= False)
+            print("\ntraining: " str(train_dataloader)+" \n")
+        
+        print("\nevaluating on: " str(test_dataloader)+" \n")
+        val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes=num_test_classes)
+
     def testUncertaintyLoss(criterion_name ,uncertainty = True,train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
         """
         Does training and evaluation on a Dataset
@@ -45,34 +60,32 @@ def main():
             model_directory = "Edl_LogLoss/"
             criterion = edl_log_loss
         elif criterion_name == "edl_mse":
-            model_directory == "Edl_Mse_Loss/"
+            model_directory = "Edl_Mse_Loss/"
             criterion = edl_mse_loss
         else:
-            raise Exception("choose an uncertaintyLoss:  requires \"mse\", \"log\" or \"digamma.\" ")
-                
+            raise Exception("choose an uncertaintyLoss:  requires \"edl_mse\", \"edl_log\" or \"edl_digamma.\" ")
         
+        if args.pretrained:
+    
+        model_directory = model_directory[:-1] +"Pretrained/"  
+
         train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= True)
         val_acc_hist, uncertainty_history = eval_model(model, test_dataloader , model_directory , device, num_classes=num_test_classes)
 
         print("\nDone with uncertaintyLoss:"+ criterion_name +"\n")
 
 
-    def testUncertaintyThresholds(ignoreThreshold, train=False):
+    def testUncertaintyThresholds(ignoreThreshold, train=False, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10):
         """
-        train= true: Trains Resnet with parameters specified with argument (--pretrained, --$loss ...)
-        Evaluates on CIFAR10
-        Evaluates on CIFAR90
-        Evaluates on CIFAR100
+        train= true: Trains on train_dataloader with parameters specified with argument (--pretrained, --$loss ...)
+        Evaluates on test_dataloder 
         """
         if train:
-            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, CIFAR_dataloaders["CIFAR10_TRAIN"], criterion, optimizer, model_directory, device , num_classes =10,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold =ignoreThreshold)
-        
-        print("\n" +  str(ignoreThreshold) +"\n")
+            train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, criterion, optimizer, model_directory, device , num_classes =num_train_classes,  num_epochs=num_epochs ,uncertainty= False, ignoreThreshold = ignoreThreshold)
+            print("\ntraining: " str(train_dataloader)+" \n")
+        print("\nthreshhold = " +  str(ignoreThreshold) +"evaluation on: "+str(test_dataloader) +"\n")
 
-        val_acc_hist, uncertainty_histry = eval_model(model, CIFAR_dataloaders["CIFAR90_TEST"], model_directory ,device, num_classes=90, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=True)
-        val_acc_hist, uncertainty_hisory = eval_model(model, CIFAR_dataloaders["CIFAR100_TEST"], model_directory ,device, num_classes=100, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=True)
-        val_acc_hist, uncertainty_hisory = eval_model(model, CIFAR_dataloaders["CIFAR10_TEST"], model_directory ,device, num_classes=10,  ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=True)
-
+        val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=True)
         # saves the histogramms 
         #save_Plot(train_loss_hist,train_uncertainty_hist, val_acc_hist, val_acc_hist1, model_directory)
 
@@ -82,37 +95,46 @@ def main():
         """
         Runs Experiments specified
         """
-        testUncertaintyLoss(criterion_name = "edl_log")
-        testUncertaintyLoss(criterion_name = "mse")
-        testUncertaintyLoss(criterion_name = "edl_digamma")
+        #was okay #testUncertaintyLoss(criterion_name = "edl_log")
+        #was okay #testUncertaintyLoss(criterion_name = "edl_mse")
+        #was okay #testUncertaintyLoss(criterion_name = "edl_digamma")
         
-        CIFAR10_eval_on_CIFAR100(ignoreThreshold =0.4 , train = True )
-        CIFAR10_eval_on_CIFAR100(ignoreThreshold =0.45, train = False )
-        CIFAR10_eval_on_CIFAR100(ignoreThreshold =0.5 , train = False )
-        CIFAR10_eval_on_CIFAR100(ignoreThreshold =0.6 , train = False )
-        CIFAR10_eval_on_CIFAR100(ignoreThreshold =0.7 , train = False )
+        #run this again
+
+        testUncertaintyThresholds(ignoreThreshold =0.4 , train = True, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"] , num_train_classes=10,test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
+        testUncertaintyThresholds(ignoreThreshold =0.4 , test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
+
+        testUncertaintyLoss(criterion_name = "edl_digamma", train = True, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"] , num_train_classes=10,test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes =10)
+
+        #OFFICE
+        #A
+        trainEvalDataset(train =True, train_dataloader=OFFICE_dataloaders["OFFICE_A_TAIN"], num_train_classes =31, test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes = 31)
+        #D
+        trainEvalDataset(train =True, train_dataloader=OFFICE_dataloaders["OFFICE_D_TAIN"], num_train_classes =31, test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes = 31)
+        #W
+        trainEvalDataset(train =True, train_dataloader=OFFICE_dataloaders["OFFICE_W_TAIN"], num_train_classes =31, test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31)
+        trainEvalDataset(test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes = 31)
+        
+        #testUncertaintyThresholds(ignoreThreshold =0.45, train = False )
+        #testUncertaintyThresholds(ignoreThreshold =0.5 , train = False )
+        #testUncertaintyThresholds(ignoreThreshold =0.6 , train = False )
+        #testUncertaintyThresholds(ignoreThreshold =0.7 , train = False )
 
         print("DONE with all expretiments")
 
            
-    parser = argparse.ArgumentParser() # easy commandline | options 
+    parser = argparse.ArgumentParser() 
     parser.add_argument("--epochs", default=25, type=int,
                         help="Desired number of epochs.")
     parser.add_argument("--pretrained", default=False, action="store_true",
                         help="Use a pretrained model.")
-    #parser.add_argument("--uncertainty",default=False , action="store_true",
-    #                    help="Use uncertainty or not.")
     parser.add_argument("--crossEntropy", default=False ,action="store_true",
                         help="Sets loss function to Cross entropy Loss.")                        
-
-    #uncertainty_type_group = parser.add_mutually_exclusive_group()
-    #uncertainty_type_group.add_argument("--mse", action="store_true",
-    #                                    help="Set this argument when using uncertainty. Sets loss function to Expected Mean Square Error.")
-    #uncertainty_type_group.add_argument("--digamma", action="store_true",
-    #                                    help="Set this argument when using uncertainty. Sets loss function to Expected Cross Entropy.")
-    #uncertainty_type_group.add_argument("--log", action="store_true",
-    #                                    help="Set this argument when using uncertainty. Sets loss function to Negative Log of the Expected Likelihood.")
-
     args = parser.parse_args()
     ### Model Parameters
     
@@ -134,11 +156,8 @@ def main():
     #elif args.otherCriteron:
         #criterion = otherCriterion()
 
-    #DEFAULT
-    else: 
-       # Where the model will be saved
-        model_directory = "CrossEntropyLoss/"
-        criterion = nn.CrossEntropyLoss()
+    else:
+            raise Exception("choose an Loss:")
 
     if args.pretrained:
     
