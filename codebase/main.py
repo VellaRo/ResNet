@@ -95,7 +95,6 @@ def main():
             print("\nignoreThreshold: " + str(ignoreThreshold) + "  eval on: " + test_dataloader.name[:-5] + "\n")
             val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=calculate_confusion_Matrix)
             
-        
         else:
             val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes)
             
