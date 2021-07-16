@@ -17,17 +17,17 @@ batch_size = 100
 
 #0 airplane #1 automobile #2 bird #3 cat #4 deer #5 dog #6 frog #7 horse #8 ship #9 truck
 
-trainset = torchvision.datasets.CIFAR10(root='./data', train=True,
+trainsetCIFAR10 = torchvision.datasets.CIFAR10(root='./data', train=True,
                                         download=True, transform=transform)
 
 
-testset = torchvision.datasets.CIFAR10(root='./data', train=False,
+testsetCIFAR10 = torchvision.datasets.CIFAR10(root='./data', train=False,
                                        download=True, transform=transform)
 
-trainloader = torch.utils.data.DataLoader(trainset, batch_size=batch_size,
+trainloaderCIFAR10 = torch.utils.data.DataLoader(trainsetCIFAR10, batch_size=batch_size,
                                           shuffle=True, num_workers=2)
 
-testloader = torch.utils.data.DataLoader(testset, batch_size=batch_size,
+testloaderCIFAR10 = torch.utils.data.DataLoader(testsetCIFAR10, batch_size=batch_size,
                                          shuffle=False, num_workers=2)
 
 # CIFAR100
@@ -57,8 +57,9 @@ testloaderCIFAR90 = torch.utils.data.DataLoader(testCifar90,batch_size=batch_siz
 
 
 CIFAR_dataloaders = {
-    "CIFAR10_TRAIN": trainloader,
-    "CIFAR10_TEST": testloader,
+    "CIFAR10_TRAIN": trainloaderCIFAR10,
+    "CIFAR10_TEST": testloaderCIFAR10,
     "CIFAR100_TEST" : testloaderCIFAR100,
     "CIFAR90_TEST" : testloaderCIFAR90
 }
+

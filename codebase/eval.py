@@ -8,7 +8,7 @@ import os
 from losses import relu_evidence
 from helpers import calculate_uncertainty
 
-def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreThreshold = 0.5, calculate_confusion_Matrix= False):
+def eval_model(model, dataloaders, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False):
     since = time.time()
     
     acc_history = []

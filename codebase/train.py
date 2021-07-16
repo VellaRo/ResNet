@@ -6,7 +6,7 @@ from losses import relu_evidence
 from helpers import one_hot_embedding , calculate_uncertainty
 
 
-def train_model(model, dataloaders, criterion, optimizer, model_directory ,device, num_classes = 10, num_epochs= 25, uncertainty=False, ignoreThreshold = 0.5):
+def train_model(model, dataloader, num_classes , criterion, optimizer, model_directory ,device, num_epochs= 25, uncertainty=False):
     print("im using:" + str(device)) # see if using GPU cuda
 
     since = time.time()
@@ -29,7 +29,7 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
         running_corrects = 0
 
         # Iterate over data.
-        for inputs, labels in dataloaders:
+        for inputs, labels in dataloader:
             inputs = inputs.to(device)
             labels = labels.to(device)
             model.to(device)
@@ -67,8 +67,8 @@ def train_model(model, dataloaders, criterion, optimizer, model_directory ,devic
             running_loss += loss.item() * inputs.size(0)
             running_corrects += torch.sum(preds == labels.data)
 
-        epoch_loss = running_loss / len(dataloaders.dataset)
-        epoch_acc = running_corrects.double() / len(dataloaders.dataset)
+        epoch_loss = running_loss / len(dataloader.dataset)
+        epoch_acc = running_corrects.double() / len(dataloader.dataset)
         epoch_uncertainty = u.item() 
 
          
