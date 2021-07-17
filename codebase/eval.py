@@ -4,7 +4,7 @@ import copy
 import torch
 from matplotlib import pyplot as plt
 import os
-
+from main import  resnet18Init
 from losses import relu_evidence
 from helpers import calculate_uncertainty
 
@@ -26,9 +26,10 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
     saved_models = glob.glob(directory + '*.pth')
     saved_models.sort()
     print('saved_model', saved_models)
-    
     def calculate_results():
             running_corrects = 0
+            running_false = 0 # brauche ich das ?
+            
             falsePositiv =0
             truePositiv =0
             flaseNegativ =0
@@ -40,7 +41,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
             wasBestModel_byAcc = False
             wasBestModel_byUncertainy = False
             # Iterate over data.
-            for x ,inputs, labels in enumerate(dataloader):
+            for x ,(inputs,labels) in enumerate(dataloader):
                 inputs = inputs.to(device)
                 labels = labels.to(device)
 
@@ -64,17 +65,19 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
                     counter = 0
                     while counter < len(hierachicalModelPathList) or uncertaintyWasOkay:
                         print("loading Hirachie lvl"+ str(counter))
+                      
                         model.load_state_dict(torch.load(hierachicalModelPathList[counter]))
-                        #### ich glaube ich muss auch durch u iterieren !!!!!!!!!!!!!!!!!!!!!!!!!
+                        ############# !!!!!!!!!!!!!!!!!#################################
+                        #### ich glaube ich muss auch durch u iterieren ja bei rest auch
                         if u[x] < ignoreThreshold:
                             #inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
-                            if pred[x] == label.data:
+                            if preds[x] == labels[x].data:
                                 correctWhileStaySuper += 1
                             else:
                                 falseWhileStaySuper +=1
                             uncertaintyWasOkay = True
                         else:
-                            if pred[x] == label.data:
+                            if preds[x] == labels[x].data:
                                 correctWhileLeaveSuper += 1
                             else:
                                 falseWhileLeaveSuper +=1
@@ -137,7 +140,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
 
             print("Results for this epoch: " ) 
             print('Acc: {:.4f}'.format(epoch_acc))
-            print('Uncertainty: ' + str(u.item()))
+            print('Uncertainty: ' + str(u.mean().item()))
             
             if calculate_confusion_Matrix:
                 print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))

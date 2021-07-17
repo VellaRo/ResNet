@@ -97,7 +97,7 @@ def main():
             val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, ignoreThreshold=ignoreThreshold, calculate_confusion_Matrix=calculate_confusion_Matrix)
             
         else:
-            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes)
+            val_acc_hist, uncertainty_histry = eval_model(model, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierachicalModelPathList =hierachicalModelPathList)
             
 
 
@@ -105,13 +105,19 @@ def main():
         """
         Runs Experiments specified
         """
-        #train coarse Model
+        ##train coarse Model
+        #model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
+        #defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs=1, ignoreThreshold = -0.1)
+       #
+        ##train fine Model
+        #model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
+        #defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs=1, ignoreThreshold = -0.1)
+
+        # define super model
+        # DOES NOT WORK BECAUSE NEED INITIALISED MODEL TO EVAL NEED PASS 2 MODELS | LIST OF MODELS ????
         model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
-        defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=True, pretrained =True, num_epochs=25, ignoreThreshold = -0.1)
-        
-        #train fine Model
-        model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
-        defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs=25, ignoreThreshold = -0.1)
+        hierachicalModelPathList = ["./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
+        defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs=1, ignoreThreshold = -0.1, hierachicalModelPathList = hierachicalModelPathList)
 
         print("DONE with all expretiments")
 

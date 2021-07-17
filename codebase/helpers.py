@@ -29,7 +29,7 @@ def calculate_uncertainty(preds, labels, outputs, num_classes):
     #mean_evidence_fail = torch.sum(
     #torch.sum(evidence, 1, keepdim=True) * (1 - match)) / (torch.sum(torch.abs(1 - match)) + 1e-20)
 
-    return u 
+    return u # , u_mean
 ##### FOR DEBUG 
 
 # Print which layer in the model that will compute the gradient

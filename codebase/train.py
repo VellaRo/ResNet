@@ -69,10 +69,10 @@ def train_model(model, dataloader, num_classes , criterion, optimizer, model_dir
 
         epoch_loss = running_loss / len(dataloader.dataset)
         epoch_acc = running_corrects.double() / len(dataloader.dataset)
-        epoch_uncertainty = u.item() 
+        epoch_uncertainty = u.mean().item() 
 
          
-        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item()))
+        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.mean().item()))
         
         
         if epoch_acc > best_acc:
