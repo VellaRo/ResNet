@@ -5,6 +5,8 @@ import torchvision
 #transform like epretrained model
 from torchvision import transforms
 import numpy as np
+import pickle
+import os
 
 transform = transforms.Compose([            
             transforms.Resize(256),                    
@@ -49,48 +51,63 @@ testloaderCIFAR100 = torch.utils.data.DataLoader(testsetCIFAR100,
 #for item in trainsetCIFAR100:
 #    print(item, type(trainsetCIFAR100[item]))
 
-import pickle
-
-def unpickle(file):
-    with open(file, 'rb') as fo:
-        myDict = pickle.load(fo, encoding='latin1')
-    return myDict
-
-trainData = unpickle('./data/cifar-100-python/train')#type of items in each file
-testData = unpickle('./data/cifar-100-python/test')#type of items in each file
 
 
-labelsCoarse_TRAIN = trainData["coarse_labels"]
-labelsCoarse_TEST = testData["coarse_labels"]
-labelsFine_TRAIN = trainData["fine_labels"]
-labelsFine_TEST = testData["fine_labels"]
-
-dataTrain = trainData["data"]
-dataTest = testData["data"]
-
-
-print(type(dataTest)) # numpy array
-print(dataTest.shape)
-print(len(dataTest[0])) # 10000
-
-dataTest = dataTest.reshape(len(dataTest),3,32,32) #transpose ??? changes order
-dataTrain = dataTrain.reshape(len(dataTrain),3,32,32) 
-
-print(dataTest.shape)
-print(type(dataTest)) 
-print(len(dataTest[0])) 
-#for x in labelsCoarse_TEST:
-#    print(str(labelsCoarse_TEST[x]) +" "+ str(labelsFine_TEST[x])+ "\n")
+#def unpickle(file):
+#    with open(file, 'rb') as fo:
+#        myDict = pickle.load(fo, encoding='latin1')
+#    return myDict
+#
+#trainData = unpickle('./data/cifar-100-python/train')#type of items in each file
+#testData = unpickle('./data/cifar-100-python/test')#type of items in each file
+#
+#
+#labelsCoarse_TRAIN = trainData["coarse_labels"]
+#labelsCoarse_TEST = testData["coarse_labels"]
+#labelsFine_TRAIN = trainData["fine_labels"]
+#labelsFine_TEST = testData["fine_labels"]
+#
+#dataTrain = trainData["data"]
+#dataTest = testData["data"]
+#
+#
+#print(type(dataTest)) # numpy array
+#print(dataTest.shape)
+#print(len(dataTest[0])) # 10000
+#
+#dataTest = dataTest.reshape(len(dataTest),3,32,32) #transpose ??? changes order
+#dataTrain = dataTrain.reshape(len(dataTrain),3,32,32) 
+#
+#print(dataTest.shape)
+#print(type(dataTest)) 
+#print(len(dataTest[0])) 
+##for x in labelsCoarse_TEST:
+##    print(str(labelsCoarse_TEST[x]) +" "+ str(labelsFine_TEST[x])+ "\n")
 
 class DifferentLabelsCIFAR100(Dataset):
-    def __init__(self,  imgData, labels, transform=None):
+    def __init__(self, transform=None ,train= False ,split="coarse_labels"):
                     #root_dir,
-        ##
-        ##DO HERE THE PICKEL STUFF
-        ##
-        self.imgData = imgData
-       #self.root_dir = root_dir
-        self.labels = labels
+        def unpickle(file):
+            with open(file, 'rb') as fo:
+                myDict = pickle.load(fo, encoding='latin1')
+            return myDict
+
+        self.train= train
+        try:
+            if self.train:
+                data = unpickle('./data/cifar-100-python/train')#type of items in each file
+            else:
+                data = unpickle('./data/cifar-100-python/test')
+        except:
+            raise Exception("File not fould at path, check if you have downloaded it")
+        try:
+            #labels
+            self.labels = data[split]
+        except:
+            raise Exception("pls define split (coarse_labels ,fine_labels)")
+        imgData = data["data"]
+        self.imgData = imgData.reshape(len(imgData),3,32,32) 
+    
         self.transform = transform
     
     def __len__(self):
@@ -108,15 +125,18 @@ class DifferentLabelsCIFAR100(Dataset):
             img = self.transform(img)
              
         return img ,class_id
+
+
         
 
-coarseLabel_Dataset_Train = DifferentLabelsCIFAR100(dataTrain, labelsCoarse_TRAIN , transform)
+coarseLabel_Dataset_Train = DifferentLabelsCIFAR100(train= True , transform=transform, split="fine_labels")
 
 trainloaderCIFAR100Coarse = torch.utils.data.DataLoader(coarseLabel_Dataset_Train,            
                             batch_size=batch_size,shuffle=True, num_workers=2)
+
 batch = next(iter(trainloaderCIFAR100Coarse))
 for x in range(len(batch[1])):
-    print(batch[0][x].size())
+    print(batch[1][x])
     
 trainloaderCIFAR10.name = "CIFAR10_TRAIN"
 testloaderCIFAR10.name = "CIFAR10_TEST"
