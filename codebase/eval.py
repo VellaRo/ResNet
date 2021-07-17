@@ -8,7 +8,7 @@ import os
 from losses import relu_evidence
 from helpers import calculate_uncertainty
 
-def eval_model(model, dataloader, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False):
+def eval_model(model, dataloader, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False, hierachicalModelPathList = []):
     since = time.time()
     
     acc_history = []
@@ -34,60 +34,79 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
         model.load_state_dict(torch.load(model_path))
         model.eval()
         model.to(device)
+            ################################### IN EINE METHODE VERLAGERN ################################
+        def calculate_results():
+            running_corrects = 0
+            falsePositiv =0
+            truePositiv =0
+            flaseNegativ =0
+            trueNegativ =0
 
-        running_corrects = 0
-        falsePositiv =0
-        truePositiv =0
-        flaseNegativ =0
-        trueNegativ =0
+            classifiedCorrectFN = 0
+            classifiedFalseFN   = 0
 
-        classifiedCorrectFN = 0
-        classifiedFalseFN   = 0
+            wasBestModel_byAcc = False
+            wasBestModel_byUncertainy = False
+            # Iterate over data.
+            for inputs, labels in dataloader:
+                inputs = inputs.to(device)
+                labels = labels.to(device)
+
+                with torch.no_grad():
+                    outputs = model(inputs)
+
+                _, preds = torch.max(outputs, 1)
+                running_corrects += torch.sum(preds == labels.data)
+                running_false += torch.sum(preds != labels.data)
+                
+                u = calculate_uncertainty(preds, labels, outputs, num_classes)
+
+                epoch_acc = running_corrects.double() / len(dataloader.dataset)
+                epoch_uncertainty = u.item() 
+            return inputs, labels, outputs, preds, running_corrects, running_false, u, epoch_acc, epoch_uncertainty
+            ######TEST#####################################################################
+            
+            
+
+        # es gibt mindestestens 2 Modelle für Hiearchie
+        if len(hierachicalModelPathList) >= 2:
+            uncertaintyWasOkay = False
+            counter = 0
+            while counter < len(hierachicalModelPathList) or uncertaintyWasOkay:
+                print("loading Hirachie lvl"+ str(counter))
+                model.load_state_dict(torch.load(hierachicalModelPathList[counter]))
+                #### ich glaube ich muss auch durch u iterieren !!!!!!!!!!!!!!!!!!!!!!!!!
+                if u < ignoreThreshold:
+                    inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
+                    uncertaintyWasOkay = True
+                else:
+                    counter += 1
         
-        wasBestModel_byAcc = False
-        wasBestModel_byUncertainy = False
-        # Iterate over data.
-        for inputs, labels in dataloader:
-            inputs = inputs.to(device)
-            labels = labels.to(device)
+        ##UCERTAINTY IGNORE::
+        else:
+            inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
 
-            with torch.no_grad():
-                outputs = model(inputs)
-
-            _, preds = torch.max(outputs, 1)
-            running_corrects += torch.sum(preds == labels.data)
-            
-            u = calculate_uncertainty(preds, labels, outputs, num_classes)
-            
-            epoch_acc = running_corrects.double() / len(dataloader.dataset)
-            epoch_uncertainty = u.item() 
-            
-            ##UCERTAINTY IGNORE:::
-            
-            ignoreThreshold = ignoreThreshold
             #TN: Uncertainty tells us the sample is not a Target and it is Correct
             #FP: Uncertainty tells us the sample is  a Target and it is False
             #FN: Uncertainty tells us the sample is  not a Target and it is Correct
             #TP: Uncertainty tells us the sample is a Target and it is Correct
-            
+
+            ####### auch in eine Methode auslagern ???? ###########
             if calculate_confusion_Matrix:
                 for x, label in enumerate(labels):
-
                     if u.item() >= ignoreThreshold and label.item() <= 9: 
                         flaseNegativ += 1
-
                         if preds[x] == labels.data[x]:
                             classifiedCorrectFN +=1# but rejected
                         else:
                             classifiedFalseFN +=1 # but rejected
-
                     if u.item() <ignoreThreshold and label.item()  <= 9: 
                         truePositiv += 1
                     if u.item() >= ignoreThreshold and label.item() > 9:
                         trueNegativ += 1
                     if u.item() <ignoreThreshold and label.item() > 9:
                         falsePositiv += 1
-        
+
         if epoch_acc > best_acc:
             best_acc = epoch_acc
             best_model_byAcc = copy.deepcopy(model.state_dict())

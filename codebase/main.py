@@ -23,7 +23,8 @@ def main():
     
     # TODO:
     # class of dataloder| put all in one big dataloader| add dataloader.num_classes ?
-    # describe usage/ methods 
+    # describe usage/ methods  
+    
     ###### INIT MODELS #######
     
     def resnet18Init(num_train_classes, pretrained =False):
@@ -55,7 +56,7 @@ def main():
     
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
 
-    def defineExperiment(model, criterion_name, optimizer, train_dataloader, num_train_classes, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False):
+    def defineExperiment(model, criterion_name, optimizer, train_dataloader, num_train_classes, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False, hierachicalModelPathList=[]):
 
         ## Set Model directory:
         model_directory = str(model.name) +"/"
@@ -104,47 +105,12 @@ def main():
         """
         Runs Experiments specified
         """
-        #Test normal Train
-        #(this worked)
-        #model, optimizer =resnet18Init(pretrained = True, num_train_classes = 10) 
-        #TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = -0.1, uncertainty =False)
-        #model, optimizer =resnet18Init(pretrained = False, num_train_classes = 31) 
-        #TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
-        ##still using same modell
-        #TESTunifiedExperimentMethod(model ,train=True ,train_dataloader = OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes = 31, test_dataloader = OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes = 31 , criterion_name="edl_mse", optimizer =optimizer, pretrained = True, ignoreThreshold = 0.8)
-    #define model RESNET used
-        model, optimizer =resnet18Init(pretrained = True, num_train_classes = 10) 
-    #eval with threshold 0.4
-        ignoreThreshold = 0.4
-        #Cifar10 | trained = False beacuse alredy trained model in directory
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
-    #eval with threshold 0.45
-        ignoreThreshold = 0.45
-        #Cifar10 | trained = False beacuse alredy trained model in directory
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
-    #eval with threshold 0.5
-        ignoreThreshold = 0.5
-        #Cifar10 | trained = False beacuse alredy trained model in directory
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
-    #eval with threshold 0.6
-        ignoreThreshold = 0.6
-        #Cifar10 | trained = False beacuse alredy trained model in directory
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
-    #eval with threshold 0.7
-        ignoreThreshold = 0.7
-        #Cifar10 | trained = False beacuse alredy trained model in directory
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold = ignoreThreshold, uncertainty =False)
-        defineExperiment(model ,train=False ,train_dataloader = CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes = 10, test_dataloader = CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes = 10 , criterion_name="crossEntropy", optimizer =optimizer, pretrained = True, ignoreThreshold =ignoreThreshold, uncertainty =False)
+        #train coarse Model
+        model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
+        defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=True, pretrained =True, num_epochs=25, ignoreThreshold = -0.1)
         
+        #train fine Model
+        model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
         print("DONE with all expretiments")
 
     runExperiments()
