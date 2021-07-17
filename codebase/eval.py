@@ -27,15 +27,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
     saved_models.sort()
     print('saved_model', saved_models)
     
-    # goes through all Epochs to find best model after evaluation | best moddel training != best model eval
-    for model_path in saved_models:
-        print('Loading model', model_path)
-
-        model.load_state_dict(torch.load(model_path))
-        model.eval()
-        model.to(device)
-            ################################### IN EINE METHODE VERLAGERN ################################
-        def calculate_results():
+    def calculate_results():
             running_corrects = 0
             falsePositiv =0
             truePositiv =0
@@ -48,7 +40,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
             wasBestModel_byAcc = False
             wasBestModel_byUncertainy = False
             # Iterate over data.
-            for inputs, labels in dataloader:
+            for x ,inputs, labels in enumerate(dataloader):
                 inputs = inputs.to(device)
                 labels = labels.to(device)
 
@@ -61,52 +53,71 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
                 
                 u = calculate_uncertainty(preds, labels, outputs, num_classes)
 
-                epoch_acc = running_corrects.double() / len(dataloader.dataset)
-                epoch_uncertainty = u.item() 
-            return inputs, labels, outputs, preds, running_corrects, running_false, u, epoch_acc, epoch_uncertainty
-            ######TEST#####################################################################
-            
-            
+                # es gibt mindestestens 2 Modelle für Hiearchie
+                correctWhileStaySuper  = 0
+                correctWhileLeaveSuper = 0
+                falseWhileStaySuper    = 0
+                falseWhileLeaveSuper   = 0
+                if len(hierachicalModelPathList) >= 2:
+                    uncertaintyWasOkay = False
+                    
+                    counter = 0
+                    while counter < len(hierachicalModelPathList) or uncertaintyWasOkay:
+                        print("loading Hirachie lvl"+ str(counter))
+                        model.load_state_dict(torch.load(hierachicalModelPathList[counter]))
+                        #### ich glaube ich muss auch durch u iterieren !!!!!!!!!!!!!!!!!!!!!!!!!
+                        if u[x] < ignoreThreshold:
+                            #inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
+                            if pred[x] == label.data:
+                                correctWhileStaySuper += 1
+                            else:
+                                falseWhileStaySuper +=1
+                            uncertaintyWasOkay = True
+                        else:
+                            if pred[x] == label.data:
+                                correctWhileLeaveSuper += 1
+                            else:
+                                falseWhileLeaveSuper +=1
+                            counter += 1
 
-        # es gibt mindestestens 2 Modelle für Hiearchie
-        if len(hierachicalModelPathList) >= 2:
-            uncertaintyWasOkay = False
-            counter = 0
-            while counter < len(hierachicalModelPathList) or uncertaintyWasOkay:
-                print("loading Hirachie lvl"+ str(counter))
-                model.load_state_dict(torch.load(hierachicalModelPathList[counter]))
-                #### ich glaube ich muss auch durch u iterieren !!!!!!!!!!!!!!!!!!!!!!!!!
-                if u < ignoreThreshold:
-                    inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
-                    uncertaintyWasOkay = True
-                else:
-                    counter += 1
+                epoch_acc = running_corrects.double() / len(dataloader.dataset)
+                epoch_uncertainty = u.mean().item() 
+            return inputs, labels, outputs, preds, running_corrects, running_false, u, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
+
+    # goes through all Epochs to find best model after evaluation | best moddel training != best model eval
+    for model_path in saved_models:
+        print('Loading model', model_path)
+
+        model.load_state_dict(torch.load(model_path))
+        model.eval()
+        model.to(device)
+            ################################### IN EINE METHODE VERLAGERN ################################
+        inputs, labels, outputs, preds, running_corrects, running_false, u, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
+            ######TEST#####################################################################
+                 
         
         ##UCERTAINTY IGNORE::
-        else:
-            inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
-
             #TN: Uncertainty tells us the sample is not a Target and it is Correct
             #FP: Uncertainty tells us the sample is  a Target and it is False
             #FN: Uncertainty tells us the sample is  not a Target and it is Correct
             #TP: Uncertainty tells us the sample is a Target and it is Correct
 
-            ####### auch in eine Methode auslagern ???? ###########
-            if calculate_confusion_Matrix:
-                for x, label in enumerate(labels):
-                    if u.item() >= ignoreThreshold and label.item() <= 9: 
-                        flaseNegativ += 1
-                        if preds[x] == labels.data[x]:
-                            classifiedCorrectFN +=1# but rejected
-                        else:
-                            classifiedFalseFN +=1 # but rejected
-                    if u.item() <ignoreThreshold and label.item()  <= 9: 
-                        truePositiv += 1
-                    if u.item() >= ignoreThreshold and label.item() > 9:
-                        trueNegativ += 1
-                    if u.item() <ignoreThreshold and label.item() > 9:
-                        falsePositiv += 1
-
+            ####### auch in eine Methode auslagern ???? ########### | adapt u[x] if works
+          #  if calculate_confusion_Matrix:
+          #      for x, label in enumerate(labels):
+          #          if u.item() >= ignoreThreshold and label.item() <= 9: 
+          #              flaseNegativ += 1
+          #              if preds[x] == labels.data[x]:
+          #                  classifiedCorrectFN +=1# but rejected
+          #              else:
+          #                  classifiedFalseFN +=1 # but rejected
+          #          if u.item() <ignoreThreshold and label.item()  <= 9: 
+          #              truePositiv += 1
+          #          if u.item() >= ignoreThreshold and label.item() > 9:
+          #              trueNegativ += 1
+          #          if u.item() <ignoreThreshold and label.item() > 9:
+          #              falsePositiv += 1
+#
         if epoch_acc > best_acc:
             best_acc = epoch_acc
             best_model_byAcc = copy.deepcopy(model.state_dict())
@@ -127,11 +138,14 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
             print("Results for this epoch: " ) 
             print('Acc: {:.4f}'.format(epoch_acc))
             print('Uncertainty: ' + str(u.item()))
+            
             if calculate_confusion_Matrix:
                 print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
                 print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
                 print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
-       
+
+            if len(hierachicalModelPathList) >= 2:
+                print("correctWhileStaySuper: "+ str(correctWhileStaySuper)+ "correctWhileLeaveSuper: " + str(correctWhileLeaveSuper)+ "falseWhileStaySuper: " + str(falseWhileStaySuper) + "falseWhileLeaveSuper" +str(falseWhileLeaveSuper))
         acc_history.append(epoch_acc.item())
         uncertainty_history.append(epoch_uncertainty)
         

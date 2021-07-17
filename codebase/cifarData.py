@@ -1,8 +1,10 @@
 import torch
 import torchvision
 #transform like epretrained model
-from torchvision import transforms
-
+from torchvision import transforms 
+from torch.utils.data import Dataset
+import pickle
+import numpy as np
 # transform
 transform = transforms.Compose([            
             transforms.Resize(256),                    
@@ -138,11 +140,11 @@ CIFAR_dataloaders = {
     "CIFAR10_TRAIN": trainloaderCIFAR10,
     "CIFAR10_TEST": testloaderCIFAR10,
     
-    "CIFAR100_coarse_labels_TRAIN":trainloaderCIFAR100_coarse_labels
-    "CIFAR100_coarse_labels_TEST" : testloaderCIFAR100_coarse_labels
-    "CIFAR100_fine_labels_TRAIN": trainloaderCIFAR100_fine_labels
-    "CIFAR100_fine_labels_TEST" : testloaderCIFAR100_fine_labels
+    "CIFAR100_coarse_labels_TRAIN":trainloaderCIFAR100_coarse_labels,
+    "CIFAR100_coarse_labels_TEST" : testloaderCIFAR100_coarse_labels,
+    "CIFAR100_fine_labels_TRAIN": trainloaderCIFAR100_fine_labels,
+    "CIFAR100_fine_labels_TEST" : testloaderCIFAR100_fine_labels,
     
-    "CIFAR90_TEST" : testloaderCIFAR90
+    "CIFAR90_TEST" : testloaderCIFAR90,
 }
 

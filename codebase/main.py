@@ -111,6 +111,8 @@ def main():
         
         #train fine Model
         model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
+        defineExperiment(model, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs=25, ignoreThreshold = -0.1)
+
         print("DONE with all expretiments")
 
     runExperiments()
