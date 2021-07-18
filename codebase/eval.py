@@ -52,7 +52,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
                 running_corrects += torch.sum(preds == labels.data)
                 running_false += torch.sum(preds != labels.data)
                 
-                u = calculate_uncertainty(preds, labels, outputs, num_classes)
+                u , u_mean = calculate_uncertainty(preds, labels, outputs, num_classes)
 
                 # es gibt mindestestens 2 Modelle für Hiearchie
                 correctWhileStaySuper  = 0
@@ -84,7 +84,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
                             counter += 1
 
                 epoch_acc = running_corrects.double() / len(dataloader.dataset)
-                epoch_uncertainty = u.mean().item() 
+                epoch_uncertainty = u_mean.item() 
             return inputs, labels, outputs, preds, running_corrects, running_false, u, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
 
     # goes through all Epochs to find best model after evaluation | best moddel training != best model eval
@@ -140,7 +140,7 @@ def eval_model(model, dataloader, model_directory, device, num_classes, ignoreTh
 
             print("Results for this epoch: " ) 
             print('Acc: {:.4f}'.format(epoch_acc))
-            print('Uncertainty: ' + str(u.mean().item()))
+            print('Uncertainty: ' + str(u_mean.item()))
             
             if calculate_confusion_Matrix:
                 print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
