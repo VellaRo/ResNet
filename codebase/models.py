@@ -7,6 +7,7 @@ import torchvision.models as models
 def resnet18Init(num_train_classes, pretrained =False):
     model = models.resnet18(pretrained=pretrained)
     model.name = 'ResNet18'
+    model.num_classes = num_train_classes
     # adapt it to our Data
     model.fc = nn.Linear(512, num_train_classes)
     if pretrained:

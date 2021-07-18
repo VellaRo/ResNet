@@ -23,11 +23,10 @@ def main():
     # class of dataloder| put all in one big dataloader| add dataloader.num_classes ?
     # describe usage/ methods  
 
-
 #########EXPERIMENTS#################
     
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
-
+    # da hier in helper ?
     def defineExperiment(modelList, criterion_name, optimizer, train_dataloader, num_train_classes, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, ignoreThreshold = -0.1, uncertainty =False, hierachicalModelPathList = []):
         
         model = modelList[0]
@@ -38,7 +37,7 @@ def main():
         
         model_directory = model_directory[:-1] + criterion_name+ "/"
 
-        ### CRITERIONS ###
+    ### CRITERIONS ###
         if criterion_name =="crossEntropy":
             criterion = nn.CrossEntropyLoss()
 
@@ -80,18 +79,32 @@ def main():
         """
         ##train coarse Model
         
+    #    #as experimend method ? | in einer separten klasse ?
         model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=True, pretrained =True, num_epochs = 1, ignoreThreshold = -0.1)
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs = 25, ignoreThreshold = -0.1)
        
         #train fine Model
         
         model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs = 1, ignoreThreshold = -0.1)
-
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =False, num_epochs =25, ignoreThreshold = -0.1)
+    #as experimend method ? | in einer separten klasse ?
+    #    # define super model
+#try this for coarse because bad eval and high uncertainty even with less classes than fine
+    #as experimend method ? | in einer separten klasse ?
+        model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
+        modelList= [model]
+        defineExperiment(modelList, criterion_name="edl_log", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=True, pretrained =True, num_epochs = 25, ignoreThreshold = -0.1)
+       
+        #train fine Model
+        
+        model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
+        modelList= [model]
+        defineExperiment(modelList, criterion_name="edl_log", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs =25, ignoreThreshold = -0.1)
+    #as experimend method ? | in einer separten klasse ?
         # define super model
-        # DOES NOT WORK BECAUSE NEED INITIALISED MODEL TO EVAL NEED PASS 2 MODELS | LIST OF MODELS ????
+
         modelList =[]
         modelSUPER, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
         modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)

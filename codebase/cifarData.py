@@ -84,7 +84,7 @@ testloaderCIFAR10 = torch.utils.data.DataLoader(testsetCIFAR10, batch_size=batch
 ##KEEP FOR DOWNLOADING DATA
 #testsetCIFAR100 = torchvision.datasets.CIFAR100(root='./data', train=False,download=True, transform=transform)
 #testloaderCIFAR100 = torch.utils.data.DataLoader(testsetCIFAR100,            
- #                           batch_size=batch_size,shuffle=False, num_workers=2)
+#                           batch_size=batch_size,shuffle=False, num_workers=2)
 
 ### Datasets
 trainsetCIFAR100_coarse_labels = DifferentLabelsCIFAR100(train= True, transform=transform, split="coarse_labels")
