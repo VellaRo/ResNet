@@ -15,7 +15,7 @@ transform = transforms.Compose([
             std=[0.229, 0.224, 0.225]                  
             )])
 
-batch_size = 100
+batch_size = 1000
 
 #Custom Datasetclass
     #####DOES NOT PROVIDE A DOWNLOAD##########
