@@ -8,7 +8,7 @@ from losses import relu_evidence
 from models import resnet18Init
 from helpers import calculate_uncertainty
 
-def eval_model(modelList, dataloader, model_directory, device, num_classes, ignoreThreshold = -0.1, calculate_confusion_Matrix= False, hierachicalModelPathList = []):
+def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = []):
     since = time.time()
    
     ### FOR WHOLE EVAL
@@ -31,14 +31,15 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
     #print('saved_model', saved_models)
     def calculate_results():
         
+        calculate_results = False
+
         correctWhileStaySuper  = 0
         correctWhileLeaveSuper = 0
         falseWhileStaySuper    = 0
         falseWhileLeaveSuper   = 0
 
         running_corrects = 0
-        running_false = 0 # brauche ich das ?
-            
+
         falsePositiv =0
         truePositiv =0
         flaseNegativ =0
@@ -54,14 +55,14 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
             inputs = inputs.to(device)
             labels = labels.to(device)
 
-            if len(hierachicalModelPathList) >= 2:
+            if len(hierarchicalModelPathList) >= 2:
 
                 isPredicted = False
                 counter = 0
-                while counter < len(hierachicalModelPathList):
+                while counter < len(hierarchicalModelPathList):
                     if isPredicted:
                         break
-                    modelList[counter].load_state_dict(torch.load(hierachicalModelPathList[counter]))
+                    modelList[counter].load_state_dict(torch.load(hierarchicalModelPathList[counter]))
                     modelList[counter].eval()
                     modelList[counter].to(device)
                     ############# !!!!!!!!!!!!!!!!!#################################
@@ -72,12 +73,11 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
 
                         _, preds = torch.max(outputs, 1)
                         running_corrects += torch.sum(preds == labels.data)
-                        running_false += torch.sum(preds != labels.data)
 
                         u , u_mean = calculate_uncertainty(preds, labels, outputs, modelList[counter].num_classes)
 
                     for x in range(len(labels)):
-                        if u[x] < ignoreThreshold:
+                        if u[x] < uncertaintyThreshold:
                             if preds[x] == labels[x].data:
                                 correctWhileStaySuper += 1
                             else:
@@ -91,7 +91,32 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
                             isPredicted = True
 
                     counter += 1
-        
+
+            elif uncertainty != -0.1:   
+                calculate_confusion_Matrix =True
+                #UCERTAINTY IGNORE::
+                #TN: Uncertainty tells us the sample is not a Target and it is Correct
+                #FP: Uncertainty tells us the sample is  a Target and it is False
+                #FN: Uncertainty tells us the sample is  not a Target and it is Correct
+                #TP: Uncertainty tells us the sample is a Target and it is Correct
+
+                ####### auch in eine Methode auslagern ???? ########### | adapt u[x] if works
+                if calculate_confusion_Matrix:
+                    for x in range(len(labels)):
+                        if u[x] >= uncertaintyThreshold and labels[x].data <= 9: 
+                            flaseNegativ += 1
+                            if preds[x] == labels.data[x]:
+                                classifiedCorrectFN +=1# but rejected
+                            else:
+                                classifiedFalseFN +=1 # but rejected
+                        if u[x] <uncertaintyThreshold and labels[x].data  <= 9: 
+                            truePositiv += 1
+                        if u[x] >= uncertaintyThreshold and labels[x].data > 9:
+                            trueNegativ += 1
+                        if u[x] <uncertaintyThreshold and labels[x].data > 9:
+                            falsePositiv += 1
+                ## in methode auslagern ??
+
             else:
                 with torch.no_grad():
 
@@ -99,7 +124,6 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
 
                     _, preds = torch.max(outputs, 1)
                     running_corrects += torch.sum(preds == labels.data)
-                    running_false += torch.sum(preds != labels.data)
 
                     u , u_mean = calculate_uncertainty(preds, labels, outputs, model.num_classes)
                     
@@ -108,16 +132,19 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
         epoch_uncertainty = u_mean.item() 
             
             
-        return inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
+        return inputs, labels, outputs, preds, running_corrects, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
     
         
-    if len(hierachicalModelPathList) >=2:
-        inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
+    if len(hierarchicalModelPathList) >=2:
+        inputs, labels, outputs, preds, running_corrects, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
 
         print("correctWhileStaySuper: "+ str(correctWhileStaySuper)+ "  correctWhileLeaveSuper: " + str(correctWhileLeaveSuper)+ "  falseWhileStaySuper: " + str(falseWhileStaySuper) + "  falseWhileLeaveSuper: " +str(falseWhileLeaveSuper) +"\nTOTAL Correct: " +str(correctWhileStaySuper +correctWhileLeaveSuper) +" TOTAL False: " + str(falseWhileLeaveSuper +falseWhileStaySuper)+ " TOTAL: " + str(falseWhileLeaveSuper +falseWhileStaySuper +correctWhileLeaveSuper +correctWhileStaySuper))
    
-    # goes through all Epochs to find best model after evaluation | best model training != best model eval
+
+        
+    
     else:
+        # goes through all Epochs to find best model after evaluation | best model training != best model eval
         for model_path in saved_models:
             print('Loading model', model_path)
 
@@ -125,9 +152,7 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
             model.eval()
             model.to(device)
 
-            inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
-            
-            ## in methode auslagern ??
+            inputs, labels, outputs, preds, running_corrects, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
         
             wasBestModel_byAcc = False
             wasBestModel_byUncertainy = False
@@ -153,10 +178,10 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
                 print('Acc: {:.4f}'.format(epoch_acc))
                 print('Uncertainty: ' + str(u_mean.item()))
 
-                #if calculate_confusion_Matrix:
-                #    print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
-                #    print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
-                #    print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
+                if calculate_confusion_Matrix:
+                    print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
+                    print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
+                    print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
 
             acc_history.append(epoch_acc.item())
             uncertainty_history.append(epoch_uncertainty)
@@ -168,27 +193,7 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
         print(f"Saved the best model by Uncertainty after eval" + directory + 'best_model_byUncertainty.pth \n')
         print('Best Acc: {:4f} Best uncertainty_mean: {:} \n'.format(best_acc , best_uncertainty))         
         
-        ##UCERTAINTY IGNORE::
-            #TN: Uncertainty tells us the sample is not a Target and it is Correct
-            #FP: Uncertainty tells us the sample is  a Target and it is False
-            #FN: Uncertainty tells us the sample is  not a Target and it is Correct
-            #TP: Uncertainty tells us the sample is a Target and it is Correct
-
-            ####### auch in eine Methode auslagern ???? ########### | adapt u[x] if works
-          #  if calculate_confusion_Matrix:
-          #      for x, label in enumerate(labels):
-          #          if u.item() >= ignoreThreshold and label.item() <= 9: 
-          #              flaseNegativ += 1
-          #              if preds[x] == labels.data[x]:
-          #                  classifiedCorrectFN +=1# but rejected
-          #              else:
-          #                  classifiedFalseFN +=1 # but rejected
-          #          if u.item() <ignoreThreshold and label.item()  <= 9: 
-          #              truePositiv += 1
-          #          if u.item() >= ignoreThreshold and label.item() > 9:
-          #              trueNegativ += 1
-          #          if u.item() <ignoreThreshold and label.item() > 9:
-          #              falsePositiv += 1
+        
 #
 
         
