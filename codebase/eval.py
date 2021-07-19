@@ -56,13 +56,11 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
 
             if len(hierachicalModelPathList) >= 2:
 
-                uncertaintyWasOkay = False
+                isPredicted = False
                 counter = 0
                 while counter < len(hierachicalModelPathList):
-                    if uncertaintyWasOkay:
+                    if isPredicted:
                         break
-                    #if not uncertaintyWasOkay:
-                    #    print("loading Hirachie lvl"+ str(counter))
                     modelList[counter].load_state_dict(torch.load(hierachicalModelPathList[counter]))
                     modelList[counter].eval()
                     modelList[counter].to(device)
@@ -80,17 +78,18 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
 
                     for x in range(len(labels)):
                         if u[x] < ignoreThreshold:
-                            #inputs, labels, outputs, preds, running_corrects, u, epoch_acc, epoch_uncertainty = calculate_results()
                             if preds[x] == labels[x].data:
                                 correctWhileStaySuper += 1
                             else:
                                 falseWhileStaySuper +=1
-                            uncertaintyWasOkay = True
+                            isPredicted = True
                         else:
                             if preds[x] == labels[x].data:
                                 correctWhileLeaveSuper += 1
                             else:
                                 falseWhileLeaveSuper += 1
+                            isPredicted = True
+
                     counter += 1
         
             else:
@@ -111,45 +110,12 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
             
         return inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
     
-    def print_results():
         
-        wasBestModel_byAcc = False
-        wasBestModel_byUncertainy = False
-
-        if epoch_acc > best_acc:
-            best_acc = epoch_acc
-            best_model_byAcc = copy.deepcopy(model.state_dict())
-            wasBestModel_byAcc = True
-
-        if epoch_uncertainty < best_uncertainty:
-            best_uncertainty = epoch_uncertainty
-            best_model_byUncertainty = copy.deepcopy(model.state_dict())
-            wasBestModel_byUncertainy = True
-
-        if wasBestModel_byAcc:
-                print("\nBestModel_byAcc ..so far RESULTS:")
-        if wasBestModel_byUncertainy:
-                print("BestModel_byUncertainty ..so far  RESULTS: \n")
-        
-        if wasBestModel_byAcc or wasBestModel_byUncertainy:
-        
-            print("Results for this epoch: " ) 
-            print('Acc: {:.4f}'.format(epoch_acc))
-            print('Uncertainty: ' + str(u_mean.item()))
-            
-            #if calculate_confusion_Matrix:
-            #    print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
-            #    print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
-            #    print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
-        
-        acc_history.append(epoch_acc.item())
-        uncertainty_history.append(epoch_uncertainty)
-
     if len(hierachicalModelPathList) >=2:
         inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
-        
-        print_results()
-        print("correctWhileStaySuper: "+ str(correctWhileStaySuper)+ "  correctWhileLeaveSuper: " + str(correctWhileLeaveSuper)+ "  falseWhileStaySuper: " + str(falseWhileStaySuper) + "  falseWhileLeaveSuper: " +str(falseWhileLeaveSuper))
+
+        print("correctWhileStaySuper: "+ str(correctWhileStaySuper)+ "  correctWhileLeaveSuper: " + str(correctWhileLeaveSuper)+ "  falseWhileStaySuper: " + str(falseWhileStaySuper) + "  falseWhileLeaveSuper: " +str(falseWhileLeaveSuper) +"\nTOTAL Correct: " +str(correctWhileStaySuper +correctWhileLeaveSuper) +" TOTAL False: " + str(falseWhileLeaveSuper +falseWhileStaySuper)+ " TOTAL: " + str(falseWhileLeaveSuper +falseWhileStaySuper +correctWhileLeaveSuper +correctWhileStaySuper))
+   
     # goes through all Epochs to find best model after evaluation | best model training != best model eval
     else:
         for model_path in saved_models:
@@ -161,9 +127,39 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, igno
 
             inputs, labels, outputs, preds, running_corrects, running_false, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
             
-            print_results()
             ## in methode auslagern ??
         
+            wasBestModel_byAcc = False
+            wasBestModel_byUncertainy = False
+
+            if epoch_acc > best_acc:
+                best_acc = epoch_acc
+                best_model_byAcc = copy.deepcopy(model.state_dict())
+                wasBestModel_byAcc = True
+
+            if epoch_uncertainty < best_uncertainty:
+                best_uncertainty = epoch_uncertainty
+                best_model_byUncertainty = copy.deepcopy(model.state_dict())
+                wasBestModel_byUncertainy = True
+
+            if wasBestModel_byAcc: 
+                    print("\nBestModel_byAcc ..so far RESULTS:")
+            if wasBestModel_byUncertainy:
+                    print("BestModel_byUncertainty ..so far  RESULTS: \n")
+
+            if wasBestModel_byAcc or wasBestModel_byUncertainy:
+            
+                print("Results for this epoch: " ) 
+                print('Acc: {:.4f}'.format(epoch_acc))
+                print('Uncertainty: ' + str(u_mean.item()))
+
+                #if calculate_confusion_Matrix:
+                #    print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
+                #    print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
+                #    print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
+
+            acc_history.append(epoch_acc.item())
+            uncertainty_history.append(epoch_uncertainty)
 
         torch.save(best_model_byAcc, os.path.join(directory , 'bestmodel_byAcc.pth'))
         print(f"Saved the best model by Accuracy after eval" + directory + 'best_model_byAcc.pth \n')

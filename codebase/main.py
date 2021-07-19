@@ -78,17 +78,18 @@ def main():
         Runs Experiments specified
         """
         ##train coarse Model
-        
-    #    #as experimend method ? | in einer separten klasse ?
+    
+
         model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs = 25, ignoreThreshold = -0.1)
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=True, pretrained =True, num_epochs = 25, ignoreThreshold = -0.1)
        
         #train fine Model
         
         model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =False, num_epochs =25, ignoreThreshold = -0.1)
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=True, pretrained =True, num_epochs =25, ignoreThreshold = -0.1)
+  
     #as experimend method ? | in einer separten klasse ?
     #    # define super model
 #try this for coarse because bad eval and high uncertainty even with less classes than fine
@@ -110,20 +111,82 @@ def main():
         modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
         modelList.append(modelSUPER)
         modelList.append(modelSUB)
-        # mach das automatisch in der ef_experiment methode
+    #mach das automatisch in der ef_experiment methode
+        
+        # mach das auch für edl_bei vernünftiger acc
         hierachicalModelPathList = ["./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
-        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
-                                train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
-                                test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
-                                train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.6,
-                                hierachicalModelPathList = hierachicalModelPathList)
 
-        print("DONE with all expretiments")
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.8,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.75,
+                               hierachicalModelPathList = hierachicalModelPathList)
+        
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.7,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.65,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.6,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.55,
+                               hierachicalModelPathList = hierachicalModelPathList)
+    
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.5,
+                               hierachicalModelPathList = hierachicalModelPathList)
+        
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.45,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.4,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                               train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                               test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                               train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.35,
+                               hierachicalModelPathList = hierachicalModelPathList)
+
+        defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, 
+                              train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 ,
+                              test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,
+                              train=False, pretrained =True, num_epochs=25, ignoreThreshold = 0.3,
+                              hierachicalModelPathList = hierachicalModelPathList)
+                               
+
+
+       	print("DONE with all expretiments")
 
     runExperiments()
 
 if __name__ == "__main__":
     main()
-    
-    
-    
