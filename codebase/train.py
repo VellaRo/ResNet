@@ -49,7 +49,7 @@ def train_model(model, dataloader, num_classes , criterion, optimizer, model_dir
                 loss = criterion(
                             outputs, y.float(), epoch, num_classes, 10, device)
                  
-                u = calculate_uncertainty(preds, labels, outputs, num_classes)
+                u ,u_mean = calculate_uncertainty(preds, labels, outputs, num_classes)
             
             #without uncertainty_loss
             else:
@@ -57,7 +57,7 @@ def train_model(model, dataloader, num_classes , criterion, optimizer, model_dir
                 loss = criterion(outputs, labels)
                 _, preds = torch.max(outputs, 1)
                 
-                u  = calculate_uncertainty(preds, labels, outputs, num_classes)
+                u , u_mean = calculate_uncertainty(preds, labels, outputs, num_classes)
                 
             # backward
             loss.backward()
@@ -69,10 +69,10 @@ def train_model(model, dataloader, num_classes , criterion, optimizer, model_dir
 
         epoch_loss = running_loss / len(dataloader.dataset)
         epoch_acc = running_corrects.double() / len(dataloader.dataset)
-        epoch_uncertainty = u.item() 
+        epoch_uncertainty = u_mean.item() 
 
          
-        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u.item()))
+        print('Loss: {:.4f} Acc: {:.4f} Uncertainty_mean: {:.4f} '.format(epoch_loss, epoch_acc, u_mean.item()))
         
         
         if epoch_acc > best_acc:

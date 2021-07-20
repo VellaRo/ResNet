@@ -1,8 +1,10 @@
 import torch
 import torchvision
 #transform like epretrained model
-from torchvision import transforms
-
+from torchvision import transforms 
+from torch.utils.data import Dataset
+import pickle
+import numpy as np
 # transform
 transform = transforms.Compose([            
             transforms.Resize(256),                    
@@ -80,9 +82,16 @@ testloaderCIFAR10 = torch.utils.data.DataLoader(testsetCIFAR10, batch_size=batch
 # CIFAR100
 
 ##KEEP FOR DOWNLOADING DATA
+#
+#trainsetCIFAR100 = torchvision.datasets.CIFAR100(root='./data', train=True,download=True, transform=transform)
+#trainloaderCIFAR100 = torch.utils.data.DataLoader(trainsetCIFAR100,            
+#                           batch_size=batch_size,shuffle=True, num_workers=2)
+#
 #testsetCIFAR100 = torchvision.datasets.CIFAR100(root='./data', train=False,download=True, transform=transform)
 #testloaderCIFAR100 = torch.utils.data.DataLoader(testsetCIFAR100,            
- #                           batch_size=batch_size,shuffle=False, num_workers=2)
+#                           batch_size=batch_size,shuffle=False, num_workers=2)
+#
+
 
 ### Datasets
 trainsetCIFAR100_coarse_labels = DifferentLabelsCIFAR100(train= True, transform=transform, split="coarse_labels")
@@ -95,10 +104,10 @@ testsetCIFAR100_fine_labels = DifferentLabelsCIFAR100(train= False, transform=tr
 
 ### Loaders
 trainloaderCIFAR100_coarse_labels = torch.utils.data.DataLoader(trainsetCIFAR100_coarse_labels,            
-                                    batch_size=batch_size,shuffle=False, num_workers=2)
+                                    batch_size=batch_size,shuffle=True, num_workers=2)
 
 trainloaderCIFAR100_fine_labels = torch.utils.data.DataLoader(trainsetCIFAR100_fine_labels,            
-                                    batch_size=batch_size,shuffle=False, num_workers=2)
+                                    batch_size=batch_size,shuffle=True, num_workers=2)
 
 testloaderCIFAR100_coarse_labels = torch.utils.data.DataLoader(testsetCIFAR100_coarse_labels,            
                                     batch_size=batch_size,shuffle=False, num_workers=2)
@@ -138,11 +147,11 @@ CIFAR_dataloaders = {
     "CIFAR10_TRAIN": trainloaderCIFAR10,
     "CIFAR10_TEST": testloaderCIFAR10,
     
-    "CIFAR100_coarse_labels_TRAIN":trainloaderCIFAR100_coarse_labels
-    "CIFAR100_coarse_labels_TEST" : testloaderCIFAR100_coarse_labels
-    "CIFAR100_fine_labels_TRAIN": trainloaderCIFAR100_fine_labels
-    "CIFAR100_fine_labels_TEST" : testloaderCIFAR100_fine_labels
+    "CIFAR100_coarse_labels_TRAIN":trainloaderCIFAR100_coarse_labels,
+    "CIFAR100_coarse_labels_TEST" : testloaderCIFAR100_coarse_labels,
+    "CIFAR100_fine_labels_TRAIN": trainloaderCIFAR100_fine_labels,
+    "CIFAR100_fine_labels_TEST" : testloaderCIFAR100_fine_labels,
     
-    "CIFAR90_TEST" : testloaderCIFAR90
+    "CIFAR90_TEST" : testloaderCIFAR90,
 }
 
