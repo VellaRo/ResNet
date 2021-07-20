@@ -25,7 +25,7 @@ def main():
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
-    def defineExperiment(modelList, criterion_name, optimizer=None, train_dataloader=None, num_train_classes=0, test_dataloader=None, num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, uncertainty =False, hierarchicalModelPathList = []):
+    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, uncertainty =False, hierarchicalModelPathList = []):
         
         model = modelList[0]
         ## Set Model directory:
@@ -70,7 +70,7 @@ def main():
             
 #########EXPERIMENTS#################
 ###TRAIN
-     def CIFAR100_coarse_AND_fine(train= False, criterion_name = None):
+    def CIFAR100_coarse_AND_fine(train= False, criterion_name = None):
     
     ##train coarse Model
         print("COARSE START\n")
@@ -87,7 +87,7 @@ def main():
         print("FINE END\n")
     
 ###EVAL
-    def hierarchicalEval(modelList = None, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05] ):
+    def hierarchicalEval(modelList , optimizer, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05] ):
         """
         ARGS: modelList = List of initialised Models | with for example resnet18Init()
               hierarchicalModelPathList = List of path to specified trained Models form modelList 
@@ -100,10 +100,10 @@ def main():
 
         for x in uncertaintyThresholdList:
         
-            print("uncertaintyThreshold:" x)
-            defineExperiment(modelList, uncertaintyThreshold = x,
-                             hierarchicalModelPathList = hierarchicalModelPathList)
-        
+            print("uncertaintyThreshold:\n" + str(x))
+                                                                   
+            defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList )
+
         print("hierarchicalEval END\n")
     
     #####
@@ -136,6 +136,8 @@ def main():
 
         #wrong dataset for experiment because share same images over dataset
         for x in uncertaintyThresholdList:
+            print("uncertaintyThreshold:" + str(x))
+
             if train and trainingIsDone == False:
                 print("A->A")
                 defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
@@ -172,29 +174,47 @@ def main():
         """
         Runs Experiments specified
         """
-        #####
-        CIFAR100_coarse_AND_fine(train= False , criterion_name= "crossEntropy")
-        CIFAR100_coarse_AND_fine(train= False , criterion_name= "edl_log")
-        #####
+        ##### WORKS
+        CIFAR100_coarse_AND_fine(train= True , criterion_name= "crossEntropy")
+        #CIFAR100_coarse_AND_fine(train= False , criterion_name= "edl_log")
+
+        #print("END NORMAL TEST")
+        ###### STILL TESTING
+        print("HIERACHIE START")
+
         modelList =[]
-        modelSUPER, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
-        modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
+        modelSUB, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
+                                        train_dataloader= CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"],
+                                        test_dataloader= CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"])
+        
+        modelSUPER, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
+                                        train_dataloader= CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"],
+                                        test_dataloader= CIFAR_dataloaders["CIFAR100_fine_labels_TEST"])
+        modelSUB.to(device)
+        modelSUPER.to(device)
         modelList.append(modelSUPER)
         modelList.append(modelSUB)
+
+        print("CROSSENTROPY best_model_byUncertainty")
+        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
+        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
         
-        
-        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
-        
-        hierarchicalEval(modelList=modelList, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        print("CROSSENTROPY best_model_byAcc")
+        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth"]
+        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
         #-------------------#
-        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
-        
+        #to low accuracy ~0.15
+        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
+        #
         #hierarchicalEval(modelList=modelList, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        
+        print("HIERACHIE END")
+
         ######
-        crossDatasetEvaluationOFFICE(train = True, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0, 1, 0.05] )
+        
+        print("OFFICE CROSSDATA")
+        crossDatasetEvaluationOFFICE(train = True, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.8, 0.05] )
                                
-
-
        	print("DONE with all expretiments")
 
     runExperiments()
