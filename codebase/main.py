@@ -19,14 +19,30 @@ def main():
     
     
     # TODO:
-    # class of dataloder| put all in one big dataloader| add dataloader.num_classes ?
-    # describe usage/ methods  
+    # class of dataloder| put all in one big dataloader
 
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
-    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, uncertainty =False, hierarchicalModelPathList = []):
-        
+    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = []):
+        """
+        Buildingblock for Experiments:
+            defines evrything that might be needed in the specified experiment when called
+
+        ARGS:   modelList: list of models provided
+                cirterion_name: name of defined Loss criterion to use | defined below
+                train: if True train the model else only eval
+                pretrained: model uses Pretrained weights
+                uncertaintyThreshold: between 0,1 , Default: -0,1 marks as not used
+                hierarchicalModelPathList = List of path to specified trained Models form modelList 
+
+                optimizer: 
+                train_dataloder:
+                test_dataloder:
+                num_train_classes:
+                num_test_classes:
+                num_epochs:
+        """
         model = modelList[0]
         ## Set Model directory:
         model_directory = str(model.name) +"/"
@@ -57,21 +73,29 @@ def main():
         if pretrained:
             model_directory = model_directory[:-1] + "Pretrained/"
 
+        #Train
         if train:
             train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, num_classes =num_train_classes, criterion= criterion, optimizer=optimizer, model_directory= model_directory, device=device , num_epochs=num_epochs, uncertainty=uncertainty)
         
         #Do not use uncertaintyThreshold
         if uncertaintyThreshold != -0.1:
-           # print("\nuncertaintyThreshold: " + str(uncertaintyThreshold) + "  eval on: " + test_dataloader.name[:-5] + "\n")
+
             val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, uncertaintyThreshold=uncertaintyThreshold, hierarchicalModelPathList =hierarchicalModelPathList)
-            
+        
+        #EVAL
         else:
+            
             val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList)
             
 #########EXPERIMENTS#################
 ###TRAIN
     def CIFAR100_coarse_AND_fine(train= False, criterion_name = None):
-    
+    """
+    ARGS: train: if True train the model else only eval
+          cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+
+        Trains and Evals or only Trains Coarse and fine CIFAR100
+    """
     ##train coarse Model
         print("COARSE START\n")
         model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
@@ -92,6 +116,9 @@ def main():
         ARGS: modelList = List of initialised Models | with for example resnet18Init()
               hierarchicalModelPathList = List of path to specified trained Models form modelList 
               uncertaintyThresholdRange = [start, end, step] | between 0 and 1  
+        
+        to use: 
+                need provide a modelList , and a hierachicalPathList before calling Method
         """
         print("hierarchicalEval START\n")
         
@@ -126,6 +153,15 @@ def main():
     
     #####
     def crossDatasetEvaluationOFFICE(train = False, criterion_name = None, uncertaintyThresholdRange = [0, 1, 0.05] ):
+        """
+        ARGS: train: if True train the model else only eval
+              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+              uncertaintyThresholdRange = [start, end, step] | between 0 and 1  
+
+        (Trains OFFICE) if train == True
+        Does a CrossEvaluation of the OFFICE_DATASETS A,D,W
+        """
+        
         model_OFFICE, optimizer = resnet18Init(num_train_classes = 31 , pretrained=True)
         modelList_OFFICE= [model_OFFICE]
 

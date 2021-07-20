@@ -10,6 +10,7 @@ def resnet18Init(num_train_classes, pretrained , train_dataloader =None, test_da
     model.num_classes = num_train_classes
     model.train_dataloader = train_dataloader
     model.test_dataloader = test_dataloader
+    
     # adapt it to our Data
     model.fc = nn.Linear(512, num_train_classes)
     if pretrained:
@@ -27,5 +28,6 @@ def resnet18Init(num_train_classes, pretrained , train_dataloader =None, test_da
             ], lr=1e-2)
     else:
         optimizer = Adam(model.parameters())
-        
+    #model.optimizer = optimizer ?
+    #rest auch alles über model definieren ? wie num classes test ....?
     return model, optimizer

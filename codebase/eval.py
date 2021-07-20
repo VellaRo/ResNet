@@ -10,13 +10,13 @@ from helpers import calculate_uncertainty
 
 def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = []):
     since = time.time()
+    
     calculate_confusion_Matrix =False
 
-    ### FOR WHOLE EVAL
     model = modelList[0]
-
     acc_history = []
     uncertainty_history =[]
+    
     best_acc = -0.1
     best_uncertainty = 10.0
 
@@ -29,7 +29,7 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
 
     saved_models = glob.glob(directory + '*.pth')
     saved_models.sort()
-    #print('saved_model', saved_models)
+
     def calculate_results():
         
         correctWhileStaySuper  = 0
@@ -47,7 +47,10 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
         classifiedCorrectFN = 0
         classifiedFalseFN   = 0
 
+        # hierachicalEval
         if len(hierarchicalModelPathList) >= 2:
+            #goes through the hierarche models and saves the labesl, preds, u of evrey Model to a list 
+            
             labelsList= [[] for i in range(len(hierarchicalModelPathList))]
             predsList= [[] for i in range(len(hierarchicalModelPathList))]
             uList= [[] for i in range(len(hierarchicalModelPathList))]
@@ -61,7 +64,6 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
 
                 # Iterate over data.
                 for inputs,labels in modelList[counter].test_dataloader:
-                    # need iterate throuch labes or input not thorugh dataloers !!!
                     inputs = inputs.to(device)
                     labels = labels.to(device)  
 
@@ -77,21 +79,29 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                     uList[counter].append(u)
                 counter +=1   
 
+            # DOES ONLY WORK FOR 2LVL HIERARCHY !!!
+            #batches
             for x in range(len(labelsList[0])):
+                #attributes in batches
                 for y in range(len(labelsList[0][0])):
-
+                    
+                    # superModel uncertaintyCheck
                     if uList[0][x][y].item() < uncertaintyThreshold:
+                        #superModel check preds
                         if predsList[0][x][y] == labelsList[0][x][y].data:
                             correctWhileStaySuper += 1
                         else:
                             falseWhileStaySuper +=1
+                    #subModel check preds
                     else:
                         if predsList[1][x][y] == labelsList[1][x][y].data:
                             correctWhileLeaveSuper += 1
                         else:
                             falseWhileLeaveSuper += 1
-
+        
+        #calculate other results | for "normal" eval
         else:
+            # NOTE: NOT TESTED YET !!!!
             # Iterate over data.
             for inputs,labels in dataloader:
                 # need iterate throuch labes or input not thorugh dataloers !!!
@@ -105,7 +115,6 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                     #FN: Uncertainty tells us the sample is  not a Target and it is Correct
                     #TP: Uncertainty tells us the sample is a Target and it is Correct
 
-                    ####### auch in eine Methode auslagern ???? ########### | adapt u[x] if works
                     if calculate_confusion_Matrix:
                         for x in range(len(labels)):
                             if u[x] >= uncertaintyThreshold and labels[x].data <= 9: 
@@ -139,16 +148,13 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
             
         return inputs, labels, outputs, preds, running_corrects, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper
     
-        
+    
     if len(hierarchicalModelPathList) >=2:
         inputs, labels, outputs, preds, running_corrects, u, u_mean, epoch_acc, epoch_uncertainty,  correctWhileStaySuper, correctWhileLeaveSuper, falseWhileStaySuper ,falseWhileLeaveSuper = calculate_results()
 
         print("correctWhileStaySuper: "+ str(correctWhileStaySuper)+ "  correctWhileLeaveSuper: " + str(correctWhileLeaveSuper)+ "  falseWhileStaySuper: " + str(falseWhileStaySuper) + "  falseWhileLeaveSuper: " +str(falseWhileLeaveSuper) 
             +"\nTOTAL Correct: " +str(correctWhileStaySuper +correctWhileLeaveSuper) +" TOTAL False: " + str(falseWhileLeaveSuper +falseWhileStaySuper)+ " TOTAL: " + str(falseWhileLeaveSuper +falseWhileStaySuper +correctWhileLeaveSuper +correctWhileStaySuper)+"\n" )
-   
-
-        
-    
+     
     else:
         # goes through all Epochs to find best model after evaluation | best model training != best model eval
         for model_path in saved_models:
@@ -198,22 +204,17 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
         torch.save(best_model_byUncertainty, os.path.join(directory , 'best_model_byUncertainty.pth'))
         print(f"Saved the best model by Uncertainty after eval" + directory + 'best_model_byUncertainty.pth \n')
         print('Best Acc: {:4f} Best uncertainty_mean: {:} \n'.format(best_acc , best_uncertainty))         
-        
-        
-#
-
-        
+                
         print()
     
-    
-    
+
     time_elapsed = time.time() - since
     print('Validation complete in {:.0f}m {:.0f}s'.format(time_elapsed // 60, time_elapsed % 60))
     
     return acc_history, uncertainty_history
 
 
-
+#Saves history as Plot | not Used/Updated/Tested
 def save_Plot(train_loss_hist,train_uncertainty_hist,val_acc_hist,val_acc_hist1 , model_directory):
     
     directory = './results/models/' + model_directory
