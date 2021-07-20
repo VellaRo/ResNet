@@ -4,8 +4,8 @@ import numpy as np
 
 from helpers import get_device
 from train import train_model
-from cifarData import CIFAR_dataloaders
-from officeData import OFFICE_dataloaders 
+from dataloadersCollection import dataloaders
+ 
 from eval import eval_model, save_Plot
 from losses import edl_digamma_loss , edl_mse_loss , edl_log_loss
 from models import resnet18Init
@@ -24,7 +24,7 @@ def main():
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
-    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = []):
+    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [] ,uncertainty=False):
         """
         Buildingblock for Experiments:
             defines evrything that might be needed in the specified experiment when called
@@ -85,29 +85,29 @@ def main():
         #EVAL
         else:
             
-            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList)
+            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
             
 #########EXPERIMENTS#################
 ###TRAIN
     def CIFAR100_coarse_AND_fine(train= False, criterion_name = None):
-    """
-    ARGS: train: if True train the model else only eval
-          cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+        """
+        ARGS: train: if True train the model else only eval
+              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
 
-        Trains and Evals or only Trains Coarse and fine CIFAR100
-    """
+            Trains and Evals or only Trains Coarse and fine CIFAR100
+        """
     ##train coarse Model
         print("COARSE START\n")
         model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
         print("COARSE END\n")
         
     #train fine Model
         print("FINE START\n")
         model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=CIFAR_dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=train, pretrained =True, num_epochs =25, uncertaintyThreshold = -0.1)
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=train, pretrained =True, num_epochs =25, uncertaintyThreshold = -0.1)
         print("FINE END\n")
     
 ###EVAL
@@ -129,7 +129,7 @@ def main():
         
             print("uncertaintyThreshold:\n" + str(x))
                                                                    
-            defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList )
+            defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList )
 
         print("hierarchicalEval END\n")
     
@@ -147,9 +147,9 @@ def main():
 #
     #    
     #    for x in uncertaintyThresholdList:
-    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader=CIFAR_dataloaders["CIFAR10_TEST"], num_test_classes=10 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader=CIFAR_dataloaders["CIFAR90_TEST"], num_test_classes=90 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-    #        #defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=CIFAR_dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader=CIFAR_dataloaders["CIFAR100_TEST"], num_test_classes=100 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
+    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR10_TEST"], num_test_classes=10 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR90_TEST"], num_test_classes=90 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR100_TEST"], num_test_classes=100 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
     
     #####
     def crossDatasetEvaluationOFFICE(train = False, criterion_name = None, uncertaintyThresholdRange = [0, 1, 0.05] ):
@@ -176,33 +176,33 @@ def main():
 
             if train and trainingIsDone == False:
                 print("A->A")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("A->D")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("A->W")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                print("D->A")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                print("W->A")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
                 trainingIsDone = True
             else:
                 print("A->A")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("A->D")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("A->W")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
                 print("D->A")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->D")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->W")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
-
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
                 print("W->A")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                
+                print("A->D")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                print("D->D")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
                 print("W->D")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("W->D")
-                defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=OFFICE_dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=OFFICE_dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
+
+                print("A->W")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                print("D->W")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
+                print("W->W")
+                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
             
             
     
@@ -210,46 +210,46 @@ def main():
         """
         Runs Experiments specified
         """
-        ##### WORKS
-        CIFAR100_coarse_AND_fine(train= True , criterion_name= "crossEntropy")
-        #CIFAR100_coarse_AND_fine(train= False , criterion_name= "edl_log")
-
-        #print("END NORMAL TEST")
-        ###### STILL TESTING
-        print("HIERACHIE START")
-
-        modelList =[]
-        modelSUB, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
-                                        train_dataloader= CIFAR_dataloaders["CIFAR100_coarse_labels_TRAIN"],
-                                        test_dataloader= CIFAR_dataloaders["CIFAR100_coarse_labels_TEST"])
-        
-        modelSUPER, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
-                                        train_dataloader= CIFAR_dataloaders["CIFAR100_fine_labels_TRAIN"],
-                                        test_dataloader= CIFAR_dataloaders["CIFAR100_fine_labels_TEST"])
-        modelSUB.to(device)
-        modelSUPER.to(device)
-        modelList.append(modelSUPER)
-        modelList.append(modelSUB)
-
-        print("CROSSENTROPY best_model_byUncertainty")
-        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
-        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
-        
-        print("CROSSENTROPY best_model_byAcc")
-        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth"]
-        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
-        #-------------------#
-        #to low accuracy ~0.15
-        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
+        ###### WORKS
+        #CIFAR100_coarse_AND_fine(train= True , criterion_name= "crossEntropy")
+        ##CIFAR100_coarse_AND_fine(train= False , criterion_name= "edl_log")
+#
+        ##print("END NORMAL TEST")
         #
-        #hierarchicalEval(modelList=modelList, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
-        
-        print("HIERACHIE END")
-
+        #print("HIERACHIE START")
+#
+        #modelList =[]
+        #modelSUB, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
+        #                                train_dataloader= dataloaders["CIFAR100_coarse_labels_TRAIN"],
+        #                                 test_dataloader= dataloaders["CIFAR100_coarse_labels_TEST"])
+        #
+        #modelSUPER, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
+        #                                train_dataloader= dataloaders["CIFAR100_fine_labels_TRAIN"],
+        #                                 test_dataloader= dataloaders["CIFAR100_fine_labels_TEST"])
+        #modelSUB.to(device)
+        #modelSUPER.to(device)
+        #modelList.append(modelSUPER)
+        #modelList.append(modelSUB)
+#
+        #print("CROSSENTROPY best_model_byUncertainty")
+        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
+        #hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        #
+        #print("CROSSENTROPY best_model_byAcc")
+        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth"]
+        #hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        ##-------------------#
+        ##to low accuracy ~0.15
+        ##hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
+        ##
+        ##hierarchicalEval(modelList=modelList, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        #
+        #print("HIERACHIE END")
+        ###### STILL TESTING
         ######
         
         print("OFFICE CROSSDATA")
-        crossDatasetEvaluationOFFICE(train = True, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.8, 0.05] )
+        crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
                                
        	print("DONE with all expretiments")
 
