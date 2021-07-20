@@ -247,10 +247,10 @@ def main():
         #print("HIERACHIE END")
         ###### STILL TESTING
         ######
-        
-        print("OFFICE CROSSDATA")
-        crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
-                               
+        #
+        #print("OFFICE CROSSDATA")
+        #crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
+        #                       
        	print("DONE with all expretiments")
 
     runExperiments()
