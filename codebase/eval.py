@@ -8,9 +8,10 @@ from losses import relu_evidence
 from models import resnet18Init
 from helpers import calculate_uncertainty
 
-def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = []):
+
+
+def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [], train_dataloader= None , test_dataloader =None):
     since = time.time()
-    
     calculate_confusion_Matrix =False
 
     model = modelList[0]
@@ -101,46 +102,54 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
         
         #calculate other results | for "normal" eval
         else:
+
             # NOTE: NOT TESTED YET !!!!
             # Iterate over data.
             for inputs,labels in dataloader:
                 # need iterate throuch labes or input not thorugh dataloers !!!
                 inputs = inputs.to(device)
                 labels = labels.to(device)  
+
+                with torch.no_grad():
+
+                    outputs = model(inputs)
+                    _, preds = torch.max(outputs, 1)
+                    running_corrects += torch.sum(preds == labels.data)
+
                 if uncertaintyThreshold != -0.1:   
+                    
                     calculate_confusion_Matrix =True
-                    #UCERTAINTY IGNORE::
-                    #TN: Uncertainty tells us the sample is not a Target and it is Correct
-                    #FP: Uncertainty tells us the sample is  a Target and it is False
-                    #FN: Uncertainty tells us the sample is  not a Target and it is Correct
-                    #TP: Uncertainty tells us the sample is a Target and it is Correct
+                    u , u_mean = calculate_uncertainty(preds, labels, outputs, num_classes)
+                    #UCERTAINTY IGNORE::                    
 
                     if calculate_confusion_Matrix:
                         for x in range(len(labels)):
-                            if u[x] >= uncertaintyThreshold and labels[x].data <= 9: 
+                            #FN: Uncertainty tells us the sample is  not in Target but it is in Target
+                            if u[x] >= uncertaintyThreshold and train_dataloader == test_dataloader: 
                                 flaseNegativ += 1
                                 if preds[x] == labels.data[x]:
-                                    classifiedCorrectFN +=1# but rejected
+                                    classifiedCorrectFN +=1
                                 else:
-                                    classifiedFalseFN +=1 # but rejected
-                            if u[x] <uncertaintyThreshold and labels[x].data  <= 9: 
+                                    classifiedFalseFN +=1
+                            #TP: Uncertainty tells us the sample is in Target and it is in Target
+                            if u[x] <uncertaintyThreshold and train_dataloader == test_dataloader : 
                                 truePositiv += 1
-                            if u[x] >= uncertaintyThreshold and labels[x].data > 9:
+                           
+                            #TN: Uncertainty tells us the sample is not in Target and it is not in Targert
+                            if u[x] >= uncertaintyThreshold and  train_dataloader != test_dataloader:
                                 trueNegativ += 1
-                            if u[x] <uncertaintyThreshold and labels[x].data > 9:
+                            #FP: Uncertainty tells us the sample is in Target but it is in not Target
+                            if u[x] <uncertaintyThreshold and  train_dataloader != test_dataloader:
                                 falsePositiv += 1
-                    ## in methode auslagern ??
 
                 else:
-                    with torch.no_grad():
-
-                        outputs = model(inputs)
-
-                        _, preds = torch.max(outputs, 1)
-                        running_corrects += torch.sum(preds == labels.data)
-
-                        u , u_mean = calculate_uncertainty(preds, labels, outputs, model.num_classes)
-                    
+                    u , u_mean = calculate_uncertainty(preds, labels, outputs, num_classes)
+            
+            if calculate_confusion_Matrix:
+                print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
+                print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
+                print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
+  
 
         epoch_acc = running_corrects.double() / len(dataloader.dataset)
         epoch_uncertainty = u_mean.item() 
@@ -189,12 +198,8 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                 print("Results for this epoch: " ) 
                 print('Acc: {:.4f}'.format(epoch_acc))
                 print('Uncertainty: ' + str(u_mean.item()))
-
-                if calculate_confusion_Matrix:
-                    print('TP: {:} FP: {:}'.format(truePositiv, falsePositiv))
-                    print('FN: {:} TN: {:}'.format(flaseNegativ, trueNegativ))
-                    print('classifiedCorrectFN: {:} \nclassifiedFalseFN: {:}'.format(classifiedCorrectFN, classifiedFalseFN))
-
+    
+                    
             acc_history.append(epoch_acc.item())
             uncertainty_history.append(epoch_uncertainty)
 
