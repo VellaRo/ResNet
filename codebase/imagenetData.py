@@ -5,6 +5,7 @@ import torchvision
 #transform like epretrained model
 from torchvision import transforms 
 from torch.utils.data import Dataset
+from torchvision.datasets import imagenet
 
 #
 import glob
@@ -17,16 +18,18 @@ import numpy as np
 imageSize = 32
 transform = transforms.Compose(
     [transforms.Resize((imageSize,imageSize)),
-     #transforms.CenterCrop(224),
+     transforms.CenterCrop(224),
      transforms.ToTensor(),
-     #transforms.Normalize(                      
-     #mean=[0.5070751592371323, 0.48654887331495095, 0.4409178433670343], #[0.485, 0.456, 0.406],                
-     #std= [0.2673342858792401, 0.2564384629170883, 0.27615047132568404]#[0.229, 0.224, 0.225]                  
-     #)
+     transforms.Normalize(                      
+     mean=[0.5070751592371323, 0.48654887331495095, 0.4409178433670343], #[0.485, 0.456, 0.406],                
+     std= [0.2673342858792401, 0.2564384629170883, 0.27615047132568404]#[0.229, 0.224, 0.225]                  
+     )
     ])
 
 batchsize = 64
 #lvl 0 is the "base 1000" class 
+
+
 class ImagenetLvL1(Dataset):
     def __init__(self, transform=None ,train= False):
         self.train= train        
@@ -35,16 +38,20 @@ class ImagenetLvL1(Dataset):
         def makePathlist(startIndex , endIndex):
             classPathsTrain = os.listdir('./data/imagenet/train')
             classPathsVal = os.listdir('./data/imagenet/val')
-            print("not sorted")
+            print("made path list")
             pathlistTrain = []
             pathlistVal = []
             for i in range(startIndex, endIndex):
                 pathlistTrain.append('./data/imagenet/train/' +str(classPathsTrain[i]))
                 pathlistVal.append('./data/imagenet/val/' +str(classPathsVal[i]))
             if train: 
+                print(pathlistTrain)
                 return pathlistTrain
+                
             else:
+                print(pathlistVal)
                 return pathlistVal
+                
         """ 
         def initImageList(pathList= [], label = None):
             print(pathList)
@@ -88,8 +95,8 @@ class ImagenetLvL1(Dataset):
 
             return imageList , np.array(labelList, dtype ="long")
 
-                                                            #400
-        imageList, labelList= initImageList(makePathlist(0,399),[0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+                                            # list of pathlists | # list of labellists      
+        imageList, labelList= initImageList(makePathlist(0,398),[0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         #imageList, labelList = initImageList(makePathlist(4,8),2)
        
         
@@ -141,26 +148,27 @@ class ImagenetLvL1(Dataset):
             img = self.transform(img)
         return img ,class_id
 
-trainImagenetDataLVL1 = ImagenetLvL1(train= True, transform=transform)
-testImagenetDataLVL1 = ImagenetLvL1(train= False, transform=transform)
+#trainImagenetDataLVL1 = ImagenetLvL1(train= True, transform=transform)
+#testImagenetDataLVL1 = ImagenetLvL1(train= False, transform=transform)
  
-train_data_loader_LVL1 = torch.utils.data.DataLoader(
-    trainImagenetDataLVL1,
-    batch_size=batchsize,
-    shuffle=True,
-    num_workers=2
-)
+#train_data_loader_LVL1 = torch.utils.data.DataLoader(
+#    trainImagenetDataLVL1,
+#    batch_size=batchsize,
+#    shuffle=True,
+#    num_workers=2
+#)
 
-test_data_loader_LVL1 = torch.utils.data.DataLoader(
-    testImagenetDataLVL1,
-    batch_size=batchsize,
-    shuffle=False,
-    num_workers=2
-)
+#test_data_loader_LVL1 = torch.utils.data.DataLoader(
+#    testImagenetDataLVL1,
+#    batch_size=batchsize,
+#    shuffle=False,
+#    num_workers=2
+#)
 
-
-imagenet_train_data = torchvision.datasets.ImageFolder(train_path, transform=transform)
-imagenet_test_data = torchvision.datasets.ImageFolder(test_path, transform=transform)
+imagenet_train_data = imagenet.ImageNet(root="./data/imagenet" ,split="train")
+imagenet_test_data = imagenet.ImageNet(root="./data/imagenet" ,split="val")
+#imagenet_train_data = torchvision.datasets.ImageFolder(train_path, transform=transform)
+#imagenet_test_data = torchvision.datasets.ImageFolder(test_path, transform=transform)
 
 train_data_loader = torch.utils.data.DataLoader(
     imagenet_train_data,
@@ -179,11 +187,11 @@ test_data_loader = torch.utils.data.DataLoader(
 train_data_loader.name = "IMAGENET_TRAIN"
 test_data_loader.name = "IMAGENET_TEST"
 
-train_data_loader_LVL1.name = "IMAGENET_TRAIN_LVL1"
-test_data_loader_LVL1.name = "IMAGENET_TEST_LVL1"
+#train_data_loader_LVL1.name = "IMAGENET_TRAIN_LVL1"
+#test_data_loader_LVL1.name = "IMAGENET_TEST_LVL1"
 IMAGENET_dataloaders = {
     "IMAGENET_TRAIN": train_data_loader,
     "IMAGENET_TEST": test_data_loader,
-    "IMAGENET_TRAIN_LVL1": train_data_loader_LVL1,
-    "IMAGENET_TEST_LVL1": test_data_loader_LVL1,
+   # "IMAGENET_TRAIN_LVL1": train_data_loader_LVL1,
+   # "IMAGENET_TEST_LVL1": test_data_loader_LVL1,
 }
