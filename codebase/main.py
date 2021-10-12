@@ -1,6 +1,7 @@
 import torch.nn as nn
 #from torch.nn.functional import dropout
 import numpy as np
+from torch.nn.functional import cross_entropy
 
 from helpers import get_device
 from train import train_model
@@ -110,6 +111,36 @@ def main():
         defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=train, pretrained =True, num_epochs =25, uncertaintyThreshold = -0.1)
         print("FINE END\n")
     
+    def train_ImagenetLVL1(train= False, criterion_name = None):
+        """
+        ARGS: train: if True train the model else only eval
+              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+
+            Trains and Evals or only Trains IMAGENET LVL1
+        """
+    ##train ImagenetLVL1
+        print("IMAGENETLVL1 \n")
+        
+        model, optimizer = resnet18Init(num_train_classes = 19 , pretrained=True)
+        modelList= [model]
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN_LVL1"], num_train_classes =19, test_dataloader=dataloaders["IMAGENET_TEST_LVL1"], num_test_classes=19 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        print("IMAGENET \n")
+    
+    def train_ImagenetNormal(train= False, criterion_name = None):
+        """
+        ARGS: train: if True train the model else only eval
+              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+
+            Trains and Evals or only Trains IMAGENET NORMAL
+        """
+    ##train Imagenet NORMAL
+        print("IMAGENET \n")
+        ######################DEBUG##############################
+        model, optimizer = resnet18Init(num_train_classes = 1000 , pretrained=True)
+        modelList= [model]
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN"], num_train_classes =1000, test_dataloader=dataloaders["IMAGENET_TEST"], num_test_classes=1000 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        print("IMAGENET \n")
+
 ###EVAL
     def hierarchicalEval(modelList , optimizer, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05] ):
         """
@@ -248,9 +279,12 @@ def main():
         ###### STILL TESTING
         ######
         
-        print("OFFICE CROSSDATA")
-        crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
-                               
+        #print("OFFICE CROSSDATA")
+        #crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
+        
+        train_ImagenetLVL1(train= True, criterion_name = "crossEntropy")
+        train_ImagenetNormal(train=True, criterion_name= "crossEntropy")
+
        	print("DONE with all expretiments")
 
     runExperiments()

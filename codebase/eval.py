@@ -12,7 +12,6 @@ from helpers import calculate_uncertainty
 
 def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [], train_dataloader= None , test_dataloader =None):
     since = time.time()
-    calculate_confusion_Matrix =False
 
     model = modelList[0]
     acc_history = []
@@ -47,6 +46,8 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
 
         classifiedCorrectFN = 0
         classifiedFalseFN   = 0
+        
+        calculate_confusion_Matrix =False
 
         # hierachicalEval
         if len(hierarchicalModelPathList) >= 2:
@@ -168,7 +169,6 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
         # goes through all Epochs to find best model after evaluation | best model training != best model eval
         for model_path in saved_models:
             print('Loading model', model_path)
-
             model.load_state_dict(torch.load(model_path))
             model.eval()
             model.to(device)
