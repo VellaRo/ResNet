@@ -1,6 +1,7 @@
 import torch
 import time
 import os
+import shutil
 
 from losses import relu_evidence
 from helpers import one_hot_embedding , calculate_uncertainty
@@ -19,8 +20,10 @@ def train_model(model, dataloader, num_classes , criterion, optimizer, model_dir
     best_uncertainty = 10.0
 
     directory = './results/models/' + model_directory
-    if not os.path.exists(directory):
-        os.makedirs(directory)    
+    #testing if works so for training making new folder
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
+    os.makedirs(directory) # if exists replace    
     for epoch in range(num_epochs):
         print('Epoch {}/{}'.format(epoch, num_epochs - 1))
         print('-' * 10)

@@ -1,0 +1,41 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+
+  0%|          | 0.00/44.7M [00:00<?, ?B/s]
+ 19%|█▉        | 8.63M/44.7M [00:00<00:00, 90.5MB/s]
+ 44%|████▍     | 19.8M/44.7M [00:00<00:00, 106MB/s] 
+ 69%|██████▉   | 30.9M/44.7M [00:00<00:00, 111MB/s]
+ 93%|█████████▎| 41.5M/44.7M [00:00<00:00, 111MB/s]
+100%|██████████| 44.7M/44.7M [00:00<00:00, 109MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+IMAGENET1000 START
+
+im using:cuda:0
+Epoch 0/0
+----------
+
+Loss: 1.2596 Acc: 0.6900 Uncertainty_mean: 0.9996 
+Saved: ./results/models/ResNet18IMAGENET_crossEntropyPretrained/00.pth
+
+Training complete in 419m 9s
+Best Acc: 0.689973 Best Uncertainty: 0.999625
+Loading model ./results/models/ResNet18IMAGENET_crossEntropyPretrained/00.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.6551
+Uncertainty: 1.0
+Saved the best model by Accuracy after eval./results/models/ResNet18IMAGENET_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18IMAGENET_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.655080 Best uncertainty_mean: 1.0 
+
+
+Validation complete in 13m 7s
+IMAGENET1000 END
+
+DONE with all expretiments

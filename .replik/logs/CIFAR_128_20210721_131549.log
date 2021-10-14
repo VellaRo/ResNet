@@ -1,0 +1,456 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 10%|█         | 4.62M/44.7M [00:00<00:00, 46.2MB/s] 36%|███▌      | 16.0M/44.7M [00:00<00:00, 88.4MB/s] 61%|██████    | 27.2M/44.7M [00:00<00:00, 101MB/s]  85%|████████▍ | 37.9M/44.7M [00:00<00:00, 106MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 100MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+COARSE START
+
+im using:cuda:0
+Epoch 0/24
+----------
+
+Loss: 2.5858 Acc: 0.1941 Uncertainty_mean: 0.7139 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/24
+----------
+Loss: 2.1648 Acc: 0.3258 Uncertainty_mean: 0.6391 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/24
+----------
+Loss: 1.8309 Acc: 0.4283 Uncertainty_mean: 0.6379 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+
+Epoch 3/24
+----------
+Loss: 1.5593 Acc: 0.5079 Uncertainty_mean: 0.6648 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+
+Epoch 4/24
+----------
+Loss: 1.3342 Acc: 0.5757 Uncertainty_mean: 0.6503 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+
+Epoch 5/24
+----------
+Loss: 1.1219 Acc: 0.6384 Uncertainty_mean: 0.6604 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/05.pth
+
+Epoch 6/24
+----------
+Loss: 0.9303 Acc: 0.6986 Uncertainty_mean: 0.6485 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/06.pth
+
+Epoch 7/24
+----------
+Loss: 0.7420 Acc: 0.7579 Uncertainty_mean: 0.6369 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/07.pth
+
+Epoch 8/24
+----------
+Loss: 0.5605 Acc: 0.8167 Uncertainty_mean: 0.6383 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/08.pth
+
+Epoch 9/24
+----------
+Loss: 0.3892 Acc: 0.8706 Uncertainty_mean: 0.6257 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/09.pth
+
+Epoch 10/24
+----------
+Loss: 0.2721 Acc: 0.9095 Uncertainty_mean: 0.6094 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/10.pth
+
+Epoch 11/24
+----------
+Loss: 0.2015 Acc: 0.9327 Uncertainty_mean: 0.6010 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/11.pth
+
+Epoch 12/24
+----------
+Loss: 0.1627 Acc: 0.9454 Uncertainty_mean: 0.6018 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/12.pth
+
+Epoch 13/24
+----------
+Loss: 0.1438 Acc: 0.9521 Uncertainty_mean: 0.5809 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/13.pth
+
+Epoch 14/24
+----------
+Loss: 0.1247 Acc: 0.9582 Uncertainty_mean: 0.5887 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/14.pth
+
+Epoch 15/24
+----------
+Loss: 0.0964 Acc: 0.9676 Uncertainty_mean: 0.5773 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/15.pth
+
+Epoch 16/24
+----------
+Loss: 0.1014 Acc: 0.9656 Uncertainty_mean: 0.5758 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/16.pth
+
+Epoch 17/24
+----------
+Loss: 0.1103 Acc: 0.9624 Uncertainty_mean: 0.5966 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/17.pth
+
+Epoch 18/24
+----------
+Loss: 0.0830 Acc: 0.9716 Uncertainty_mean: 0.5788 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/18.pth
+
+Epoch 19/24
+----------
+Loss: 0.0860 Acc: 0.9710 Uncertainty_mean: 0.5878 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/19.pth
+
+Epoch 20/24
+----------
+Loss: 0.0778 Acc: 0.9740 Uncertainty_mean: 0.6217 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/20.pth
+
+Epoch 21/24
+----------
+Loss: 0.0669 Acc: 0.9782 Uncertainty_mean: 0.5921 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/21.pth
+
+Epoch 22/24
+----------
+Loss: 0.0822 Acc: 0.9724 Uncertainty_mean: 0.6073 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/22.pth
+
+Epoch 23/24
+----------
+Loss: 0.0737 Acc: 0.9758 Uncertainty_mean: 0.5853 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/23.pth
+
+Epoch 24/24
+----------
+Loss: 0.0490 Acc: 0.9839 Uncertainty_mean: 0.5463 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth
+
+Training complete in 42m 51s
+Best Acc: 0.983900 Best Uncertainty: 0.546316
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.1959
+Uncertainty: 0.6870467662811279
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.3154
+Uncertainty: 0.5692607760429382
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3696
+Uncertainty: 0.6614634990692139
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4710
+Uncertainty: 0.6446186304092407
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5515
+Uncertainty: 0.6285504102706909
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/05.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5572
+Uncertainty: 0.6683660745620728
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/06.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.6030
+Uncertainty: 0.6407793760299683
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/07.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/08.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/09.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/10.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/11.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/12.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/13.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/14.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/15.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.6069
+Uncertainty: 0.6089279651641846
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/16.pth
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.5910
+Uncertainty: 0.550063967704773
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/17.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/18.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/19.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.6100
+Uncertainty: 0.6096588373184204
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/20.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/21.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/22.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/23.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.6383
+Uncertainty: 0.6284259557723999
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/bestmodel_byAcc.pth
+Saved the best model by Accuracy after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.638300 Best uncertainty_mean: 0.550063967704773 
+
+
+Validation complete in 4m 35s
+COARSE END
+
+FINE START
+
+im using:cuda:0
+Epoch 0/24
+----------
+Loss: 4.0141 Acc: 0.0791 Uncertainty_mean: 0.8147 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/24
+----------
+Loss: 3.1629 Acc: 0.2203 Uncertainty_mean: 0.7889 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/24
+----------
+Loss: 2.5469 Acc: 0.3416 Uncertainty_mean: 0.8297 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/02.pth
+
+Epoch 3/24
+----------
+Loss: 2.1027 Acc: 0.4378 Uncertainty_mean: 0.8238 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/03.pth
+
+Epoch 4/24
+----------
+Loss: 1.7598 Acc: 0.5192 Uncertainty_mean: 0.8436 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/04.pth
+
+Epoch 5/24
+----------
+Loss: 1.4758 Acc: 0.5857 Uncertainty_mean: 0.8320 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/05.pth
+
+Epoch 6/24
+----------
+Loss: 1.1931 Acc: 0.6539 Uncertainty_mean: 0.8362 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/06.pth
+
+Epoch 7/24
+----------
+Loss: 0.9149 Acc: 0.7290 Uncertainty_mean: 0.8594 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/07.pth
+
+Epoch 8/24
+----------
+Loss: 0.6355 Acc: 0.8068 Uncertainty_mean: 0.8612 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/08.pth
+
+Epoch 9/24
+----------
+Loss: 0.4165 Acc: 0.8722 Uncertainty_mean: 0.8628 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/09.pth
+
+Epoch 10/24
+----------
+Loss: 0.2841 Acc: 0.9122 Uncertainty_mean: 0.8770 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/10.pth
+
+Epoch 11/24
+----------
+Loss: 0.2079 Acc: 0.9346 Uncertainty_mean: 0.8709 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/11.pth
+
+Epoch 12/24
+----------
+Loss: 0.1823 Acc: 0.9424 Uncertainty_mean: 0.8530 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/12.pth
+
+Epoch 13/24
+----------
+Loss: 0.1819 Acc: 0.9421 Uncertainty_mean: 0.8642 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/13.pth
+
+Epoch 14/24
+----------
+Loss: 0.1425 Acc: 0.9553 Uncertainty_mean: 0.8563 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/14.pth
+
+Epoch 15/24
+----------
+Loss: 0.1341 Acc: 0.9568 Uncertainty_mean: 0.8431 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/15.pth
+
+Epoch 16/24
+----------
+Loss: 0.1300 Acc: 0.9589 Uncertainty_mean: 0.8482 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/16.pth
+
+Epoch 17/24
+----------
+Loss: 0.1118 Acc: 0.9634 Uncertainty_mean: 0.8396 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/17.pth
+
+Epoch 18/24
+----------
+Loss: 0.1014 Acc: 0.9679 Uncertainty_mean: 0.8526 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/18.pth
+
+Epoch 19/24
+----------
+Loss: 0.0841 Acc: 0.9731 Uncertainty_mean: 0.8340 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/19.pth
+
+Epoch 20/24
+----------
+Loss: 0.1268 Acc: 0.9599 Uncertainty_mean: 0.8579 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/20.pth
+
+Epoch 21/24
+----------
+Loss: 0.1189 Acc: 0.9622 Uncertainty_mean: 0.8540 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/21.pth
+
+Epoch 22/24
+----------
+Loss: 0.0627 Acc: 0.9806 Uncertainty_mean: 0.8378 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/22.pth
+
+Epoch 23/24
+----------
+Loss: 0.0655 Acc: 0.9794 Uncertainty_mean: 0.8377 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/23.pth
+
+Epoch 24/24
+----------
+Loss: 0.0821 Acc: 0.9738 Uncertainty_mean: 0.8578 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth
+
+Training complete in 42m 53s
+Best Acc: 0.980580 Best Uncertainty: 0.788856
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/00.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.1318
+Uncertainty: 0.7908838987350464
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/01.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.2481
+Uncertainty: 0.7476406693458557
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/02.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2999
+Uncertainty: 0.7990551590919495
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/03.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3698
+Uncertainty: 0.8289331197738647
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/04.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4278
+Uncertainty: 0.8307326436042786
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/05.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4421
+Uncertainty: 0.8290854692459106
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/06.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4920
+Uncertainty: 0.8358288407325745
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/07.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5037
+Uncertainty: 0.8275822401046753
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/08.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/09.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/10.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/11.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/12.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/13.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/14.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/15.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/16.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/17.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/18.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/19.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/20.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/21.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/22.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/23.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byAcc.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5294
+Uncertainty: 0.8111986517906189
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.1527
+Uncertainty: 0.7297664880752563
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth
+Saved the best model by Accuracy after eval./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.529400 Best uncertainty_mean: 0.7297664880752563 
+
+
+Validation complete in 4m 36s
+FINE END
+
+DONE with all expretiments

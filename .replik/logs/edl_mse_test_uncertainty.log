@@ -1,0 +1,95 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 18%|█▊        | 7.85M/44.7M [00:00<00:00, 82.2MB/s] 43%|████▎     | 19.0M/44.7M [00:00<00:00, 103MB/s]  66%|██████▌   | 29.6M/44.7M [00:00<00:00, 106MB/s] 92%|█████████▏| 41.3M/44.7M [00:00<00:00, 113MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 107MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+COARSE START
+
+im using:cuda:0
+Epoch 0/24
+----------
+
+Loss: 0.8225 Acc: 0.3290 Uncertainty_mean: 0.7180 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/00.pth
+
+Epoch 1/24
+----------
+Loss: 0.8205 Acc: 0.3744 Uncertainty_mean: 0.8123 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/01.pth
+
+Epoch 2/24
+----------
+Loss: 0.7938 Acc: 0.3760 Uncertainty_mean: 0.9016 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/02.pth
+
+Epoch 3/24
+----------
+Loss: 0.7704 Acc: 0.3777 Uncertainty_mean: 0.8752 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/03.pth
+
+Epoch 4/24
+----------
+Loss: 0.7553 Acc: 0.3780 Uncertainty_mean: 0.8928 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/04.pth
+
+Epoch 5/24
+----------
+Loss: 0.7471 Acc: 0.3794 Uncertainty_mean: 0.8150 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/05.pth
+
+Epoch 6/24
+----------
+Loss: 0.7357 Acc: 0.3847 Uncertainty_mean: 0.7482 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/06.pth
+
+Epoch 7/24
+----------
+Loss: 0.7336 Acc: 0.3828 Uncertainty_mean: 0.7611 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/07.pth
+
+Epoch 8/24
+----------
+Loss: 0.7297 Acc: 0.3812 Uncertainty_mean: 0.8404 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/08.pth
+
+Epoch 9/24
+----------
+Loss: 0.7247 Acc: 0.3832 Uncertainty_mean: 0.8075 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/09.pth
+
+Epoch 10/24
+----------
+Loss: 0.7246 Acc: 0.3809 Uncertainty_mean: 0.7380 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/10.pth
+
+Epoch 11/24
+----------
+Loss: 0.7221 Acc: 0.3851 Uncertainty_mean: 0.7250 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/11.pth
+
+Epoch 12/24
+----------
+Loss: 0.7129 Acc: 0.3869 Uncertainty_mean: 0.7472 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/12.pth
+
+Epoch 13/24
+----------
+Loss: 0.7130 Acc: 0.3868 Uncertainty_mean: 0.7966 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_edl_msePretrained/13.pth
+
+Epoch 14/24
+----------
+Traceback (most recent call last):
+  File "codebase/main.py", line 273, in <module>
+    main()
+  File "codebase/main.py", line 270, in main
+    runExperiments()
+  File "codebase/main.py", line 266, in runExperiments
+    CIFAR100_coarse_AND_fine(train =True, criterion_name ="edl_mse")
+  File "codebase/main.py", line 112, in CIFAR100_coarse_AND_fine
+    defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+  File "codebase/main.py", line 80, in defineExperiment
+    train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, num_classes =num_train_classes, criterion= criterion, optimizer=optimizer, model_directory= model_directory, device=device , num_epochs=num_epochs, uncertainty=uncertainty)
+  File "/home/user/experiments/codebase/train.py", line 33, in train_model
+    inputs = inputs.to(device)
+KeyboardInterrupt

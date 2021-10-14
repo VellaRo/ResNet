@@ -1,0 +1,705 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+
+  0%|          | 0.00/44.7M [00:00<?, ?B/s]
+ 15%|█▍        | 6.54M/44.7M [00:00<00:00, 68.5MB/s]
+ 31%|███       | 13.9M/44.7M [00:00<00:00, 73.9MB/s]
+ 48%|████▊     | 21.5M/44.7M [00:00<00:00, 76.3MB/s]
+ 64%|██████▍   | 28.8M/44.7M [00:00<00:00, 72.8MB/s]
+ 80%|████████  | 35.8M/44.7M [00:00<00:00, 69.0MB/s]
+ 97%|█████████▋| 43.2M/44.7M [00:00<00:00, 71.9MB/s]
+100%|██████████| 44.7M/44.7M [00:00<00:00, 71.9MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+COARSE START
+
+im using:cuda:0
+Epoch 0/24
+----------
+
+Loss: 2.6222 Acc: 0.1837 Uncertainty_mean: 0.6887 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/24
+----------
+Loss: 2.1932 Acc: 0.3177 Uncertainty_mean: 0.6641 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/24
+----------
+Loss: 1.8695 Acc: 0.4138 Uncertainty_mean: 0.6580 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+
+Epoch 3/24
+----------
+Loss: 1.6285 Acc: 0.4885 Uncertainty_mean: 0.6523 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+
+Epoch 4/24
+----------
+Loss: 1.4300 Acc: 0.5460 Uncertainty_mean: 0.6562 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+
+Epoch 5/24
+----------
+Loss: 1.2504 Acc: 0.6000 Uncertainty_mean: 0.6752 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/05.pth
+
+Epoch 6/24
+----------
+Loss: 1.1006 Acc: 0.6468 Uncertainty_mean: 0.6826 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/06.pth
+
+Epoch 7/24
+----------
+Loss: 0.9428 Acc: 0.6955 Uncertainty_mean: 0.6739 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/07.pth
+
+Epoch 8/24
+----------
+Loss: 0.7938 Acc: 0.7439 Uncertainty_mean: 0.6526 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/08.pth
+
+Epoch 9/24
+----------
+Loss: 0.6532 Acc: 0.7856 Uncertainty_mean: 0.6790 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/09.pth
+
+Epoch 10/24
+----------
+Loss: 0.5028 Acc: 0.8323 Uncertainty_mean: 0.6759 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/10.pth
+
+Epoch 11/24
+----------
+Loss: 0.3909 Acc: 0.8701 Uncertainty_mean: 0.6567 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/11.pth
+
+Epoch 12/24
+----------
+Loss: 0.3076 Acc: 0.8966 Uncertainty_mean: 0.6408 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/12.pth
+
+Epoch 13/24
+----------
+Loss: 0.2375 Acc: 0.9191 Uncertainty_mean: 0.6570 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/13.pth
+
+Epoch 14/24
+----------
+Loss: 0.2106 Acc: 0.9285 Uncertainty_mean: 0.6517 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/14.pth
+
+Epoch 15/24
+----------
+Loss: 0.1735 Acc: 0.9418 Uncertainty_mean: 0.6418 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/15.pth
+
+Epoch 16/24
+----------
+Loss: 0.1510 Acc: 0.9485 Uncertainty_mean: 0.6289 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/16.pth
+
+Epoch 17/24
+----------
+Loss: 0.1467 Acc: 0.9500 Uncertainty_mean: 0.6328 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/17.pth
+
+Epoch 18/24
+----------
+Loss: 0.1251 Acc: 0.9579 Uncertainty_mean: 0.6333 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/18.pth
+
+Epoch 19/24
+----------
+Loss: 0.1207 Acc: 0.9597 Uncertainty_mean: 0.6356 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/19.pth
+
+Epoch 20/24
+----------
+Loss: 0.1298 Acc: 0.9567 Uncertainty_mean: 0.6171 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/20.pth
+
+Epoch 21/24
+----------
+Loss: 0.0988 Acc: 0.9665 Uncertainty_mean: 0.6286 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/21.pth
+
+Epoch 22/24
+----------
+Loss: 0.0948 Acc: 0.9677 Uncertainty_mean: 0.6245 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/22.pth
+
+Epoch 23/24
+----------
+Loss: 0.1047 Acc: 0.9648 Uncertainty_mean: 0.6400 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/23.pth
+
+Epoch 24/24
+----------
+Loss: 0.0970 Acc: 0.9678 Uncertainty_mean: 0.6352 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth
+
+Training complete in 44m 34s
+Best Acc: 0.967800 Best Uncertainty: 0.617144
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.2530
+Uncertainty: 0.6729221343994141
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.3309
+Uncertainty: 0.6512792706489563
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.4451
+Uncertainty: 0.6480997800827026
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.4695
+Uncertainty: 0.6279081702232361
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5331
+Uncertainty: 0.6424456834793091
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/05.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/06.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5687
+Uncertainty: 0.6570163369178772
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/07.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5782
+Uncertainty: 0.6538106203079224
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/08.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/09.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5867
+Uncertainty: 0.6739490628242493
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/10.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/11.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/12.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/13.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/14.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5932
+Uncertainty: 0.6557947397232056
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/15.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/16.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/17.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/18.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/19.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/20.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/21.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5993
+Uncertainty: 0.6690859794616699
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/22.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/23.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.6109
+Uncertainty: 0.5872960686683655
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/bestmodel_byAcc.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.6383
+Uncertainty: 0.609643816947937
+Saved the best model by Accuracy after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.638300 Best uncertainty_mean: 0.5872960686683655 
+
+
+Validation complete in 4m 27s
+COARSE END
+
+FINE START
+
+im using:cuda:0
+Epoch 0/24
+----------
+Loss: 3.9799 Acc: 0.0882 Uncertainty_mean: 0.7744 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/24
+----------
+Loss: 3.0148 Acc: 0.2466 Uncertainty_mean: 0.7841 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/24
+----------
+Loss: 2.3499 Acc: 0.3828 Uncertainty_mean: 0.7988 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/02.pth
+
+Epoch 3/24
+----------
+Loss: 1.9010 Acc: 0.4836 Uncertainty_mean: 0.7943 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/03.pth
+
+Epoch 4/24
+----------
+Loss: 1.5587 Acc: 0.5636 Uncertainty_mean: 0.7946 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/04.pth
+
+Epoch 5/24
+----------
+Loss: 1.2491 Acc: 0.6407 Uncertainty_mean: 0.8217 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/05.pth
+
+Epoch 6/24
+----------
+Loss: 0.9497 Acc: 0.7190 Uncertainty_mean: 0.8073 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/06.pth
+
+Epoch 7/24
+----------
+Loss: 0.6580 Acc: 0.7982 Uncertainty_mean: 0.8395 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/07.pth
+
+Epoch 8/24
+----------
+Loss: 0.4233 Acc: 0.8696 Uncertainty_mean: 0.8256 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/08.pth
+
+Epoch 9/24
+----------
+Loss: 0.2706 Acc: 0.9156 Uncertainty_mean: 0.8392 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/09.pth
+
+Epoch 10/24
+----------
+Loss: 0.2070 Acc: 0.9356 Uncertainty_mean: 0.8463 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/10.pth
+
+Epoch 11/24
+----------
+Loss: 0.1857 Acc: 0.9406 Uncertainty_mean: 0.8287 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/11.pth
+
+Epoch 12/24
+----------
+Loss: 0.1582 Acc: 0.9487 Uncertainty_mean: 0.8265 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/12.pth
+
+Epoch 13/24
+----------
+Loss: 0.1432 Acc: 0.9537 Uncertainty_mean: 0.8321 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/13.pth
+
+Epoch 14/24
+----------
+Loss: 0.1249 Acc: 0.9598 Uncertainty_mean: 0.8316 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/14.pth
+
+Epoch 15/24
+----------
+Loss: 0.1178 Acc: 0.9626 Uncertainty_mean: 0.8266 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/15.pth
+
+Epoch 16/24
+----------
+Loss: 0.1144 Acc: 0.9621 Uncertainty_mean: 0.8451 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/16.pth
+
+Epoch 17/24
+----------
+Loss: 0.1155 Acc: 0.9624 Uncertainty_mean: 0.8360 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/17.pth
+
+Epoch 18/24
+----------
+Loss: 0.0920 Acc: 0.9703 Uncertainty_mean: 0.8155 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/18.pth
+
+Epoch 19/24
+----------
+Loss: 0.0983 Acc: 0.9681 Uncertainty_mean: 0.8318 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/19.pth
+
+Epoch 20/24
+----------
+Loss: 0.0762 Acc: 0.9758 Uncertainty_mean: 0.8410 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/20.pth
+
+Epoch 21/24
+----------
+Loss: 0.0799 Acc: 0.9747 Uncertainty_mean: 0.8381 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/21.pth
+
+Epoch 22/24
+----------
+Loss: 0.0942 Acc: 0.9688 Uncertainty_mean: 0.8411 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/22.pth
+
+Epoch 23/24
+----------
+Loss: 0.0724 Acc: 0.9765 Uncertainty_mean: 0.8569 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/23.pth
+
+Epoch 24/24
+----------
+Loss: 0.0738 Acc: 0.9764 Uncertainty_mean: 0.8449 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth
+
+Training complete in 44m 32s
+Best Acc: 0.976460 Best Uncertainty: 0.774441
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/00.pth
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.1527
+Uncertainty: 0.7412987947463989
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/01.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2954
+Uncertainty: 0.7644691467285156
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/02.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3815
+Uncertainty: 0.7504806518554688
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/03.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4644
+Uncertainty: 0.7745963335037231
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/04.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5049
+Uncertainty: 0.796474277973175
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/05.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5190
+Uncertainty: 0.8090274333953857
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/06.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/07.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/08.pth
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5294
+Uncertainty: 0.8254733085632324
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/09.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/10.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/11.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/12.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/13.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/14.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/15.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/16.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/17.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/18.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/19.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/20.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/21.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/22.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/23.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth
+Loading model ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth
+Saved the best model by Accuracy after eval./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.529400 Best uncertainty_mean: 0.7412987947463989 
+
+
+Validation complete in 4m 27s
+FINE END
+
+HIERACHIE START
+CROSSENTROPY best_model_byUncertainty
+hierarchicalEval START
+
+uncertaintyThreshold:
+0.0
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.05
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.1
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.15000000000000002
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.2
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.25
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.30000000000000004
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.35000000000000003
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.4
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.45
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3891
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.5
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6109  falseWhileStaySuper: 2  falseWhileLeaveSuper: 3889
+TOTAL Correct: 6109 TOTAL False: 3891 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.55
+correctWhileStaySuper: 10  correctWhileLeaveSuper: 6092  falseWhileStaySuper: 12  falseWhileLeaveSuper: 3886
+TOTAL Correct: 6102 TOTAL False: 3898 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.6000000000000001
+correctWhileStaySuper: 53  correctWhileLeaveSuper: 5988  falseWhileStaySuper: 99  falseWhileLeaveSuper: 3860
+TOTAL Correct: 6041 TOTAL False: 3959 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.65
+correctWhileStaySuper: 178  correctWhileLeaveSuper: 5588  falseWhileStaySuper: 524  falseWhileLeaveSuper: 3710
+TOTAL Correct: 5766 TOTAL False: 4234 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.7000000000000001
+correctWhileStaySuper: 490  correctWhileLeaveSuper: 4636  falseWhileStaySuper: 1634  falseWhileLeaveSuper: 3240
+TOTAL Correct: 5126 TOTAL False: 4874 TOTAL: 10000
+
+Validation complete in 0m 21s
+uncertaintyThreshold:
+0.75
+correctWhileStaySuper: 909  correctWhileLeaveSuper: 3010  falseWhileStaySuper: 3830  falseWhileLeaveSuper: 2251
+TOTAL Correct: 3919 TOTAL False: 6081 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.8
+correctWhileStaySuper: 1270  correctWhileLeaveSuper: 1449  falseWhileStaySuper: 6123  falseWhileLeaveSuper: 1158
+TOTAL Correct: 2719 TOTAL False: 7281 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.8500000000000001
+correctWhileStaySuper: 1457  correctWhileLeaveSuper: 460  falseWhileStaySuper: 7676  falseWhileLeaveSuper: 407
+TOTAL Correct: 1917 TOTAL False: 8083 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.9
+correctWhileStaySuper: 1516  correctWhileLeaveSuper: 69  falseWhileStaySuper: 8345  falseWhileLeaveSuper: 70
+TOTAL Correct: 1585 TOTAL False: 8415 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.9500000000000001
+correctWhileStaySuper: 1527  correctWhileLeaveSuper: 2  falseWhileStaySuper: 8468  falseWhileLeaveSuper: 3
+TOTAL Correct: 1529 TOTAL False: 8471 TOTAL: 10000
+
+Validation complete in 0m 20s
+hierarchicalEval END
+
+CROSSENTROPY best_model_byAcc
+hierarchicalEval START
+
+uncertaintyThreshold:
+0.0
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.05
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.1
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.15000000000000002
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.2
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.25
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.30000000000000004
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.35000000000000003
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.4
+correctWhileStaySuper: 0  correctWhileLeaveSuper: 6383  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.45
+correctWhileStaySuper: 2  correctWhileLeaveSuper: 6381  falseWhileStaySuper: 0  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6383 TOTAL False: 3617 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.5
+correctWhileStaySuper: 22  correctWhileLeaveSuper: 6355  falseWhileStaySuper: 6  falseWhileLeaveSuper: 3617
+TOTAL Correct: 6377 TOTAL False: 3623 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.55
+correctWhileStaySuper: 60  correctWhileLeaveSuper: 6296  falseWhileStaySuper: 30  falseWhileLeaveSuper: 3614
+TOTAL Correct: 6356 TOTAL False: 3644 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.6000000000000001
+correctWhileStaySuper: 142  correctWhileLeaveSuper: 6190  falseWhileStaySuper: 68  falseWhileLeaveSuper: 3600
+TOTAL Correct: 6332 TOTAL False: 3668 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.65
+correctWhileStaySuper: 322  correctWhileLeaveSuper: 5959  falseWhileStaySuper: 138  falseWhileLeaveSuper: 3581
+TOTAL Correct: 6281 TOTAL False: 3719 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.7000000000000001
+correctWhileStaySuper: 603  correctWhileLeaveSuper: 5617  falseWhileStaySuper: 234  falseWhileLeaveSuper: 3546
+TOTAL Correct: 6220 TOTAL False: 3780 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.75
+correctWhileStaySuper: 1049  correctWhileLeaveSuper: 5084  falseWhileStaySuper: 405  falseWhileLeaveSuper: 3462
+TOTAL Correct: 6133 TOTAL False: 3867 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.8
+correctWhileStaySuper: 1640  correctWhileLeaveSuper: 4376  falseWhileStaySuper: 656  falseWhileLeaveSuper: 3328
+TOTAL Correct: 6016 TOTAL False: 3984 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.8500000000000001
+correctWhileStaySuper: 2417  correctWhileLeaveSuper: 3506  falseWhileStaySuper: 1016  falseWhileLeaveSuper: 3061
+TOTAL Correct: 5923 TOTAL False: 4077 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.9
+correctWhileStaySuper: 3306  correctWhileLeaveSuper: 2504  falseWhileStaySuper: 1581  falseWhileLeaveSuper: 2609
+TOTAL Correct: 5810 TOTAL False: 4190 TOTAL: 10000
+
+Validation complete in 0m 20s
+uncertaintyThreshold:
+0.9500000000000001
+correctWhileStaySuper: 4183  correctWhileLeaveSuper: 1455  falseWhileStaySuper: 2498  falseWhileLeaveSuper: 1864
+TOTAL Correct: 5638 TOTAL False: 4362 TOTAL: 10000
+
+Validation complete in 0m 21s
+hierarchicalEval END

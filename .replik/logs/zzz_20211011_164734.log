@@ -1,0 +1,21 @@
+running...
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+398
+Traceback (most recent call last):
+  File "codebase/main.py", line 8, in <module>
+    from dataloadersCollection import dataloaders
+  File "/home/user/experiments/codebase/dataloadersCollection.py", line 3, in <module>
+    from imagenetData import IMAGENET_dataloaders
+  File "/home/user/experiments/codebase/imagenetData.py", line 70, in <module>
+    makeLabelFolder("./data/imagenet/train/", [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 3, 3, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 7, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 13, 13, 13, 14, 14, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 16, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 17, 18, 18, 18, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+  File "/home/user/experiments/codebase/imagenetData.py", line 44, in makeLabelFolder
+    shutil.rmtree(pathToNewLabels + str(i))
+  File "/opt/miniconda3/lib/python3.8/shutil.py", line 715, in rmtree
+    _rmtree_safe_fd(fd, path, onerror)
+  File "/opt/miniconda3/lib/python3.8/shutil.py", line 628, in _rmtree_safe_fd
+    onerror(os.scandir, path, sys.exc_info())
+  File "/opt/miniconda3/lib/python3.8/shutil.py", line 624, in _rmtree_safe_fd
+    with os.scandir(topfd) as scandir_it:
+NotADirectoryError: [Errno 20] Not a directory: './data/imagenet_subSampeled/animalsOnly_train/0'
