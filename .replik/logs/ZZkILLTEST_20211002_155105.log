@@ -1,0 +1,53 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 12%|█▏        | 5.27M/44.7M [00:00<00:00, 55.2MB/s] 25%|██▌       | 11.3M/44.7M [00:00<00:00, 59.8MB/s] 44%|████▍     | 19.8M/44.7M [00:00<00:00, 71.1MB/s] 74%|███████▍  | 33.2M/44.7M [00:00<00:00, 97.9MB/s] 99%|█████████▉| 44.3M/44.7M [00:00<00:00, 104MB/s] 100%|██████████| 44.7M/44.7M [00:00<00:00, 91.6MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+not sorted
+0
+1
+anderes: 
+not sorted
+0
+1
+anderes: 
+IMAGENET3 TEST START
+
+im using:cuda:0
+Epoch 0/0
+----------
+
+Traceback (most recent call last):
+  File "codebase/main.py", line 291, in <module>
+    main()
+  File "codebase/main.py", line 288, in main
+    runExperiments()
+  File "codebase/main.py", line 284, in runExperiments
+    trainEvalIMAGENET3(train =True, criterion_name ="crossEntropy")
+  File "codebase/main.py", line 112, in trainEvalIMAGENET3
+    defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN_LVL1"], num_train_classes =3 , test_dataloader=dataloaders["IMAGENET_TEST_LVL1"], num_test_classes=3 ,train=train, pretrained =True, num_epochs = 1, uncertaintyThreshold = -0.1)
+  File "codebase/main.py", line 80, in defineExperiment
+    train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, num_classes =num_train_classes, criterion= criterion, optimizer=optimizer, model_directory= model_directory, device=device , num_epochs=num_epochs, uncertainty=uncertainty)
+  File "/home/user/experiments/codebase/train.py", line 63, in train_model
+    outputs = model(inputs)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/models/resnet.py", line 216, in forward
+    return self._forward_impl(x)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/models/resnet.py", line 207, in _forward_impl
+    x = self.layer4(x)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/container.py", line 100, in forward
+    input = module(input)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/models/resnet.py", line 61, in forward
+    out = self.bn1(out)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 532, in __call__
+    result = self.forward(*input, **kwargs)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/batchnorm.py", line 104, in forward
+    return F.batch_norm(
+  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/functional.py", line 1666, in batch_norm
+    raise ValueError('Expected more than 1 value per channel when training, got input size {}'.format(size))
+ValueError: Expected more than 1 value per channel when training, got input size torch.Size([1, 512, 1, 1])

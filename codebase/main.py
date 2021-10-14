@@ -278,12 +278,13 @@ def main():
         #print("HIERACHIE END")
         ###### STILL TESTING
         ######
-        
+     
         #print("OFFICE CROSSDATA")
         #crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
         
         train_ImagenetLVL1(train= True, criterion_name = "crossEntropy")
         train_ImagenetNormal(train=True, criterion_name= "crossEntropy")
+
 
        	print("DONE with all expretiments")
 

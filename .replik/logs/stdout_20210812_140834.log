@@ -1,0 +1,220 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 17%|█▋        | 7.51M/44.7M [00:00<00:00, 78.7MB/s] 42%|████▏     | 18.7M/44.7M [00:00<00:00, 101MB/s]  67%|██████▋   | 29.9M/44.7M [00:00<00:00, 108MB/s] 92%|█████████▏| 41.0M/44.7M [00:00<00:00, 112MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 107MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+COARSE START
+
+im using:cuda:0
+Epoch 0/4
+----------
+
+Loss: 2.5338 Acc: 0.2118 Uncertainty_mean: 0.7627 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/4
+----------
+Loss: 2.0394 Acc: 0.3607 Uncertainty_mean: 0.7309 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/4
+----------
+Loss: 1.7474 Acc: 0.4506 Uncertainty_mean: 0.7201 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+
+Epoch 3/4
+----------
+Loss: 1.5082 Acc: 0.5224 Uncertainty_mean: 0.7597 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+
+Epoch 4/4
+----------
+Loss: 1.3120 Acc: 0.5841 Uncertainty_mean: 0.7714 
+Saved: ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+
+Training complete in 9m 49s
+Best Acc: 0.584060 Best Uncertainty: 0.720078
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/00.pth
+DEBUG
+tensor(2919, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.2919
+Uncertainty: 0.7161619067192078
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/01.pth
+DEBUG
+tensor(4123, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.4123
+Uncertainty: 0.7141868472099304
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/02.pth
+DEBUG
+tensor(4798, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4798
+Uncertainty: 0.7246743440628052
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/03.pth
+DEBUG
+tensor(5386, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5386
+Uncertainty: 0.7326611280441284
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/04.pth
+DEBUG
+tensor(5626, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5626
+Uncertainty: 0.752762496471405
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/05.pth
+DEBUG
+tensor(5626, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/06.pth
+DEBUG
+tensor(5645, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5645
+Uncertainty: 0.7981334924697876
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/07.pth
+DEBUG
+tensor(5757, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5757
+Uncertainty: 0.7903537154197693
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/08.pth
+DEBUG
+tensor(5816, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5816
+Uncertainty: 0.7964175343513489
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/09.pth
+DEBUG
+tensor(5753, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/10.pth
+DEBUG
+tensor(5819, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5819
+Uncertainty: 0.8087949156761169
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/11.pth
+DEBUG
+tensor(5808, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/12.pth
+DEBUG
+tensor(5700, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/13.pth
+DEBUG
+tensor(5731, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/14.pth
+DEBUG
+tensor(5685, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/15.pth
+DEBUG
+tensor(5596, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/16.pth
+DEBUG
+tensor(5570, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/17.pth
+DEBUG
+tensor(5629, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/18.pth
+DEBUG
+tensor(5683, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/19.pth
+DEBUG
+tensor(5671, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/20.pth
+DEBUG
+tensor(5698, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/21.pth
+DEBUG
+tensor(5702, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/22.pth
+DEBUG
+tensor(5724, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/23.pth
+DEBUG
+tensor(5609, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth
+DEBUG
+tensor(5624, device='cuda:0')
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth
+DEBUG
+tensor(6383, device='cuda:0')
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.6383
+Uncertainty: 0.6284259557723999
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth
+DEBUG
+tensor(5947, device='cuda:0')
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.5947
+Uncertainty: 0.47709372639656067
+Loading model ./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/bestmodel_byAcc.pth
+DEBUG
+tensor(6383, device='cuda:0')
+Saved the best model by Accuracy after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.638300 Best uncertainty_mean: 0.47709372639656067 
+
+
+Validation complete in 4m 33s
+COARSE END
+
+FINE START
+
+im using:cuda:0
+Epoch 0/4
+----------
+Loss: 3.9665 Acc: 0.0863 Uncertainty_mean: 0.8708 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/00.pth
+
+Epoch 1/4
+----------
+Loss: 3.0985 Acc: 0.2345 Uncertainty_mean: 0.8946 
+Saved: ./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/01.pth
+
+Epoch 2/4
+----------
+Traceback (most recent call last):
+  File "codebase/main.py", line 273, in <module>
+    main()
+  File "codebase/main.py", line 270, in main
+    runExperiments()
+  File "codebase/main.py", line 266, in runExperiments
+    CIFAR100_coarse_AND_fine(train =True, criterion_name ="crossEntropy")
+  File "codebase/main.py", line 119, in CIFAR100_coarse_AND_fine
+    defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_fine_labels_TRAIN"], num_train_classes =100 , test_dataloader=dataloaders["CIFAR100_fine_labels_TEST"], num_test_classes=100 ,train=train, pretrained =True, num_epochs =25, uncertaintyThreshold = -0.1)
+  File "codebase/main.py", line 78, in defineExperiment
+    train_acc_hist, train_loss_hist , train_uncertainty_hist = train_model(model, train_dataloader, num_classes =num_train_classes, criterion= criterion, optimizer=optimizer, model_directory= model_directory, device=device , num_epochs=num_epochs, uncertainty=uncertainty)
+  File "/home/user/experiments/codebase/train.py", line 67, in train_model
+    running_loss += loss.item() * inputs.size(0)
+KeyboardInterrupt

@@ -1,0 +1,24 @@
+running...
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "codebase/main.py", line 8, in <module>
+    from dataloadersCollection import dataloaders
+  File "/home/user/experiments/codebase/dataloadersCollection.py", line 2, in <module>
+    from officeData import OFFICE_dataloaders
+  File "/home/user/experiments/codebase/officeData.py", line 40, in <module>
+    OFFICE_train_dataset , OFFICE_test_dataset = split_data(OFFICE_dataset_A)
+  File "/home/user/experiments/codebase/officeData.py", line 29, in split_data
+    for x,data in enumerate(dataset):
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 138, in __getitem__
+    sample = self.loader(path)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 174, in default_loader
+    return pil_loader(path)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 157, in pil_loader
+    return img.convert('RGB')
+  File "/opt/miniconda3/lib/python3.8/site-packages/PIL/Image.py", line 904, in convert
+    self.load()
+  File "/opt/miniconda3/lib/python3.8/site-packages/PIL/ImageFile.py", line 255, in load
+    n, err_code = decoder.decode(b)
+KeyboardInterrupt

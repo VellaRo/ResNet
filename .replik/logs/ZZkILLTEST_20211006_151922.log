@@ -1,0 +1,21 @@
+running...
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "codebase/main.py", line 8, in <module>
+    from dataloadersCollection import dataloaders
+  File "/home/user/experiments/codebase/dataloadersCollection.py", line 3, in <module>
+    from imagenetData import IMAGENET_dataloaders
+  File "/home/user/experiments/codebase/imagenetData.py", line 168, in <module>
+    imagenet_train_data = imagenet.ImageNet(root="./data/imagenet" ,split="train")
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/imagenet.py", line 54, in __init__
+    self.parse_archives()
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/imagenet.py", line 69, in parse_archives
+    parse_devkit_archive(self.root)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/imagenet.py", line 148, in parse_devkit_archive
+    _verify_archive(root, file, md5)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/imagenet.py", line 102, in _verify_archive
+    raise RuntimeError(msg.format(file, root))
+RuntimeError: The archive ILSVRC2012_devkit_t12.tar.gz is not present in the root directory or is corrupted. 
+              You need to download it externally and place it in ./data/imagenet.

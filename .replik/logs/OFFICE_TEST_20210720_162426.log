@@ -1,0 +1,6284 @@
+running...
+Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
+  0%|          | 0.00/44.7M [00:00<?, ?B/s] 11%|█         | 4.98M/44.7M [00:00<00:00, 52.2MB/s] 37%|███▋      | 16.6M/44.7M [00:00<00:00, 93.2MB/s] 57%|█████▋    | 25.5M/44.7M [00:00<00:00, 82.9MB/s] 75%|███████▌  | 33.5M/44.7M [00:00<00:00, 77.9MB/s] 92%|█████████▏| 41.0M/44.7M [00:00<00:00, 76.0MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 78.4MB/s]Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+OFFICE CROSSDATA
+uncertaintyThreshold:0.2
+A->A
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0322
+Uncertainty: 1.976605381059926e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0366
+Uncertainty: 0.0019734608940780163
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 656 FP: 0
+FN: 27 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 27
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 55 FP: 0
+FN: 628 TN: 0
+classifiedCorrectFN: 21 
+classifiedFalseFN: 607
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 14 FP: 0
+FN: 669 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 653
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 7 FP: 0
+FN: 676 TN: 0
+classifiedCorrectFN: 34 
+classifiedFalseFN: 642
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0542
+Uncertainty: 0.6198784708976746
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 2 FP: 0
+FN: 681 TN: 0
+classifiedCorrectFN: 60 
+classifiedFalseFN: 621
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0878
+Uncertainty: 0.6992749571800232
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 70 FP: 0
+FN: 613 TN: 0
+classifiedCorrectFN: 12 
+classifiedFalseFN: 601
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 6 FP: 0
+FN: 677 TN: 0
+classifiedCorrectFN: 20 
+classifiedFalseFN: 657
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 2 FP: 0
+FN: 681 TN: 0
+classifiedCorrectFN: 64 
+classifiedFalseFN: 617
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0937
+Uncertainty: 0.6107515692710876
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 65 
+classifiedFalseFN: 618
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0952
+Uncertainty: 0.5529634952545166
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 8 FP: 0
+FN: 675 TN: 0
+classifiedCorrectFN: 37 
+classifiedFalseFN: 638
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 104 
+classifiedFalseFN: 579
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1523
+Uncertainty: 0.5731506943702698
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 76 
+classifiedFalseFN: 607
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 181 
+classifiedFalseFN: 502
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2650
+Uncertainty: 0.5523619651794434
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 80 
+classifiedFalseFN: 603
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 132 
+classifiedFalseFN: 551
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 146 
+classifiedFalseFN: 537
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 132 
+classifiedFalseFN: 551
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 257 
+classifiedFalseFN: 426
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3763
+Uncertainty: 0.5449710488319397
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 158 
+classifiedFalseFN: 525
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 199 
+classifiedFalseFN: 484
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 333 
+classifiedFalseFN: 350
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4876
+Uncertainty: 0.553216278553009
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 171 
+classifiedFalseFN: 512
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 347 
+classifiedFalseFN: 336
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5081
+Uncertainty: 0.5506460666656494
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 333 
+classifiedFalseFN: 350
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0264
+Uncertainty: 1.585642507961893e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.508053 Best uncertainty_mean: 1.585642507961893e-06 
+
+
+Validation complete in 1m 15s
+D->A
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0293
+Uncertainty: 0.010168258100748062
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.00853906199336052
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.006799797993153334
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.0025718703400343657
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 20 
+classifiedFalseFN: 663
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 21 
+classifiedFalseFN: 662
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 21 
+classifiedFalseFN: 662
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.1021808311343193
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 661
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 23 
+classifiedFalseFN: 660
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 23 
+classifiedFalseFN: 660
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 23 
+classifiedFalseFN: 660
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 23 
+classifiedFalseFN: 660
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 415 FP: 0
+FN: 268 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 260
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 55 FP: 0
+FN: 628 TN: 0
+classifiedCorrectFN: 18 
+classifiedFalseFN: 610
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.038067 Best uncertainty_mean: 0.0025718703400343657 
+
+
+Validation complete in 1m 15s
+W->A
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 26 
+classifiedFalseFN: 657
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.38001662492752075
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0425
+Uncertainty: 0.3923836052417755
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 667
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0234
+Uncertainty: 0.25214895606040955
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 26 
+classifiedFalseFN: 657
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 667
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.042460 Best uncertainty_mean: 0.25214895606040955 
+
+
+Validation complete in 1m 12s
+A->D
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 3.2225212635239586e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 91 FP: 0
+FN: 38 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 37
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.8228925466537476
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 128
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 127
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 129
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 127
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 127
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 128
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 123
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 12 
+classifiedFalseFN: 117
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0930
+Uncertainty: 0.5068187713623047
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 123
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 121
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 11 
+classifiedFalseFN: 118
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 119
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 120
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 119
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 15 
+classifiedFalseFN: 114
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1163
+Uncertainty: 0.5582930445671082
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 121
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0233
+Uncertainty: 1.6749819451433723e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.116279 Best uncertainty_mean: 1.6749819451433723e-06 
+
+
+Validation complete in 1m 3s
+D->D
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.011998385190963745
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 0.009079419076442719
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0388
+Uncertainty: 0.007028684951364994
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.002566142939031124
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1008
+Uncertainty: 0.03380930796265602
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 123
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 116
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 116
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 116
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 116
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 6 FP: 0
+FN: 123 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 118
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 105 FP: 0
+FN: 24 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 22
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.100775 Best uncertainty_mean: 0.002566142939031124 
+
+
+Validation complete in 0m 60s
+W->D
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.3809136748313904
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.39018714427948
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 129
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0000
+Uncertainty: 0.2575139105319977
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 129
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.054264 Best uncertainty_mean: 0.2575139105319977 
+
+
+Validation complete in 1m 3s
+A->W
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0269
+Uncertainty: 2.545311326684896e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.00286537641659379
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 127 FP: 0
+FN: 59 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 58
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 184
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.7923751473426819
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 183
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 183
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 185
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 183
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 12 
+classifiedFalseFN: 174
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.5775045156478882
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 173
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0699
+Uncertainty: 0.6128653883934021
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 18 
+classifiedFalseFN: 168
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0968
+Uncertainty: 0.5915316939353943
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 164
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1183
+Uncertainty: 0.5921735167503357
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 170
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 164
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 1.8393242271486088e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.118280 Best uncertainty_mean: 1.8393242271486088e-06 
+
+
+Validation complete in 0m 31s
+D->W
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.01134581957012415
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0323
+Uncertainty: 0.008972255513072014
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0108
+Uncertainty: 0.006883825641125441
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.0025725290179252625
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 16 FP: 0
+FN: 170 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 166
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 99 FP: 0
+FN: 87 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 82
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.053763 Best uncertainty_mean: 0.0025725290179252625 
+
+
+Validation complete in 0m 32s
+W->W
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.38072577118873596
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.39092329144477844
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.4143655300140381
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 183
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.2562471330165863
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 12 
+classifiedFalseFN: 174
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.37698060274124146
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 177
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 183
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.064516 Best uncertainty_mean: 0.2562471330165863 
+
+
+Validation complete in 0m 35s
+uncertaintyThreshold:0.4
+A->A
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0322
+Uncertainty: 1.976605381059926e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0366
+Uncertainty: 0.0019734608940780163
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 669 FP: 0
+FN: 14 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 14
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 159 FP: 0
+FN: 524 TN: 0
+classifiedCorrectFN: 18 
+classifiedFalseFN: 506
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 52 FP: 0
+FN: 631 TN: 0
+classifiedCorrectFN: 15 
+classifiedFalseFN: 616
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 34 FP: 0
+FN: 649 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 627
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0542
+Uncertainty: 0.6198784708976746
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 10 FP: 0
+FN: 673 TN: 0
+classifiedCorrectFN: 58 
+classifiedFalseFN: 615
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0878
+Uncertainty: 0.6992749571800232
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 345 FP: 0
+FN: 338 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 331
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 29 FP: 0
+FN: 654 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 638
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 31 FP: 0
+FN: 652 TN: 0
+classifiedCorrectFN: 56 
+classifiedFalseFN: 596
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0937
+Uncertainty: 0.6107515692710876
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 24 FP: 0
+FN: 659 TN: 0
+classifiedCorrectFN: 55 
+classifiedFalseFN: 604
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0952
+Uncertainty: 0.5529634952545166
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 315 FP: 0
+FN: 368 TN: 0
+classifiedCorrectFN: 20 
+classifiedFalseFN: 348
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 18 FP: 0
+FN: 665 TN: 0
+classifiedCorrectFN: 102 
+classifiedFalseFN: 563
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1523
+Uncertainty: 0.5731506943702698
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 2 FP: 0
+FN: 681 TN: 0
+classifiedCorrectFN: 76 
+classifiedFalseFN: 605
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 37 FP: 0
+FN: 646 TN: 0
+classifiedCorrectFN: 169 
+classifiedFalseFN: 477
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2650
+Uncertainty: 0.5523619651794434
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 148 FP: 0
+FN: 535 TN: 0
+classifiedCorrectFN: 45 
+classifiedFalseFN: 490
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 71 FP: 0
+FN: 612 TN: 0
+classifiedCorrectFN: 108 
+classifiedFalseFN: 504
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 19 FP: 0
+FN: 664 TN: 0
+classifiedCorrectFN: 133 
+classifiedFalseFN: 531
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 34 FP: 0
+FN: 649 TN: 0
+classifiedCorrectFN: 116 
+classifiedFalseFN: 533
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 21 FP: 0
+FN: 662 TN: 0
+classifiedCorrectFN: 243 
+classifiedFalseFN: 419
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3763
+Uncertainty: 0.5449710488319397
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 5 FP: 0
+FN: 678 TN: 0
+classifiedCorrectFN: 155 
+classifiedFalseFN: 523
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 6 FP: 0
+FN: 677 TN: 0
+classifiedCorrectFN: 197 
+classifiedFalseFN: 480
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 22 FP: 0
+FN: 661 TN: 0
+classifiedCorrectFN: 319 
+classifiedFalseFN: 342
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4876
+Uncertainty: 0.553216278553009
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 16 FP: 0
+FN: 667 TN: 0
+classifiedCorrectFN: 163 
+classifiedFalseFN: 504
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 3 FP: 0
+FN: 680 TN: 0
+classifiedCorrectFN: 345 
+classifiedFalseFN: 335
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5081
+Uncertainty: 0.5506460666656494
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 22 FP: 0
+FN: 661 TN: 0
+classifiedCorrectFN: 319 
+classifiedFalseFN: 342
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0264
+Uncertainty: 1.585642507961893e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.508053 Best uncertainty_mean: 1.585642507961893e-06 
+
+
+Validation complete in 1m 16s
+D->A
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0293
+Uncertainty: 0.010168258100748062
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.00853906199336052
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.006799797993153334
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.0025718703400343657
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.1021808311343193
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.038067 Best uncertainty_mean: 0.0025718703400343657 
+
+
+Validation complete in 1m 12s
+W->A
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.38001662492752075
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0425
+Uncertainty: 0.3923836052417755
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0234
+Uncertainty: 0.25214895606040955
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 24 
+classifiedFalseFN: 659
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 29 
+classifiedFalseFN: 654
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 683 TN: 0
+classifiedCorrectFN: 26 
+classifiedFalseFN: 657
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.042460 Best uncertainty_mean: 0.25214895606040955 
+
+
+Validation complete in 1m 11s
+A->D
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 3.2225212635239586e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 106 FP: 0
+FN: 23 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 22
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.8228925466537476
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 128
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 127
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 129
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 7 FP: 0
+FN: 122 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 120
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 127
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 128
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 126
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 2 FP: 0
+FN: 127 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 121
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 19 FP: 0
+FN: 110 TN: 0
+classifiedCorrectFN: 11 
+classifiedFalseFN: 99
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0930
+Uncertainty: 0.5068187713623047
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 3 FP: 0
+FN: 126 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 120
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 121
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 4 FP: 0
+FN: 125 TN: 0
+classifiedCorrectFN: 11 
+classifiedFalseFN: 114
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 2 FP: 0
+FN: 127 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 117
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 120
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 119
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 2 FP: 0
+FN: 127 TN: 0
+classifiedCorrectFN: 15 
+classifiedFalseFN: 112
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1163
+Uncertainty: 0.5582930445671082
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 121
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0233
+Uncertainty: 1.6749819451433723e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.116279 Best uncertainty_mean: 1.6749819451433723e-06 
+
+
+Validation complete in 0m 58s
+D->D
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.011998385190963745
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 0.009079419076442719
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0388
+Uncertainty: 0.007028684951364994
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.002566142939031124
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1008
+Uncertainty: 0.03380930796265602
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.100775 Best uncertainty_mean: 0.002566142939031124 
+
+
+Validation complete in 1m 6s
+W->D
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.3809136748313904
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.39018714427948
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0000
+Uncertainty: 0.2575139105319977
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 122
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 129 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 125
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.054264 Best uncertainty_mean: 0.2575139105319977 
+
+
+Validation complete in 1m 1s
+A->W
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0269
+Uncertainty: 2.545311326684896e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.00286537641659379
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 147 FP: 0
+FN: 39 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 39
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 2 FP: 0
+FN: 184 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 184
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.7923751473426819
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 4 FP: 0
+FN: 182 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 2 FP: 0
+FN: 184 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 182
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 9 FP: 0
+FN: 177 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 173
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 5 FP: 0
+FN: 181 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 180
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 3 FP: 0
+FN: 183 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 13 FP: 0
+FN: 173 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 166
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 19 FP: 0
+FN: 167 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 164
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 180
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 12 
+classifiedFalseFN: 173
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.5775045156478882
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 175
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 172
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0699
+Uncertainty: 0.6128653883934021
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 18 
+classifiedFalseFN: 168
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0968
+Uncertainty: 0.5915316939353943
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 163
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1183
+Uncertainty: 0.5921735167503357
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 170
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 1 FP: 0
+FN: 185 TN: 0
+classifiedCorrectFN: 22 
+classifiedFalseFN: 163
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 1.8393242271486088e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.118280 Best uncertainty_mean: 1.8393242271486088e-06 
+
+
+Validation complete in 0m 31s
+D->W
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.01134581957012415
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0323
+Uncertainty: 0.008972255513072014
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0108
+Uncertainty: 0.006883825641125441
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.0025725290179252625
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.053763 Best uncertainty_mean: 0.0025725290179252625 
+
+
+Validation complete in 0m 35s
+W->W
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.38072577118873596
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.39092329144477844
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.4143655300140381
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.2562471330165863
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.37698060274124146
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 179
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 178
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 0 FP: 0
+FN: 186 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 177
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.064516 Best uncertainty_mean: 0.2562471330165863 
+
+
+Validation complete in 0m 30s
+uncertaintyThreshold:0.6000000000000001
+A->A
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0322
+Uncertainty: 1.976605381059926e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0366
+Uncertainty: 0.0019734608940780163
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 674 FP: 0
+FN: 9 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 9
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 288 FP: 0
+FN: 395 TN: 0
+classifiedCorrectFN: 16 
+classifiedFalseFN: 379
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 290 FP: 0
+FN: 393 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 386
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 287 FP: 0
+FN: 396 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 386
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0542
+Uncertainty: 0.6198784708976746
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 101 FP: 0
+FN: 582 TN: 0
+classifiedCorrectFN: 36 
+classifiedFalseFN: 546
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0878
+Uncertainty: 0.6992749571800232
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 533 FP: 0
+FN: 150 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 149
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 308 FP: 0
+FN: 375 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 369
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 293 FP: 0
+FN: 390 TN: 0
+classifiedCorrectFN: 27 
+classifiedFalseFN: 363
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0937
+Uncertainty: 0.6107515692710876
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 415 FP: 0
+FN: 268 TN: 0
+classifiedCorrectFN: 18 
+classifiedFalseFN: 250
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0952
+Uncertainty: 0.5529634952545166
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 586 FP: 0
+FN: 97 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 92
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 380 FP: 0
+FN: 303 TN: 0
+classifiedCorrectFN: 35 
+classifiedFalseFN: 268
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1523
+Uncertainty: 0.5731506943702698
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 520 FP: 0
+FN: 163 TN: 0
+classifiedCorrectFN: 14 
+classifiedFalseFN: 149
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 491 FP: 0
+FN: 192 TN: 0
+classifiedCorrectFN: 46 
+classifiedFalseFN: 146
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2650
+Uncertainty: 0.5523619651794434
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 639 FP: 0
+FN: 44 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 43
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 618 FP: 0
+FN: 65 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 56
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 511 FP: 0
+FN: 172 TN: 0
+classifiedCorrectFN: 19 
+classifiedFalseFN: 153
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 593 FP: 0
+FN: 90 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 80
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 565 FP: 0
+FN: 118 TN: 0
+classifiedCorrectFN: 32 
+classifiedFalseFN: 86
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3763
+Uncertainty: 0.5449710488319397
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 562 FP: 0
+FN: 121 TN: 0
+classifiedCorrectFN: 10 
+classifiedFalseFN: 111
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 512 FP: 0
+FN: 171 TN: 0
+classifiedCorrectFN: 27 
+classifiedFalseFN: 144
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 579 FP: 0
+FN: 104 TN: 0
+classifiedCorrectFN: 33 
+classifiedFalseFN: 71
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4876
+Uncertainty: 0.553216278553009
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 564 FP: 0
+FN: 119 TN: 0
+classifiedCorrectFN: 13 
+classifiedFalseFN: 106
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 596 FP: 0
+FN: 87 TN: 0
+classifiedCorrectFN: 36 
+classifiedFalseFN: 51
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5081
+Uncertainty: 0.5506460666656494
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 579 FP: 0
+FN: 104 TN: 0
+classifiedCorrectFN: 33 
+classifiedFalseFN: 71
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0264
+Uncertainty: 1.585642507961893e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.508053 Best uncertainty_mean: 1.585642507961893e-06 
+
+
+Validation complete in 1m 14s
+D->A
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0293
+Uncertainty: 0.010168258100748062
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.00853906199336052
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.006799797993153334
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.0025718703400343657
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.1021808311343193
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.038067 Best uncertainty_mean: 0.0025718703400343657 
+
+
+Validation complete in 1m 9s
+W->A
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.38001662492752075
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0425
+Uncertainty: 0.3923836052417755
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0234
+Uncertainty: 0.25214895606040955
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.042460 Best uncertainty_mean: 0.25214895606040955 
+
+
+Validation complete in 1m 13s
+A->D
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 3.2225212635239586e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 112 FP: 0
+FN: 17 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 17
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 4 FP: 0
+FN: 125 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 118
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.8228925466537476
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 4 FP: 0
+FN: 125 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 124
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 22 FP: 0
+FN: 107 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 105
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 34 FP: 0
+FN: 95 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 95
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 29 FP: 0
+FN: 100 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 98
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 98 FP: 0
+FN: 31 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 31
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 63 FP: 0
+FN: 66 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 66
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 108 FP: 0
+FN: 21 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 21
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 79 FP: 0
+FN: 50 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 48
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 62 FP: 0
+FN: 67 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 64
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 102 FP: 0
+FN: 27 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 26
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 110 FP: 0
+FN: 19 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 17
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 112 FP: 0
+FN: 17 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 15
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0930
+Uncertainty: 0.5068187713623047
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 92 FP: 0
+FN: 37 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 35
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 115 FP: 0
+FN: 14 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 14
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 85 FP: 0
+FN: 44 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 36
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 56 FP: 0
+FN: 73 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 67
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 76 FP: 0
+FN: 53 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 47
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 36 FP: 0
+FN: 93 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 87
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 85 FP: 0
+FN: 44 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 42
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1163
+Uncertainty: 0.5582930445671082
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 59 FP: 0
+FN: 70 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 66
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 69 FP: 0
+FN: 60 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 56
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 69 FP: 0
+FN: 60 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 56
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0233
+Uncertainty: 1.6749819451433723e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.116279 Best uncertainty_mean: 1.6749819451433723e-06 
+
+
+Validation complete in 1m 5s
+D->D
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.011998385190963745
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 0.009079419076442719
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0388
+Uncertainty: 0.007028684951364994
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.002566142939031124
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1008
+Uncertainty: 0.03380930796265602
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.100775 Best uncertainty_mean: 0.002566142939031124 
+
+
+Validation complete in 1m 0s
+W->D
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.3809136748313904
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.39018714427948
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0000
+Uncertainty: 0.2575139105319977
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.054264 Best uncertainty_mean: 0.2575139105319977 
+
+
+Validation complete in 1m 2s
+A->W
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0269
+Uncertainty: 2.545311326684896e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.00286537641659379
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 161 FP: 0
+FN: 25 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 25
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 4 FP: 0
+FN: 182 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 176
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 3 FP: 0
+FN: 183 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 181
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 4 FP: 0
+FN: 182 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 174
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.7923751473426819
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 33 FP: 0
+FN: 153 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 148
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 41 FP: 0
+FN: 145 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 141
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 144 FP: 0
+FN: 42 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 42
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 82 FP: 0
+FN: 104 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 102
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 161 FP: 0
+FN: 25 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 23
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 145 FP: 0
+FN: 41 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 41
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 108 FP: 0
+FN: 78 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 78
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 145 FP: 0
+FN: 41 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 41
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 166 FP: 0
+FN: 20 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 20
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 158 FP: 0
+FN: 28 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 28
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 125 FP: 0
+FN: 61 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 61
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 123 FP: 0
+FN: 63 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 61
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.5775045156478882
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 99 FP: 0
+FN: 87 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 84
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 76 FP: 0
+FN: 110 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 102
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0699
+Uncertainty: 0.6128653883934021
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 110 FP: 0
+FN: 76 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 71
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0968
+Uncertainty: 0.5915316939353943
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 71 FP: 0
+FN: 115 TN: 0
+classifiedCorrectFN: 4 
+classifiedFalseFN: 111
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 94 FP: 0
+FN: 92 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 84
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1183
+Uncertainty: 0.5921735167503357
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 115 FP: 0
+FN: 71 TN: 0
+classifiedCorrectFN: 9 
+classifiedFalseFN: 62
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 126 FP: 0
+FN: 60 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 58
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 94 FP: 0
+FN: 92 TN: 0
+classifiedCorrectFN: 8 
+classifiedFalseFN: 84
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 1.8393242271486088e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.118280 Best uncertainty_mean: 1.8393242271486088e-06 
+
+
+Validation complete in 0m 33s
+D->W
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.01134581957012415
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0323
+Uncertainty: 0.008972255513072014
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0108
+Uncertainty: 0.006883825641125441
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.0025725290179252625
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.053763 Best uncertainty_mean: 0.0025725290179252625 
+
+
+Validation complete in 0m 31s
+W->W
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.38072577118873596
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.39092329144477844
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.4143655300140381
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.2562471330165863
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.37698060274124146
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.064516 Best uncertainty_mean: 0.2562471330165863 
+
+
+Validation complete in 0m 29s
+uncertaintyThreshold:0.8
+A->A
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0322
+Uncertainty: 1.976605381059926e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0366
+Uncertainty: 0.0019734608940780163
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 676 FP: 0
+FN: 7 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 7
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 462 FP: 0
+FN: 221 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 214
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 634 FP: 0
+FN: 49 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 48
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 583 FP: 0
+FN: 100 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 98
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0542
+Uncertainty: 0.6198784708976746
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 532 FP: 0
+FN: 151 TN: 0
+classifiedCorrectFN: 11 
+classifiedFalseFN: 140
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0878
+Uncertainty: 0.6992749571800232
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 672 FP: 0
+FN: 11 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 11
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 681 FP: 0
+FN: 2 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 2
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 670 FP: 0
+FN: 13 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 13
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0937
+Uncertainty: 0.6107515692710876
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 682 FP: 0
+FN: 1 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 1
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0952
+Uncertainty: 0.5529634952545166
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1523
+Uncertainty: 0.5731506943702698
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.2650
+Uncertainty: 0.5523619651794434
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.3763
+Uncertainty: 0.5449710488319397
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.4876
+Uncertainty: 0.553216278553009
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.5081
+Uncertainty: 0.5506460666656494
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0264
+Uncertainty: 1.585642507961893e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.508053 Best uncertainty_mean: 1.585642507961893e-06 
+
+
+Validation complete in 1m 12s
+D->A
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0293
+Uncertainty: 0.010168258100748062
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.00853906199336052
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.006799797993153334
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0351
+Uncertainty: 0.0025718703400343657
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.1021808311343193
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.038067 Best uncertainty_mean: 0.0025718703400343657 
+
+
+Validation complete in 1m 12s
+W->A
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0381
+Uncertainty: 0.38001662492752075
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0425
+Uncertainty: 0.3923836052417755
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0234
+Uncertainty: 0.25214895606040955
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 683 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.042460 Best uncertainty_mean: 0.25214895606040955 
+
+
+Validation complete in 1m 9s
+A->D
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 3.2225212635239586e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 115 FP: 0
+FN: 14 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 14
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 30 FP: 0
+FN: 99 TN: 0
+classifiedCorrectFN: 7 
+classifiedFalseFN: 92
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.8228925466537476
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 61 FP: 0
+FN: 68 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 67
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 71 FP: 0
+FN: 58 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 57
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 111 FP: 0
+FN: 18 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 18
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 94 FP: 0
+FN: 35 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 33
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 128 FP: 0
+FN: 1 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 1
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0930
+Uncertainty: 0.5068187713623047
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1163
+Uncertainty: 0.5582930445671082
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0233
+Uncertainty: 1.6749819451433723e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.116279 Best uncertainty_mean: 1.6749819451433723e-06 
+
+
+Validation complete in 1m 2s
+D->D
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.011998385190963745
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0465
+Uncertainty: 0.009079419076442719
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0388
+Uncertainty: 0.007028684951364994
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.002566142939031124
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1008
+Uncertainty: 0.03380930796265602
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.100775 Best uncertainty_mean: 0.002566142939031124 
+
+
+Validation complete in 1m 3s
+W->D
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0310
+Uncertainty: 0.3809136748313904
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0543
+Uncertainty: 0.39018714427948
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0000
+Uncertainty: 0.2575139105319977
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 129 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.054264 Best uncertainty_mean: 0.2575139105319977 
+
+
+Validation complete in 1m 5s
+A->W
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0269
+Uncertainty: 2.545311326684896e-05
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.00286537641659379
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/02.pth
+TP: 168 FP: 0
+FN: 18 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 18
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/03.pth
+TP: 11 FP: 0
+FN: 175 TN: 0
+classifiedCorrectFN: 6 
+classifiedFalseFN: 169
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/04.pth
+TP: 93 FP: 0
+FN: 93 TN: 0
+classifiedCorrectFN: 2 
+classifiedFalseFN: 91
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/05.pth
+TP: 86 FP: 0
+FN: 100 TN: 0
+classifiedCorrectFN: 5 
+classifiedFalseFN: 95
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.7923751473426819
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/06.pth
+TP: 164 FP: 0
+FN: 22 TN: 0
+classifiedCorrectFN: 1 
+classifiedFalseFN: 21
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/07.pth
+TP: 153 FP: 0
+FN: 33 TN: 0
+classifiedCorrectFN: 3 
+classifiedFalseFN: 30
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/09.pth
+TP: 185 FP: 0
+FN: 1 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 1
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.5775045156478882
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0699
+Uncertainty: 0.6128653883934021
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0968
+Uncertainty: 0.5915316939353943
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.1183
+Uncertainty: 0.5921735167503357
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 1.8393242271486088e-06
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_A_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.118280 Best uncertainty_mean: 1.8393242271486088e-06 
+
+
+Validation complete in 0m 32s
+D->W
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.01134581957012415
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0323
+Uncertainty: 0.008972255513072014
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0108
+Uncertainty: 0.006883825641125441
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.0025725290179252625
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/09.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_D_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.053763 Best uncertainty_mean: 0.0025725290179252625 
+
+
+Validation complete in 0m 31s
+W->W
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/00.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0376
+Uncertainty: 0.38072577118873596
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/01.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0430
+Uncertainty: 0.39092329144477844
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/02.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0538
+Uncertainty: 0.4143655300140381
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/03.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+BestModel_byUncertainty ..so far  RESULTS: 
+
+Results for this epoch: 
+Acc: 0.0161
+Uncertainty: 0.2562471330165863
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/04.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/05.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/06.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/07.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/08.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/09.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/10.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/11.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/12.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/13.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/14.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+
+BestModel_byAcc ..so far RESULTS:
+Results for this epoch: 
+Acc: 0.0645
+Uncertainty: 0.37698060274124146
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/15.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/16.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/17.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/18.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/19.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/20.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/21.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/22.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/23.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/24.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Loading model ./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth
+TP: 186 FP: 0
+FN: 0 TN: 0
+classifiedCorrectFN: 0 
+classifiedFalseFN: 0
+Saved the best model by Accuracy after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byAcc.pth 
+
+Saved the best model by Uncertainty after eval./results/models/ResNet18OFFICE_W_crossEntropyPretrained/best_model_byUncertainty.pth 
+
+Best Acc: 0.064516 Best uncertainty_mean: 0.2562471330165863 
+
+
+Validation complete in 0m 30s
+DONE with all expretiments

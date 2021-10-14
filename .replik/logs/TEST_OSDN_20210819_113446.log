@@ -1,0 +1,3 @@
+running .... OSDN
+LibMR not installed or libmr.so not found
+Install libmr: cd libMR/; ./compile.sh

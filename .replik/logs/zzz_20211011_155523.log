@@ -1,0 +1,20 @@
+running...
+Files already downloaded and verified
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "codebase/main.py", line 8, in <module>
+    from dataloadersCollection import dataloaders
+  File "/home/user/experiments/codebase/dataloadersCollection.py", line 2, in <module>
+    from officeData import OFFICE_dataloaders
+  File "/home/user/experiments/codebase/officeData.py", line 52, in <module>
+    OFFICE_train_dataset , OFFICE_test_dataset = split_data(OFFICE_dataset_W)
+  File "/home/user/experiments/codebase/officeData.py", line 29, in split_data
+    for x,data in enumerate(dataset):
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 138, in __getitem__
+    sample = self.loader(path)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 174, in default_loader
+    return pil_loader(path)
+  File "/opt/miniconda3/lib/python3.8/site-packages/torchvision/datasets/folder.py", line 155, in pil_loader
+    with open(path, 'rb') as f:
+KeyboardInterrupt
