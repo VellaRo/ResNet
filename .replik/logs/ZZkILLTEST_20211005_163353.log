@@ -1,53 +1,0 @@
-running...
-Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
-  0%|          | 0.00/44.7M [00:00<?, ?B/s]  5%|▍         | 2.06M/44.7M [00:00<00:02, 21.3MB/s] 10%|▉         | 4.31M/44.7M [00:00<00:01, 22.6MB/s] 15%|█▍        | 6.59M/44.7M [00:00<00:01, 23.0MB/s] 20%|█▉        | 8.91M/44.7M [00:00<00:01, 23.5MB/s] 25%|██▌       | 11.2M/44.7M [00:00<00:01, 23.6MB/s] 30%|███       | 13.5M/44.7M [00:00<00:01, 19.7MB/s] 35%|███▍      | 15.5M/44.7M [00:00<00:02, 14.8MB/s] 38%|███▊      | 17.1M/44.7M [00:01<00:02, 11.9MB/s] 41%|████      | 18.4M/44.7M [00:01<00:02, 11.1MB/s] 44%|████▍     | 19.6M/44.7M [00:01<00:02, 10.8MB/s] 46%|████▋     | 20.7M/44.7M [00:01<00:02, 10.8MB/s] 49%|████▉     | 21.9M/44.7M [00:01<00:02, 11.1MB/s] 52%|█████▏    | 23.0M/44.7M [00:01<00:01, 11.3MB/s] 54%|█████▍    | 24.3M/44.7M [00:01<00:01, 11.8MB/s] 57%|█████▋    | 25.6M/44.7M [00:01<00:01, 12.4MB/s] 60%|██████    | 27.0M/44.7M [00:02<00:01, 12.9MB/s] 64%|██████▎   | 28.4M/44.7M [00:02<00:01, 13.6MB/s] 67%|██████▋   | 30.0M/44.7M [00:02<00:01, 14.3MB/s] 71%|███████   | 31.6M/44.7M [00:02<00:00, 14.9MB/s] 74%|███████▍  | 33.3M/44.7M [00:02<00:00, 15.8MB/s] 78%|███████▊  | 34.8M/44.7M [00:02<00:00, 14.5MB/s] 81%|████████  | 36.2M/44.7M [00:02<00:00, 12.6MB/s] 84%|████████▍ | 37.5M/44.7M [00:02<00:00, 10.2MB/s] 86%|████████▋ | 38.5M/44.7M [00:03<00:00, 8.86MB/s] 88%|████████▊ | 39.5M/44.7M [00:03<00:00, 8.56MB/s] 90%|█████████ | 40.3M/44.7M [00:03<00:00, 8.51MB/s] 92%|█████████▏| 41.2M/44.7M [00:03<00:00, 8.62MB/s] 94%|█████████▍| 42.2M/44.7M [00:03<00:00, 8.95MB/s] 97%|█████████▋| 43.2M/44.7M [00:03<00:00, 9.42MB/s] 99%|█████████▉| 44.3M/44.7M [00:03<00:00, 9.97MB/s]100%|██████████| 44.7M/44.7M [00:03<00:00, 12.5MB/s]Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-not sorted
-['./data/imagenet/train/n02814533', './data/imagenet/train/n02113799']
-anderes: 
-not sorted
-['./data/imagenet/train/n02814533', './data/imagenet/train/n02113799']
-anderes: 
-IMAGENET 
-
-im using:cuda:0
-Epoch 0/2
-----------
-
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8585 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-Epoch 1/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8585 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-
-Epoch 2/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8585 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-
-Training complete in 0m 3s
-Best Acc: 1.000000 Best Uncertainty: 0.858506
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-BestModel_byAcc ..so far RESULTS:
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 1.0
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-Saved the best model by Accuracy after eval./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/best_model_byAcc.pth 
-
-Saved the best model by Uncertainty after eval./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/best_model_byUncertainty.pth 
-
-Best Acc: 1.000000 Best uncertainty_mean: 1.0 
-
-
-Validation complete in 0m 1s
-IMAGENET 
-
-DONE with all expretiments
