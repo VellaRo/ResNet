@@ -123,7 +123,7 @@ def main():
         
         model, optimizer = resnet18Init(num_train_classes = 19 , pretrained=True)
         modelList= [model]
-        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN_LVL1"], num_train_classes =19, test_dataloader=dataloaders["IMAGENET_TEST_LVL1"], num_test_classes=19 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_LVL1_TRAIN"], num_train_classes =19, test_dataloader=dataloaders["IMAGENET_LVL1_TEST"], num_test_classes=19 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
         print("IMAGENET \n")
     
     def train_ImagenetNormal(train= False, criterion_name = None):

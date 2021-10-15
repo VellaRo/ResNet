@@ -113,13 +113,13 @@ imagenet_test_dataloaderLVL1 = torch.utils.data.DataLoader(
 
 imagenet_train_dataloader.name = "IMAGENET_TRAIN"
 imagenet_test_dataloader.name = "IMAGENET_TEST"
-imagenet_train_dataloaderLVL1.name = "IMAGENET_TRAIN_LVL1"
-imagenet_test_dataloaderLVL1.name = "IMAGENET_TEST_LVL1"
+imagenet_train_dataloaderLVL1.name = "IMAGENET_LVL1_TRAIN"
+imagenet_test_dataloaderLVL1.name = "IMAGENET_LVL1_TEST"
 
 IMAGENET_dataloaders = {
     "IMAGENET_TRAIN": imagenet_train_dataloader,
     "IMAGENET_TEST": imagenet_test_dataloader,
-    "IMAGENET_TRAIN_LVL1": imagenet_train_dataloaderLVL1,
-    "IMAGENET_TEST_LVL1": imagenet_test_dataloaderLVL1,
+    "IMAGENET_LVL1_TRAIN": imagenet_train_dataloaderLVL1,
+    "IMAGENET_LVL1_TEST": imagenet_test_dataloaderLVL1,
 
 }
