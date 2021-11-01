@@ -80,27 +80,41 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                     predsList[counter].append(preds)   
                     uList[counter].append(u)
                 counter +=1   
-
+            #print("len of data: \n")
+            #print("len(labelsList[0])")
+            #print(len(labelsList[0]))
+            #print("len(labelsList[0][0])")
+            #print(len(labelsList[0][0]))
+            #print("len(labelsList[0][0][0])")
+            #print(len(labelsList[0][0][0]))
+            #print("len(predsList[0][0][0])")
+            #print(len(predsList[0][0][0]))
+            #print("len(uList[0][0][0])")
+            #print(len(uList[0][0][0]))
             # DOES ONLY WORK FOR 2LVL HIERARCHY !!!
             #batches
             for x in range(len(labelsList[0])):
                 #attributes in batches
-                for y in range(len(labelsList[0][0])):
+                for y in range(len(labelsList[0][x])):
                     
                     # superModel uncertaintyCheck
-                    if uList[0][x][y].item() < uncertaintyThreshold:
-                        #superModel check preds
-                        if predsList[0][x][y] == labelsList[0][x][y].data:
-                            correctWhileStaySuper += 1
+                    try:
+                        if uList[0][x][y].item() < uncertaintyThreshold:
+                            #superModel check preds
+                            if predsList[0][x][y] == labelsList[0][x][y].data:
+                                correctWhileStaySuper += 1
+                            else:
+                                falseWhileStaySuper +=1
+                        #subModel check preds
                         else:
-                            falseWhileStaySuper +=1
-                    #subModel check preds
-                    else:
-                        if predsList[1][x][y] == labelsList[1][x][y].data:
-                            correctWhileLeaveSuper += 1
-                        else:
-                            falseWhileLeaveSuper += 1
-        
+
+                            if predsList[1][x][y] == labelsList[1][x][y].data:
+                                correctWhileLeaveSuper += 1
+                            else:
+                                falseWhileLeaveSuper += 1
+                    except:
+                        break
+                        
         #calculate other results | for "normal" eval
         else:
 

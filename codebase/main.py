@@ -2,6 +2,7 @@ import torch.nn as nn
 #from torch.nn.functional import dropout
 import numpy as np
 from torch.nn.functional import cross_entropy
+from torch.optim import adam
 
 from helpers import get_device
 from train import train_model
@@ -141,6 +142,21 @@ def main():
         defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN"], num_train_classes =1000, test_dataloader=dataloaders["IMAGENET_TEST"], num_test_classes=1000 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
         print("IMAGENET \n")
 
+    def train_ImagenetAnimalsOnly(train= False, criterion_name = None):
+        """
+        ARGS: train: if True train the model else only eval
+              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
+
+            Trains and Evals or only Trains IMAGENET ANIMALS ONLY
+        """
+    ##train Imagenet NORMAL
+        print("IMAGENET ANIMALS ONLY\n")
+        ######################DEBUG##############################
+        model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
+        modelList= [model]
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], num_train_classes =398, test_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TEST"], num_test_classes=398 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        print("IMAGENET ANIMALS ONLY \n")
+
 ###EVAL
     def hierarchicalEval(modelList , optimizer, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05] ):
         """
@@ -249,29 +265,31 @@ def main():
         #
         #print("HIERACHIE START")
 #
-        #modelList =[]
-        #modelSUB, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
-        #                                train_dataloader= dataloaders["CIFAR100_coarse_labels_TRAIN"],
-        #                                 test_dataloader= dataloaders["CIFAR100_coarse_labels_TEST"])
-        #
-        #modelSUPER, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
-        #                                train_dataloader= dataloaders["CIFAR100_fine_labels_TRAIN"],
-        #                                 test_dataloader= dataloaders["CIFAR100_fine_labels_TEST"])
-        #modelSUB.to(device)
-        #modelSUPER.to(device)
-        #modelList.append(modelSUPER)
-        #modelList.append(modelSUB)
+        modelList =[]
+        modelSUPER, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
+                                        train_dataloader= dataloaders["IMAGENET_LVL1_TRAIN"],
+                                         test_dataloader= dataloaders["IMAGENET_LVL1_TEST"])
+        
+        modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
+                                        train_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"],
+                                         test_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"])
+        modelSUB.to(device)
+        modelSUPER.to(device)
+        # need to append in the same order as hierachical list so in this case [SUB,SUPER]
+        modelList.append(modelSUB)
+        modelList.append(modelSUPER)
 #
         #print("CROSSENTROPY best_model_byUncertainty")
         #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
         #hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
-        #
-        #print("CROSSENTROPY best_model_byAcc")
-        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/bestmodel_byAcc.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth"]
-        #hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+        
+        print("CROSSENTROPY best_model_byAcc")
+        #hierarchicalModelPathList = ["./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropyPretrained/best_model_byAcc.pth","./results/models/ResNet18IMAGENET_LVL1_crossEntropyPretrained/best_model_byAcc.pth"]
+        hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth"]
+        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
         ##-------------------#
         ##to low accuracy ~0.15
-        ##hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
+        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
         ##
         ##hierarchicalEval(modelList=modelList, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
         #
@@ -282,9 +300,10 @@ def main():
         #print("OFFICE CROSSDATA")
         #crossDatasetEvaluationOFFICE(train = False, criterion_name = "crossEntropy", uncertaintyThresholdRange = [0.2, 0.9, 0.2] )
         
-        train_ImagenetLVL1(train= True, criterion_name = "crossEntropy")
-        train_ImagenetNormal(train=True, criterion_name= "crossEntropy")
-
+        #train_ImagenetLVL1(train =True, criterion_name = "crossEntropy")
+        #train_ImagenetNormal(train=True, criterion_name= "crossEntropy")
+        #train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
+       # hierarchicalEval(modelList=modelList,optimizer=adam ,)
 
        	print("DONE with all expretiments")
 

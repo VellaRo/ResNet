@@ -1,3 +1,4 @@
+from torchvision.datasets.imagenet import ImageNet
 from cifarData import CIFAR_dataloaders
 from officeData import OFFICE_dataloaders
 from imagenetData import IMAGENET_dataloaders
@@ -29,6 +30,8 @@ dataloaders = {
     "IMAGENET_TEST":IMAGENET_dataloaders["IMAGENET_TEST"],
     "IMAGENET_LVL1_TRAIN":IMAGENET_dataloaders["IMAGENET_LVL1_TRAIN"],
     "IMAGENET_LVL1_TEST":IMAGENET_dataloaders["IMAGENET_LVL1_TEST"],
+    "IMAGENET_ANIMALSONLY_TRAIN" : IMAGENET_dataloaders["IMAGENET_ANIMALSONLY_TRAIN"],
+    "IMAGENET_ANIMALSONLY_TEST" : IMAGENET_dataloaders["IMAGENET_ANIMALSONLY_TEST"],
 
 }
 

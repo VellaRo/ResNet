@@ -91,10 +91,47 @@ imagenet_test_dataloader = torch.utils.data.DataLoader(
     shuffle=False,
     num_workers=2
 )
+#train labels
+targets_train = imagenet_train_dataset.targets
+targets_train = list(filter(lambda x: x <398, targets_train))
+print( len(targets_train))
+
+#test labels
+targets_test = imagenet_test_dataset.targets
+targets_test = list(filter(lambda x: x <398, targets_test))
+print(len(targets_test))
+#dataset animals only
+
+imagenet_animalOnly_dataset_train = Subset( imagenet_train_dataset, targets_train)
+print(len(imagenet_animalOnly_dataset_train))
+imagenet_animalOnly_dataset_test = Subset( imagenet_test_dataset, targets_test)
+print(len(imagenet_animalOnly_dataset_test))
+
+## dataloaders animals only
+
+imagenet_animalsOnly_dataloader_train = torch.utils.data.DataLoader(
+    imagenet_animalOnly_dataset_train,
+    batch_size=batchsize,
+    shuffle=True,
+    num_workers=2,
+)
+
+#print(len(imagenet_animalsOnly_dataloader_train))
+imagenet_animalsOnly_dataloader_test = torch.utils.data.DataLoader(
+    imagenet_animalOnly_dataset_test,
+    batch_size=batchsize,
+    shuffle=False,
+    num_workers=2
+)
+#print(len(imagenet_animalsOnly_dataloader_test))
 
 
 imagenet_train_datasetLVL1 = imagenet.ImageFolder(root="./data/imagenet_subSampled/animalsOnlytrain", transform= transform)
 imagenet_test_datasetLVL1 = imagenet.ImageFolder(root="./data/imagenet_subSampled/animalsOnlyval" , transform= transform)
+
+#print("lvl1:")
+#targets = imagenet_train_datasetLVL1.targets
+#print(len(list(targets)))
 
 imagenet_train_dataloaderLVL1 = torch.utils.data.DataLoader(
     imagenet_train_datasetLVL1,
@@ -102,6 +139,7 @@ imagenet_train_dataloaderLVL1 = torch.utils.data.DataLoader(
     shuffle=True,
     num_workers=2
 )
+
 
 imagenet_test_dataloaderLVL1 = torch.utils.data.DataLoader(
     imagenet_test_datasetLVL1,
@@ -115,11 +153,15 @@ imagenet_train_dataloader.name = "IMAGENET_TRAIN"
 imagenet_test_dataloader.name = "IMAGENET_TEST"
 imagenet_train_dataloaderLVL1.name = "IMAGENET_LVL1_TRAIN"
 imagenet_test_dataloaderLVL1.name = "IMAGENET_LVL1_TEST"
+imagenet_animalsOnly_dataloader_train.name = "IMAGENET_ANIMALSONLY_TRAIN"
+imagenet_animalsOnly_dataloader_test.name = "IMAGENET_ANIMALSONLY_TEST"
 
 IMAGENET_dataloaders = {
     "IMAGENET_TRAIN": imagenet_train_dataloader,
     "IMAGENET_TEST": imagenet_test_dataloader,
     "IMAGENET_LVL1_TRAIN": imagenet_train_dataloaderLVL1,
     "IMAGENET_LVL1_TEST": imagenet_test_dataloaderLVL1,
+    "IMAGENET_ANIMALSONLY_TRAIN" : imagenet_animalsOnly_dataloader_train,
+    "IMAGENET_ANIMALSONLY_TEST" : imagenet_animalsOnly_dataloader_test,
 
 }
