@@ -1,70 +1,0 @@
-running...
-Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
-  0%|          | 0.00/44.7M [00:00<?, ?B/s]  2%|▏         | 728k/44.7M [00:00<00:06, 7.32MB/s]  3%|▎         | 1.41M/44.7M [00:00<00:08, 5.62MB/s]  4%|▍         | 1.98M/44.7M [00:00<00:09, 4.59MB/s]  5%|▌         | 2.44M/44.7M [00:00<00:09, 4.47MB/s]  7%|▋         | 2.94M/44.7M [00:00<00:09, 4.67MB/s]  8%|▊         | 3.52M/44.7M [00:00<00:08, 5.06MB/s]  9%|▉         | 4.09M/44.7M [00:00<00:07, 5.33MB/s] 10%|█         | 4.62M/44.7M [00:00<00:07, 5.27MB/s] 12%|█▏        | 5.19M/44.7M [00:01<00:07, 5.44MB/s] 13%|█▎        | 5.84M/44.7M [00:01<00:07, 5.81MB/s] 15%|█▍        | 6.56M/44.7M [00:01<00:06, 6.27MB/s] 16%|█▌        | 7.17M/44.7M [00:01<00:06, 5.94MB/s] 17%|█▋        | 7.75M/44.7M [00:01<00:07, 5.44MB/s] 19%|█▊        | 8.28M/44.7M [00:01<00:07, 5.30MB/s] 20%|█▉        | 8.84M/44.7M [00:01<00:06, 5.45MB/s] 21%|██        | 9.41M/44.7M [00:01<00:06, 5.55MB/s] 22%|██▏       | 9.95M/44.7M [00:01<00:06, 5.48MB/s] 24%|██▎       | 10.5M/44.7M [00:02<00:06, 5.61MB/s] 25%|██▌       | 11.2M/44.7M [00:02<00:05, 5.96MB/s] 27%|██▋       | 11.9M/44.7M [00:02<00:05, 6.39MB/s] 28%|██▊       | 12.7M/44.7M [00:02<00:04, 6.91MB/s] 30%|███       | 13.5M/44.7M [00:02<00:04, 7.48MB/s] 32%|███▏      | 14.4M/44.7M [00:02<00:03, 8.01MB/s] 35%|███▍      | 15.4M/44.7M [00:02<00:03, 8.73MB/s] 37%|███▋      | 16.5M/44.7M [00:02<00:03, 9.35MB/s] 39%|███▉      | 17.6M/44.7M [00:02<00:02, 10.0MB/s] 42%|████▏     | 18.8M/44.7M [00:02<00:02, 10.8MB/s] 45%|████▍     | 20.0M/44.7M [00:03<00:02, 11.5MB/s] 47%|████▋     | 21.1M/44.7M [00:03<00:02, 11.3MB/s] 50%|████▉     | 22.2M/44.7M [00:03<00:02, 10.6MB/s] 52%|█████▏    | 23.2M/44.7M [00:03<00:02, 9.69MB/s] 54%|█████▍    | 24.2M/44.7M [00:03<00:02, 9.11MB/s] 56%|█████▌    | 25.1M/44.7M [00:03<00:03, 6.81MB/s] 58%|█████▊    | 25.8M/44.7M [00:04<00:03, 5.15MB/s] 59%|█████▉    | 26.4M/44.7M [00:04<00:04, 4.29MB/s] 60%|██████    | 26.9M/44.7M [00:04<00:04, 4.08MB/s] 61%|██████▏   | 27.4M/44.7M [00:04<00:04, 3.95MB/s] 62%|██████▏   | 27.8M/44.7M [00:04<00:04, 4.03MB/s] 63%|██████▎   | 28.3M/44.7M [00:04<00:03, 4.29MB/s] 65%|██████▍   | 28.9M/44.7M [00:04<00:03, 4.66MB/s] 66%|██████▌   | 29.5M/44.7M [00:04<00:03, 5.18MB/s] 68%|██████▊   | 30.2M/44.7M [00:05<00:02, 5.70MB/s] 69%|██████▉   | 31.0M/44.7M [00:05<00:02, 6.33MB/s] 71%|███████   | 31.8M/44.7M [00:05<00:01, 7.02MB/s] 73%|███████▎  | 32.7M/44.7M [00:05<00:01, 7.67MB/s] 75%|███████▌  | 33.7M/44.7M [00:05<00:01, 8.41MB/s] 78%|███████▊  | 34.7M/44.7M [00:05<00:01, 9.14MB/s] 80%|████████  | 35.9M/44.7M [00:05<00:00, 9.95MB/s] 83%|████████▎ | 37.0M/44.7M [00:05<00:00, 10.6MB/s] 86%|████████▌ | 38.3M/44.7M [00:05<00:00, 11.5MB/s] 89%|████████▊ | 39.6M/44.7M [00:05<00:00, 12.1MB/s] 92%|█████████▏| 41.0M/44.7M [00:06<00:00, 12.9MB/s] 95%|█████████▌| 42.5M/44.7M [00:06<00:00, 13.6MB/s] 99%|█████████▊| 44.0M/44.7M [00:06<00:00, 14.3MB/s]100%|██████████| 44.7M/44.7M [00:06<00:00, 7.43MB/s]Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-not sorted
-anderes: 
-not sorted
-['./data/imagenet/train/n02814533', './data/imagenet/train/n02113799']
-anderes: 
-IMAGENET 
-
-im using:cuda:0
-Epoch 0/2
-----------
-
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8606 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-Epoch 1/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8606 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-
-Epoch 2/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8606 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-
-Training complete in 0m 3s
-Best Acc: 1.000000 Best Uncertainty: 0.860612
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-BestModel_byAcc ..so far RESULTS:
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 0.9277405738830566
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 0.9126898050308228
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 0.8914176225662231
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/best_model_byAcc.pth
-Traceback (most recent call last):
-  File "codebase/main.py", line 276, in <module>
-    main()
-  File "codebase/main.py", line 273, in main
-    runExperiments()
-  File "codebase/main.py", line 269, in runExperiments
-    train_ImagenetLvl1(train= True, criterion_name = "crossEntropy")
-  File "codebase/main.py", line 126, in train_ImagenetLvl1
-    defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN_LVL1"], num_train_classes =1 , test_dataloader=dataloaders["IMAGENET_TEST_LVL1"], num_test_classes=1 ,train=train, pretrained =True, num_epochs = 3, uncertaintyThreshold = -0.1)
-  File "codebase/main.py", line 89, in defineExperiment
-    val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
-  File "/home/user/experiments/codebase/eval.py", line 173, in eval_model
-    model.load_state_dict(torch.load(model_path))
-  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 829, in load_state_dict
-    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
-RuntimeError: Error(s) in loading state_dict for ResNet:
-	size mismatch for fc.weight: copying a param with shape torch.Size([18, 512]) from checkpoint, the shape in current model is torch.Size([1, 512]).
-	size mismatch for fc.bias: copying a param with shape torch.Size([18]) from checkpoint, the shape in current model is torch.Size([1]).

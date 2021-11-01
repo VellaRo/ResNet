@@ -1,64 +1,0 @@
-running...
-Downloading: "https://download.pytorch.org/models/resnet18-5c106cde.pth" to /home/user/.cache/torch/checkpoints/resnet18-5c106cde.pth
-  0%|          | 0.00/44.7M [00:00<?, ?B/s]  4%|▍         | 1.99M/44.7M [00:00<00:02, 20.8MB/s] 12%|█▏        | 5.46M/44.7M [00:00<00:01, 29.9MB/s] 25%|██▍       | 11.0M/44.7M [00:00<00:00, 42.9MB/s] 45%|████▌     | 20.2M/44.7M [00:00<00:00, 63.8MB/s] 70%|███████   | 31.3M/44.7M [00:00<00:00, 83.0MB/s] 95%|█████████▌| 42.5M/44.7M [00:00<00:00, 94.6MB/s]100%|██████████| 44.7M/44.7M [00:00<00:00, 73.7MB/s]Files already downloaded and verified
-Files already downloaded and verified
-Files already downloaded and verified
-not sorted
-anderes: 
-not sorted
-anderes: 
-IMAGENET 
-
-im using:cuda:0
-Epoch 0/2
-----------
-
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8728 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-Epoch 1/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8728 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-
-Epoch 2/2
-----------
-Loss: 0.0000 Acc: 1.0000 Uncertainty_mean: 0.8728 
-Saved: ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-
-Training complete in 0m 3s
-Best Acc: 1.000000 Best Uncertainty: 0.872828
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/00.pth
-
-BestModel_byAcc ..so far RESULTS:
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 1.0
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/01.pth
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/02.pth
-BestModel_byUncertainty ..so far  RESULTS: 
-
-Results for this epoch: 
-Acc: 1.0000
-Uncertainty: 0.9815824031829834
-Loading model ./results/models/ResNet18IMAGENET_TRAINcrossEntropyPretrained/best_model_byAcc.pth
-Traceback (most recent call last):
-  File "codebase/main.py", line 276, in <module>
-    main()
-  File "codebase/main.py", line 273, in main
-    runExperiments()
-  File "codebase/main.py", line 269, in runExperiments
-    train_ImagenetLvl1(train= True, criterion_name = "crossEntropy")
-  File "codebase/main.py", line 126, in train_ImagenetLvl1
-    defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN_LVL1"], num_train_classes =1 , test_dataloader=dataloaders["IMAGENET_TEST_LVL1"], num_test_classes=1 ,train=train, pretrained =True, num_epochs = 3, uncertaintyThreshold = -0.1)
-  File "codebase/main.py", line 89, in defineExperiment
-    val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
-  File "/home/user/experiments/codebase/eval.py", line 173, in eval_model
-    model.load_state_dict(torch.load(model_path))
-  File "/opt/miniconda3/lib/python3.8/site-packages/torch/nn/modules/module.py", line 829, in load_state_dict
-    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
-RuntimeError: Error(s) in loading state_dict for ResNet:
-	size mismatch for fc.weight: copying a param with shape torch.Size([18, 512]) from checkpoint, the shape in current model is torch.Size([1, 512]).
-	size mismatch for fc.bias: copying a param with shape torch.Size([18]) from checkpoint, the shape in current model is torch.Size([1]).
