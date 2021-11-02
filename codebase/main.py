@@ -26,7 +26,7 @@ def main():
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
-    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [] ,uncertainty=False):
+    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [] ,uncertainty=False, eliminateOpenset= False):
         """
         Buildingblock for Experiments:
             defines evrything that might be needed in the specified experiment when called
@@ -158,7 +158,7 @@ def main():
         print("IMAGENET ANIMALS ONLY \n")
 
 ###EVAL
-    def hierarchicalEval(modelList , optimizer, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05] ):
+    def hierarchicalEval(modelList , optimizer, hierarchicalModelPathList = None,  uncertaintyThresholdRange=[0, 1, 0.05], eliminateOpenset= False):
         """
         ARGS: modelList = List of initialised Models | with for example resnet18Init()
               hierarchicalModelPathList = List of path to specified trained Models form modelList 
@@ -168,7 +168,7 @@ def main():
                 need provide a modelList , and a hierachicalPathList before calling Method
         """
         print("hierarchicalEval START\n")
-        
+
         start, end, step = uncertaintyThresholdRange
         uncertaintyThresholdList = np.arange(start, end, step).tolist()
 
@@ -176,7 +176,7 @@ def main():
         
             print("uncertaintyThreshold:\n" + str(x))
                                                                    
-            defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList )
+            defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList, eliminateOpenset=eliminateOpenset)
 
         print("hierarchicalEval END\n")
     

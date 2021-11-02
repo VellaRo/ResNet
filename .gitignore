@@ -6,4 +6,6 @@ data/
 docker/
 results/
 schedulerScripts/
-codebase/__pycache__
+codebase/__pycache__output/
+.cache/
+.replik_paths.json

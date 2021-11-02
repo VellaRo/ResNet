@@ -8,9 +8,10 @@ from losses import relu_evidence
 from models import resnet18Init
 from helpers import calculate_uncertainty
 
+#eliminateOpenset
+   
 
-
-def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [], train_dataloader= None , test_dataloader =None):
+def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [], train_dataloader= None , test_dataloader =None, eliminateOpenset=False):
     since = time.time()
 
     model = modelList[0]
@@ -30,8 +31,12 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
     saved_models = glob.glob(directory + '*.pth')
     saved_models.sort()
 
+    #def eliminateOpenset():
+
     def calculate_results():
-        
+        ##testin##
+        openSetCount = 0
+        ##testingEND##
         correctWhileStaySuper  = 0
         correctWhileLeaveSuper = 0
         falseWhileStaySuper    = 0
@@ -80,24 +85,14 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                     predsList[counter].append(preds)   
                     uList[counter].append(u)
                 counter +=1   
-            #print("len of data: \n")
-            #print("len(labelsList[0])")
-            #print(len(labelsList[0]))
-            #print("len(labelsList[0][0])")
-            #print(len(labelsList[0][0]))
-            #print("len(labelsList[0][0][0])")
-            #print(len(labelsList[0][0][0]))
-            #print("len(predsList[0][0][0])")
-            #print(len(predsList[0][0][0]))
-            #print("len(uList[0][0][0])")
-            #print(len(uList[0][0][0]))
+
             # DOES ONLY WORK FOR 2LVL HIERARCHY !!!
             #batches
             for x in range(len(labelsList[0])):
                 #attributes in batches
                 for y in range(len(labelsList[0][x])):
                     
-                    # superModel uncertaintyCheck
+                    # subModel uncertaintyCheck
                     try:
                         if uList[0][x][y].item() < uncertaintyThreshold:
                             #superModel check preds
@@ -105,16 +100,31 @@ def eval_model(modelList, dataloader, model_directory, device, num_classes, unce
                                 correctWhileStaySuper += 1
                             else:
                                 falseWhileStaySuper +=1
-                        #subModel check preds
+                        #superModel check preds
+                        # einfach einen couter erhöhen für super dann sollte das auch für mehrere funktionieren
                         else:
-
+                            if eliminateOpenset:
+                                #wenn wir auf der untersten ebene sind checken wir die threshold wenn abglehn wird sagen 
+                                    #wir es gehört nicht zum ziel datenset
+                                if uList[1][x][y].item() > uncertaintyThreshold:
+                                    openSetCount += 1
+                                    ##hier können wir prüfen ob er recht hat in der wir di stelle des bild prüfen
+                                        #wir appenden das openset dataset an einem tatsächlichen datenset
+                                    ## aber ich glaube das kann auch isoliert voneinander funktioneren,
+                                    # da es deterministisch ist und daher nichts an dem ergebniss ändern sollte
+                                    # ==> also 1. einmal testen mit closed set sehen wie viele letztedlich rejected werden
+                                    #          2. einmal testen mit open set und schauen wie viele er trotzdem annimt
                             if predsList[1][x][y] == labelsList[1][x][y].data:
                                 correctWhileLeaveSuper += 1
                             else:
                                 falseWhileLeaveSuper += 1
+                            
                     except:
                         break
-                        
+        if eliminateOpenset:
+            eliminateOpenset()
+
+
         #calculate other results | for "normal" eval
         else:
 
