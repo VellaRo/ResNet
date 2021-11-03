@@ -276,7 +276,7 @@ def main():
         
         modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
                                         train_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"],
-                                         test_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"])
+                                         test_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TEST"])
         modelSUB.to(device)
         modelSUPER.to(device)
         # need to append in the same order as hierachical list so in this case [SUPER,SUB]
