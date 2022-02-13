@@ -14,7 +14,7 @@ def resnet18Init(num_train_classes, pretrained , train_dataloader =None, test_da
     # adapt it to our Data
     model.fc = nn.Linear(512, num_train_classes)
     if pretrained:
-  
+        print("PRETRAINED")
         all_parameters = list(model.parameters())
         #we want last layer to have a faster learningrate 
         without_lastlayer =all_parameters[0: len(all_parameters) -2] # -2 because weight and Bias of the layer
@@ -24,9 +24,10 @@ def resnet18Init(num_train_classes, pretrained , train_dataloader =None, test_da
         #passing a nested dict for different learningrate with differen params
         optimizer = Adam([
             {'params': without_lastlayer},
-            {'params': last_param, 'lr': 1e-3}
-            ], lr=1e-2)
+            {'params': last_param, 'lr': 1e-3} #3 vorher
+            ], lr=1e-2) #2 vorher
     else:
+        print("NOT PRETRAINED")
         optimizer = Adam(model.parameters())
     #model.optimizer = optimizer ?
     #rest auch alles über model definieren ? wie num classes test ....?

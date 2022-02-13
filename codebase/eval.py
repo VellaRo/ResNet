@@ -4,6 +4,8 @@ import copy
 import torch
 from matplotlib import pyplot as plt
 import os
+
+
 from losses import relu_evidence
 from models import resnet18Init
 from helpers import calculate_uncertainty

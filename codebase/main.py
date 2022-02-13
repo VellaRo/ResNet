@@ -1,10 +1,11 @@
+import torch #debug
 import torch.nn as nn
 #from torch.nn.functional import dropout
 import numpy as np
 from torch.nn.functional import cross_entropy
 from torch.optim import adam
 
-from helpers import get_device
+from helpers import get_device , calculate_uncertainty_all_inputs
 from train import train_model
 from dataloadersCollection import dataloaders
  
@@ -13,15 +14,15 @@ from losses import edl_digamma_loss , edl_mse_loss , edl_log_loss
 from models import resnet18Init
 
 def main():
+    print(torch.__version__)
+
     """
     
     """
-    # global
-    device = get_device()
+    #DEBUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    # global 
+    device = get_device() # sollte jetzt gehen , NOtfalls -> torch.device("cuda:0") # 
     
-    
-    # TODO:
-    # class of dataloder| put all in one big dataloader
 
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
@@ -53,6 +54,12 @@ def main():
         
         model_directory = model_directory[:-1] + criterion_name+ "/"
 
+        if pretrained == True:
+            model_directory = model_directory[:-1] + "pretrained/"
+        else:
+            model_directory = model_directory[:-1] + "pretrained/"
+        
+        model_directory = model_directory[:-1] + str(num_epochs) +"Epochs/"
     ### CRITERIONS ###
         if criterion_name =="crossEntropy":
             criterion = nn.CrossEntropyLoss()
@@ -82,12 +89,12 @@ def main():
         #Do not use uncertaintyThreshold
         if uncertaintyThreshold != -0.1:
 
-            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, uncertaintyThreshold=uncertaintyThreshold, hierarchicalModelPathList =hierarchicalModelPathList)
+            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device=device, num_classes = num_test_classes, uncertaintyThreshold=uncertaintyThreshold, hierarchicalModelPathList =hierarchicalModelPathList)
         
         #EVAL
         else:
             
-            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
+            val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device=device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
             
 #########EXPERIMENTS#################
 ###TRAIN
@@ -152,9 +159,10 @@ def main():
     ##train Imagenet NORMAL
         print("IMAGENET ANIMALS ONLY\n")
         ######################DEBUG##############################
-        model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
+        model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True) #DEBUG !!!
         modelList= [model]
-        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], num_train_classes =398, test_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TEST"], num_test_classes=398 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        #DEBUG --> under this is pretrained = False
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], num_train_classes =398, test_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TEST"], num_test_classes=398 ,train=train, pretrained = True, num_epochs = 25, uncertaintyThreshold = -0.1)
         print("IMAGENET ANIMALS ONLY \n")
 
 ###EVAL
@@ -199,6 +207,8 @@ def main():
     #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR100_TEST"], num_test_classes=100 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
     
     #####
+
+    
     def crossDatasetEvaluationOFFICE(train = False, criterion_name = None, uncertaintyThresholdRange = [0, 1, 0.05] ):
         """
         ARGS: train: if True train the model else only eval
@@ -254,9 +264,64 @@ def main():
             
     
     def runExperiments():
+
+        ##DEBUG##
+        
+        #train_ImagenetAnimalsOnly(train= False, criterion_name = "crossEntropy")
+        #"""
+        model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
+    
+        def append_dropout(model, rate=0.2):
+            for name, module in model.named_children():
+                if len(list(module.children())) > 0:
+                    append_dropout(module)
+                if isinstance(module, nn.ReLU):
+                    new = nn.Sequential(module, nn.Dropout2d(p=rate, inplace=True))
+                    setattr(model, name, new)
+        append_dropout(model)
+        print(model)
+
+        train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
+
+        #model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth"))
+        #model.eval()
+        #model.to(device)
+        #dataloader = dataloaders["IMAGENET_ANIMALSONLY_TRAIN"]
+        #num_classes = 398
+        #calculate_uncertainty_all_inputs(model, dataloader,device, num_classes)
+        #"""
         """
-        Runs Experiments specified
+        model, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True)
+        model.load_state_dict(torch.load("./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byAcc.pth"))
+        model.eval()
+        model.to(device)
+        dataloader = dataloaders["CIFAR100_coarse_labels_TEST"]
+        num_classes = 20
+        calculate_uncertainty_all_inputs(model, dataloader,device, num_classes)
         """
+        
+        """
+        model, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True)
+        model.load_state_dict(torch.load("./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byAcc.pth"))
+        model.eval()
+        model.to(device)
+        dataloader = dataloaders["CIFAR100_fine_labels_TEST"]
+        num_classes = 100
+        calculate_uncertainty_all_inputs(model, dataloader,device, num_classes)
+        """
+        """
+        model, optimizer = resnet18Init(num_train_classes = 19 , pretrained=True)
+        model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_LVL1_crossEntropypretrained25EpochsPretrained/best_model_byAcc.pth"))
+        model.eval()
+        model.to(device)
+        dataloader = dataloaders["IMAGENET_LVL1_TRAIN"]
+        num_classes = 19
+        calculate_uncertainty_all_inputs(model, dataloader,device, num_classes)
+
+
+        """
+        ###Runs Experiments specified
+        
         ###### WORKS
         #CIFAR100_coarse_AND_fine(train= True , criterion_name= "crossEntropy")
         ##CIFAR100_coarse_AND_fine(train= False , criterion_name= "edl_log")
@@ -265,32 +330,40 @@ def main():
         #
         #print("HIERACHIE START")
 #        
-        train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
-
-
-
+        #train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
+        #train_ImagenetLVL1(train= True, criterion_name="crossEntropy")
+        """
+        #hier 
         modelList =[]
-        modelSUPER, optimizer = resnet18Init(num_train_classes = 20 , pretrained=True,
+        modelSUPER, optimizer = resnet18Init(num_train_classes = 19 , pretrained=True,
                                         train_dataloader= dataloaders["IMAGENET_LVL1_TRAIN"],
                                          test_dataloader= dataloaders["IMAGENET_LVL1_TEST"])
         
-        modelSUB, optimizer = resnet18Init(num_train_classes = 100 , pretrained=True,
+        modelSUB, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True,
                                         train_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"],
                                          test_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TEST"])
         modelSUB.to(device)
         modelSUPER.to(device)
         # need to append in the same order as hierachical list so in this case [SUPER,SUB]
-        modelList.append(modelSUPER) # weniger labels
         modelList.append(modelSUB) #mehr labes
+        modelList.append(modelSUPER) # weniger labels
 #
-        #print("CROSSENTROPY best_model_byUncertainty")
-        #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/best_model_byUncertainty.pth"]
+        print("CROSSENTROPY best_model_byA accuracy SUB(398(animals only)) dann super(19(animalsLVL1)) !!!")
+        hierarchicalModelPathList = ["./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth", "./results/models/ResNet18IMAGENET_LVL1_crossEntropypretrained25EpochsPretrained/best_model_byAcc.pth"]
         #hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
         
-        print("CROSSENTROPY best_model_byAcc")
-        hierarchicalModelPathList = ["./results/models/ResNet18IMAGENET_LVL1_crossEntropyPretrained/best_model_byAcc.pth", "./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropyPretrained/best_model_byAcc.pth"]
+        #print("CROSSENTROPY best_model_byAcc")
+       # hierarchicalModelPathList = ["./results/models/ResNet18IMAGENET_LVL1_crossEntropyPretrained/best_model_byAcc.pth", "./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropyPretrained/best_model_byAcc.pth"]
         #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_crossEntropyPretrained/24.pth", "./results/models/ResNet18CIFAR100_coarse_labels_crossEntropyPretrained/24.pth"]
-        hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0, 1, 0.05])
+       
+       
+       
+       #HIER hierarchicalEval(modelList=modelList, optimizer =optimizer, hierarchicalModelPathList = hierarchicalModelPathList , uncertaintyThresholdRange= [0.95, 1, 0.01])
+
+
+        #hier (end)
+        """
+
         ##-------------------#
         ##to low accuracy ~0.15
         #hierarchicalModelPathList = ["./results/models/ResNet18CIFAR100_fine_labels_edl_logPretrained/best_model_byUncertainty.pth", "./results/models/ResNet18CIFAR100_coarse_labels_edl_logPretrained/best_model_byUncertainty.pth"]
@@ -306,9 +379,9 @@ def main():
         
         #train_ImagenetLVL1(train =True, criterion_name = "crossEntropy")
         #train_ImagenetNormal(train=True, criterion_name= "crossEntropy")
-       # hierarchicalEval(modelList=modelList,optimizer=adam ,)
+        #hierarchicalEval(modelList=modelList,optimizer=adam ,)
 
-       	print("DONE with all expretiments")
+        print("DONE with all expretiments")
 
     runExperiments()
 
