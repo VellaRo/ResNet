@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+import torch.nn as nn
 
 def relu_evidence(y):
     return F.relu(y)
@@ -109,4 +110,19 @@ def get_paramsListWhereRequires_gradIsTrue(model):
         if param.requires_grad == True:
             params_to_update.append(param)
             print("\t",name)
-           
+
+### MC DROPOUT HELPERS
+
+def append_dropout(model, rate=0.2):
+            for name, module in model.named_children():
+                if len(list(module.children())) > 0:
+                    append_dropout(module)
+                if isinstance(module, nn.ReLU):
+                    new = nn.Sequential(module, nn.Dropout2d(p=rate, inplace=True))
+                    setattr(model, name, new)
+
+def enable_dropout(model):
+                """ Function to enable the dropout layers during test-time """
+                for m in model.modules():
+                    if m.__class__.__name__.startswith('Dropout'):
+                        m.train()

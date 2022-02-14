@@ -5,11 +5,11 @@ import numpy as np
 from torch.nn.functional import cross_entropy
 from torch.optim import adam
 
-from helpers import get_device , calculate_uncertainty_all_inputs
+from helpers import get_device , calculate_uncertainty_all_inputs, append_dropout
 from train import train_model
 from dataloadersCollection import dataloaders
  
-from eval import eval_model, save_Plot
+from eval import eval_model, save_Plot , get_monte_carlo_predictions
 from losses import edl_digamma_loss , edl_mse_loss , edl_log_loss
 from models import resnet18Init
 
@@ -27,7 +27,7 @@ def main():
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
-    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [] ,uncertainty=False, eliminateOpenset= False):
+    def defineExperiment(modelList, criterion_name= "crossEntropy", optimizer=None, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes=0, test_dataloader=dataloaders["CIFAR10_TEST"], num_test_classes=0 ,  train=False, pretrained =False, num_epochs=25, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [] ,uncertainty=False, eliminateOpenset= False, mc_dropout= False , forward_passes = 3):
         """
         Buildingblock for Experiments:
             defines evrything that might be needed in the specified experiment when called
@@ -93,7 +93,11 @@ def main():
         
         #EVAL
         else:
-            
+           
+            if mc_dropout:
+
+                mc_dropout_setup(model= model, dropout_rate =0.8) 
+
             val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device=device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
             
 #########EXPERIMENTS#################
@@ -149,7 +153,7 @@ def main():
         defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_TRAIN"], num_train_classes =1000, test_dataloader=dataloaders["IMAGENET_TEST"], num_test_classes=1000 ,train=train, pretrained =True, num_epochs = 25, uncertaintyThreshold = -0.1)
         print("IMAGENET \n")
 
-    def train_ImagenetAnimalsOnly(train= False, criterion_name = None):
+    def train_ImagenetAnimalsOnly(train= False, criterion_name = None, mc_dropout = False):
         """
         ARGS: train: if True train the model else only eval
               cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
@@ -162,7 +166,7 @@ def main():
         model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True) #DEBUG !!!
         modelList= [model]
         #DEBUG --> under this is pretrained = False
-        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], num_train_classes =398, test_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TEST"], num_test_classes=398 ,train=train, pretrained = True, num_epochs = 25, uncertaintyThreshold = -0.1)
+        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], num_train_classes =398, test_dataloader=dataloaders["IMAGENET_ANIMALSONLY_TEST"], num_test_classes=398 ,train=train, pretrained = True, num_epochs = 25, uncertaintyThreshold = -0.1, mc_dropout =True)
         print("IMAGENET ANIMALS ONLY \n")
 
 ###EVAL
@@ -261,27 +265,38 @@ def main():
                 print("W->W")
                 defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
             
-            
+    def mc_dropout_setup(model, dropout_rate): 
+        
+            #train_ImagenetAnimalsOnly(train= False, criterion_name = "crossEntropy")
+            #"""
+            model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
+            append_dropout(model, rate= dropout_rate)
     
     def runExperiments():
-
         ##DEBUG##
-        
-        #train_ImagenetAnimalsOnly(train= False, criterion_name = "crossEntropy")
-        #"""
-        model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
-    
-        def append_dropout(model, rate=0.2):
-            for name, module in model.named_children():
-                if len(list(module.children())) > 0:
-                    append_dropout(module)
-                if isinstance(module, nn.ReLU):
-                    new = nn.Sequential(module, nn.Dropout2d(p=rate, inplace=True))
-                    setattr(model, name, new)
+        num_train_classes = 398
+        model, optimizer = resnet18Init(num_train_classes = num_train_classes , pretrained=True)
+        #model.load_state_dict(torch.load("./results/models/ResNet18CIFAR10_crossEntropyPretrained/bestmodel_byAcc.pth")) 
+        model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth")) 
+        print("loaded state_dict")
         append_dropout(model)
-        print(model)
+        print("dropout appenend")
+        
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
 
-        train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
+        print("3")
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],3,model,num_train_classes)
+        print("4")
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],4,model,num_train_classes)
+        print("5")
+        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],5,model,num_train_classes)
+
+        #get_monte_carlo_predictions(dataloaders["CIFAR10_TEST"],2,model,num_train_classes)
+        
+        #train_ImagenetAnimalsOnly(train = False , criterion_name ="crossEntropy", mc_dropout=True)
+        #train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
 
         #model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth"))
         #model.eval()

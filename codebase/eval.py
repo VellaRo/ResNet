@@ -8,10 +8,85 @@ import os
 
 from losses import relu_evidence
 from models import resnet18Init
-from helpers import calculate_uncertainty
+from helpers import calculate_uncertainty, enable_dropout, get_device
 
+import numpy as np
+import torch.nn as nn
+import sys
 #eliminateOpenset
    
+
+def get_monte_carlo_predictions(data_loader,
+                                forward_passes,
+                                model,
+                                n_classes,):
+    """ Function to get the monte-carlo samples and uncertainty estimates
+    through multiple forward passes
+
+    Parameters
+    ----------
+    data_loader : object
+        data loader object from the data loader module
+    forward_passes : int
+        number of monte-carlo samples/forward passes
+    model : object
+        keras model
+    n_classes : int
+        number of classes in the dataset
+    n_samples : int
+        number of samples in the test set
+    """
+
+    dropout_predictions = np.empty((0,19900, n_classes)) #((0,len(dataloader), n_classes)) #10000 images in testdataset
+    print(len(data_loader))
+    softmax = nn.Softmax(dim=1)
+    device = get_device()
+    for i in range(forward_passes):
+        predictions = np.empty((0, n_classes))
+        model.eval()
+        model.to(device)
+
+        enable_dropout(model)
+        for i, (image, label) in enumerate(data_loader):
+
+            image = image.to(torch.device('cuda:0'))
+            with torch.no_grad():
+                output = model(image)
+                output = softmax(output) # shape (n_samples, n_classes)
+            predictions = np.vstack((predictions, output.cpu().numpy()))
+
+        dropout_predictions = np.vstack((dropout_predictions,
+                                         predictions[np.newaxis, :, :]))
+        # dropout predictions - shape (forward_passes, n_samples, n_classes)
+    
+    # Calculating mean across multiple MCD forward passes 
+    mean = np.mean(dropout_predictions, axis=0) # shape (n_samples, n_classes)
+
+    # Calculating variance across multiple MCD forward passes 
+    variance = np.var(dropout_predictions, axis=0) # shape (n_samples, n_classes)
+
+    epsilon = sys.float_info.min
+    # Calculating entropy across multiple MCD forward passes 
+    entropy = -np.sum(mean*np.log(mean + epsilon), axis=-1) # shape (n_samples,)
+
+    # Calculating mutual information across multiple MCD forward passes 
+    mutual_info = entropy - np.mean(np.sum(-dropout_predictions*np.log(dropout_predictions + epsilon),
+                                            axis=-1), axis=0) # shape (n_samples,)
+
+
+    print("mean")
+    print(len(mean))
+    #print(mean)
+    print(mean.mean())
+    print("variance")
+    print(len(variance))
+    #print(variance)
+    print(variance.mean())
+    #print("epsilon")
+    #print(epsilon)
+    print("mutual_info")
+    #print(mutual_info)
+    print(mutual_info.mean())
 
 def eval_model(modelList, dataloader, model_directory, device, num_classes, uncertaintyThreshold = -0.1, hierarchicalModelPathList = [], train_dataloader= None , test_dataloader =None, eliminateOpenset=False):
     since = time.time()
