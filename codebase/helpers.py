@@ -2,6 +2,16 @@ import torch
 import torch.nn.functional as F
 import torch.nn as nn
 
+#DEBUG (For getOneImage())
+
+import torchvision.transforms as transforms
+import torchvision.datasets as datasets
+from torch.utils.data import DataLoader,Dataset
+from PIL import Image
+import matplotlib.pyplot as plt
+import numpy as np
+### end
+
 def relu_evidence(y):
     return F.relu(y)
 
@@ -126,3 +136,23 @@ def enable_dropout(model):
                 for m in model.modules():
                     if m.__class__.__name__.startswith('Dropout'):
                         m.train()
+
+def getOneImage(image_path):
+    img = Image.open(image_path)
+    transform = transforms.Compose(
+    [transforms.Resize((240,240)),
+    transforms.CenterCrop(224),
+    transforms.ToTensor(),
+    transforms.Normalize(
+    mean=[0.5070751592371323, 0.48654887331495095, 0.4409178433670343], #[0.485, 0.456, 0.406],                
+    std= [0.2673342858792401, 0.2564384629170883, 0.27615047132568404]#[0.229, 0.224, 0.225]                  
+    ) 
+    ])
+    img_normalized =transform(img).float()
+
+    img_normalized = img_normalized.unsqueeze_(0)
+    # input = Variable(image_tensor)
+    img_normalized = img_normalized.to(get_device())
+    # print(img_normalized.shape)
+
+    return img_normalized

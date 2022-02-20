@@ -27,7 +27,7 @@ transform = transforms.Compose(
      )
     ])
 
-batchsize = 4 #64 # 4 for testing uncertainty
+batchsize = 64 #64 # 4 for testing uncertainty
 
 from torch.utils.data import Dataset
 class custom_subset(Dataset):

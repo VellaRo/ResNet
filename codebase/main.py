@@ -9,7 +9,7 @@ from helpers import get_device , calculate_uncertainty_all_inputs, append_dropou
 from train import train_model
 from dataloadersCollection import dataloaders
  
-from eval import eval_model, save_Plot , get_monte_carlo_predictions
+from eval import eval_normal, save_Plot , get_monte_carlo_predictions ,oneImageMC
 from losses import edl_digamma_loss , edl_mse_loss , edl_log_loss
 from models import resnet18Init
 
@@ -17,13 +17,48 @@ def main():
     print(torch.__version__)
 
     """
-    
+
     """
     #DEBUG !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     # global 
     device = get_device() # sollte jetzt gehen , NOtfalls -> torch.device("cuda:0") # 
     
+    def make_model_dir(model, train_dataloader, pretrained, num_epochs, criterion_name):
 
+        model_directory = str(model.name) +"/"
+
+        model_directory = model_directory[:-1] + train_dataloader.name[:-5] + "/"
+        
+        model_directory = model_directory[:-1] + criterion_name+ "/"
+
+        if pretrained == True:
+            model_directory = model_directory[:-1] + "pretrained/"
+        else:
+            model_directory = model_directory[:-1] + "pretrained/"
+        
+        model_directory = model_directory[:-1] + str(num_epochs) +"Epochs/"
+    ### CRITERIONS ###
+        if criterion_name =="crossEntropy":
+            criterion = nn.CrossEntropyLoss()
+
+        #Uncertainty Criterions
+        elif criterion_name == "edl_digamma":
+            criterion = edl_digamma_loss
+            uncertainty =True
+
+        elif criterion_name == "edl_log":
+            criterion = edl_log_loss
+            uncertainty =True
+        
+        elif criterion_name == "edl_mse":
+            criterion = edl_mse_loss
+            uncertainty =True
+        else:
+            raise Exception("criterion_name not found")
+
+        if pretrained:
+            model_directory = model_directory[:-1] + "Pretrained/"
+        return model_directory
 
     ### I'will add here future experiments, in the codebase should be everything I used for previous experiments including the Dataloaders ###
     # da hier in helper ?
@@ -96,7 +131,7 @@ def main():
            
             if mc_dropout:
 
-                mc_dropout_setup(model= model, dropout_rate =0.8) 
+                mc_dropout_setup(model= model, dropout_rate =0) 
 
             val_acc_hist, uncertainty_histry = eval_model(modelList, test_dataloader, model_directory ,device=device, num_classes = num_test_classes, hierarchicalModelPathList =hierarchicalModelPathList , train_dataloader= train_dataloader , test_dataloader =test_dataloader)
             
@@ -191,79 +226,8 @@ def main():
             defineExperiment(modelList, criterion_name="crossEntropy", optimizer=optimizer, train_dataloader=dataloaders["CIFAR100_coarse_labels_TRAIN"], num_train_classes =20 , test_dataloader=dataloaders["CIFAR100_coarse_labels_TEST"], num_test_classes=20 ,train=False, pretrained =True, num_epochs =25, uncertaintyThreshold = x,  hierarchicalModelPathList = hierarchicalModelPathList, eliminateOpenset=eliminateOpenset)
 
         print("hierarchicalEval END\n")
-    
-    #####
-    #wrong dataset for experiment because share same images over dataset
-    #def crossDatasetEvaluationCIFAR(train = False, criterion_name = None, uncertaintyThresholdRange = [0, 1, 0.05] ):
-    #    model_CIFAR10, optimizer = resnet18Init(num_train_classes = 10 , pretrained=True)
-    #    modelList_CIFAR10= [model_CIFAR10]
-    #    
-    #    model_CIFAR90, optimizer = resnet18Init(num_train_classes = 90 , pretrained=True)
-    #    modelList_CIFAR90= [model_CIFAR10]
-#
-    #    start, end, step = uncertaintyThresholdRange
-    #    uncertaintyThresholdList = np.arange(start, end, step).tolist()
-#
-    #    
-    #    for x in uncertaintyThresholdList:
-    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR10_TEST"], num_test_classes=10 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR90_TEST"], num_test_classes=90 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-    #        defineExperiment(modelList, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["CIFAR10_TRAIN"], num_train_classes =10 , test_dataloader= dataloaders["CIFAR100_TEST"], num_test_classes=100 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
-    
-    #####
 
     
-    def crossDatasetEvaluationOFFICE(train = False, criterion_name = None, uncertaintyThresholdRange = [0, 1, 0.05] ):
-        """
-        ARGS: train: if True train the model else only eval
-              cirterion_name: name of defined Loss criterion to use | defined in defineExperiment
-              uncertaintyThresholdRange = [start, end, step] | between 0 and 1  
-
-        (Trains OFFICE) if train == True
-        Does a CrossEvaluation of the OFFICE_DATASETS A,D,W
-        """
-        
-        model_OFFICE, optimizer = resnet18Init(num_train_classes = 31 , pretrained=True)
-        modelList_OFFICE= [model_OFFICE]
-
-        start, end, step = uncertaintyThresholdRange
-        uncertaintyThresholdList = np.arange(start, end, step).tolist()
-
-        trainingIsDone = False
-
-        #wrong dataset for experiment because share same images over dataset
-        for x in uncertaintyThresholdList:
-            print("uncertaintyThreshold:" + str(x))
-
-            if train and trainingIsDone == False:
-                print("A->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("W->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=True, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
-                trainingIsDone = True
-            else:
-                print("A->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("W->A")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_A_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                
-                print("A->D")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->D")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("W->D")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_D_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
-
-                print("A->W")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_A_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("D->W")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_D_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)
-                print("W->W")
-                defineExperiment(modelList_OFFICE, criterion_name=criterion_name, optimizer=optimizer, train_dataloader=dataloaders["OFFICE_W_TRAIN"], num_train_classes =31 , test_dataloader=dataloaders["OFFICE_W_TEST"], num_test_classes=31 ,train=False, pretrained =True, num_epochs = 25, uncertaintyThreshold = x)    
             
     def mc_dropout_setup(model, dropout_rate): 
         
@@ -273,27 +237,52 @@ def main():
             append_dropout(model, rate= dropout_rate)
     
     def runExperiments():
+        # model, optimizer = resnet18Init(num_train_classes = 398 , pretrained=True)
+    
+        # model_dir = make_model_dir(model, train_dataloader= dataloaders["IMAGENET_ANIMALSONLY_TRAIN"], pretrained=True, num_epochs=25, criterion_name="crossEntropy")
+
+        # print(eval_normal(model= model, dataloader= dataloaders["IMAGENET_ANIMALSONLY_TEST"], model_directory = model_dir))
         ##DEBUG##
-        num_train_classes = 398
+        num_train_classes = 10
         model, optimizer = resnet18Init(num_train_classes = num_train_classes , pretrained=True)
-        #model.load_state_dict(torch.load("./results/models/ResNet18CIFAR10_crossEntropyPretrained/bestmodel_byAcc.pth")) 
-        model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth")) 
-        print("loaded state_dict")
-        append_dropout(model)
+        model.load_state_dict(torch.load("./results/models/ResNet18CIFAR10_crossEntropyPretrained/bestmodel_byAcc.pth")) 
+        append_dropout(model, rate = 0.3)
         print("dropout appenend")
+        #model.load_state_dict(torch.load("./results/models/ResNet18IMAGENET_ANIMALSONLY_crossEntropypretrained75EpochsPretrained/best_model_byAcc.pth")) 
+        print("loaded state_dict")
         
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
+       # for i, (image, label) in enumerate(dataloaders["CIFAR10_TEST"]):
+       # #for i, (image, label) in enumerate(dataloaders["IMAGENET_ANIMALSONLY_TEST"]):
+        
+       #     img = image[8].to(get_device())
+       #     print("im label"+str(label[8]))
+       #     break
+        
+       # img = img.unsqueeze_(0)
+            #input = Variable(image_tensor)
+        #img = img.to(device)
+        
+       # #oneImageMC(50,model,num_train_classes, img)
+       # #oneImageMC(20,model,num_train_classes, img)
+       # ##oneImageMC(10,model,num_train_classes, img)
+       # #oneImageMC(3,model,num_train_classes, img)
+        
+        #get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],1,model,num_train_classes)
+        #get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
+        #get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],2,model,num_train_classes)
 
-        print("3")
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],3,model,num_train_classes)
-        print("4")
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],4,model,num_train_classes)
-        print("5")
-        get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],5,model,num_train_classes)
+        #print("3")
+        #get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],3,model,num_train_classes)
+        #print("4")
+        #get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],4,model,num_train_classes)
+        # print("3")
+        # get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],3,model,num_train_classes)
+        # print("5")
+        # get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],5,model,num_train_classes)
+        # print("20")
+        # get_monte_carlo_predictions(dataloaders["IMAGENET_ANIMALSONLY_TEST"],20,model,num_train_classes)
 
-        #get_monte_carlo_predictions(dataloaders["CIFAR10_TEST"],2,model,num_train_classes)
+        get_monte_carlo_predictions(dataloaders["CIFAR10_TEST"],50,model,num_train_classes)
         
         #train_ImagenetAnimalsOnly(train = False , criterion_name ="crossEntropy", mc_dropout=True)
         #train_ImagenetAnimalsOnly(train= True, criterion_name = "crossEntropy")
